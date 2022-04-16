@@ -6,6 +6,7 @@ cd dotfiles || exit
 
 rsync --verbose \
     --recursive \
+    --ignore-times \
     --exclude 'README.md' --exclude "copy-dotfiles" --exclude "clone-dotfiles" --exclude '.git' \
     . "$HOME"
 
