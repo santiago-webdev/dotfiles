@@ -1,6 +1,0 @@
-#!/bin/bash
-
-rsync --verbose \
-    --recursive \
-    --exclude "copy-dotfiles" --exclude "restore-dotfiles" --exclude '.git' \
-    . "$HOME"

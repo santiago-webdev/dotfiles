@@ -1,0 +1,10 @@
+#!/bin/bash
+
+git clone https://github.com/santigo-zero/dotfiles.git
+
+rsync --verbose \
+    --recursive \
+    --exclude 'README.md' --exclude "copy-dotfiles" --exclude "restore-dotfiles" --exclude '.git' \
+    dotfiles "$HOME"
+
+rm -r dotfiles
