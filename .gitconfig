@@ -1,0 +1,9 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+    name = Santiago Gonzalez
+    email = santiagogonzalezbogado@gmail.com
+[color]
+    ui = auto
+[core]
+    editor = nvim
