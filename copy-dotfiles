@@ -16,6 +16,7 @@ cp -r "$HOME/.config/zsh/.zlogin" .config/zsh
 mkdir -p .local/bin
 cp -r "$HOME/.local/bin/backup-drive" .local/bin
 cp -r "$HOME/.local/bin/bcm" .local/bin
+cp -r "$HOME/.local/bin/clean-zsh" .local/bin
 cp -r "$HOME/.local/bin/pp" .local/bin
 cp -r "$HOME/.local/bin/ww" .local/bin
 cp -r "$HOME/.local/bin/zzz" .local/bin
