@@ -2,10 +2,13 @@
 
 git clone https://github.com/santigo-zero/dotfiles.git
 
+cd dotfiles || exit
+
 rsync --verbose \
     --recursive \
-    --ignore-times \
-    --exclude 'README.md' --exclude "copy-dotfiles" --exclude "restore-dotfiles" --exclude '.git' \
-    ./dotfiles "$HOME"
+    --exclude 'README.md' --exclude "copy-dotfiles" --exclude "clone-dotfiles" --exclude '.git' \
+    . "$HOME"
+
+cd "$HOME" || exit
 
 rm -r dotfiles
