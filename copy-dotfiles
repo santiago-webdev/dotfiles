@@ -1,0 +1,29 @@
+#!/bin/bash
+
+cp -r "$HOME/.zshenv" .
+cp -r "$HOME/.gitconfig" .
+
+mkdir -p .config/autostart
+cp -r "$HOME/.config/autostart/unclutter.desktop" .config/autostart
+
+mkdir -p .config/kitty
+cp -r "$HOME/.config/kitty/kitty.conf" .config/kitty
+
+mkdir -p .config/zsh
+cp -r "$HOME/.config/zsh/.zshrc" .config/zsh
+cp -r "$HOME/.config/zsh/.zlogin" .config/zsh
+
+mkdir -p .local/bin
+cp -r "$HOME/.local/bin/backup-drive" .local/bin
+cp -r "$HOME/.local/bin/bcm" .local/bin
+cp -r "$HOME/.local/bin/pp" .local/bin
+cp -r "$HOME/.local/bin/ww" .local/bin
+cp -r "$HOME/.local/bin/zzz" .local/bin
+
+mkdir -p .local/share/color-schemes
+cp -r "$HOME/.local/share/color-schemes/JetJBP.colors" .local/share/color-schemes
+cp -r "$HOME/.local/share/color-schemes/JetJBPLight.colors" .local/share/color-schemes
+cp -r "$HOME/.local/share/color-schemes/JetJBS.colors" .local/share/color-schemes
+
+mkdir -p .local/share/icons
+cp -r "$HOME/.local/share/icons/arch_icon.png" .local/share/icons

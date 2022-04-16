@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Sleep machine using systemd, I only have this to call in from krunner
+
+systemctl suspend

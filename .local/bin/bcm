@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# bcm is a script that if enabled it will limit the charge of your battery to 60% on laptops
+# with the kernel module loaded, like in my laptop, a ThinkBook 15-iml.
+
+case "${1}" in
+    limit)
+        pkexec bash -c 'echo 1 > /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode'
+    ;;
+    full)
+        pkexec bash -c 'echo 0 > /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode'
+    ;;
+    *)
+        if kdialog --yesno 'Battery Conservation' --yes-label 'enable' --no-label 'disable'; then
+            pkexec bash -c 'echo 1 > /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode'
+        else
+            pkexec bash -c 'echo 0 > /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode'
+        fi
+    ;;
+esac
+
+confirm_bcm=$(cat /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode)
+
+if [[ $confirm_bcm -eq 1 ]]; then
+    notify-send --app-name='Battery Conservation Mode' 'Enabled'
+else
+    notify-send --app-name='Battery Conservation Mode' 'Disabled'
+fi

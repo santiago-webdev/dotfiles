@@ -1,0 +1,7 @@
+[Desktop Entry]
+Exec=unclutter --timeout 1
+Icon=
+Name=unclutter
+Path=
+Terminal=False
+Type=Application

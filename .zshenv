@@ -45,6 +45,7 @@ export NVM_DIR=${XDG_DATA_HOME}/nvm # NVM
 export NPM_CONFIG_USERCONFIG=${XDG_CONFIG_HOME}/npm/npmrc # NPM
 export SDKMAN_DIR=${HOME}/.local/lib/sdkman # SDKMAN
 export NVIMREMOTE="/tmp/nvim.pipe"
+export DOTFILESGIT='--git-dir=$HOME/workspace/dotfiles.git/ --work-tree=$HOME'
 
 # Manpagers
 if which bat >/dev/null; then

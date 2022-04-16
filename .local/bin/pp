@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+
+# Usage; just type this on the terminal to change the power profile and governor of your cpu:
+#
+# pp per  # For performance, governor and powerprofiles set to performance
+# pp bal  # For balanced, governor set to power saving, and powerprofiles to balanced, this is the recommended
+# pp sav  # For saver, governor and powerprofiles set to power saving
+
+# This only works with new intel cpus
+# and the dependencies are:
+# - powerprofiles
+# - pkexec
+# - bash
+# - cat
+# - echo
+# - tee
+
+
+# Power Profiles, possible values
+# - performance
+# - balanced
+# - power-saver
+
+function powerprofile_check() {
+    GET_POWERPROFILE=$(powerprofilesctl get) # Check the setted power profile
+    SET_POWERPROFILE=$1 # You need to invoke the function with the power profile that you want to set it to
+
+    if [[ ! $SET_POWERPROFILE == $GET_POWERPROFILE ]]; then
+        notify-send "Setting up the Power Profile to $SET_POWERPROFILE"
+        powerprofilesctl set $SET_POWERPROFILE
+    else
+        notify-send "Already setted Power Profile at $SET_POWERPROFILE"
+    fi
+}
+
+
+# Governors, possible values
+# - powersave
+# - performance
+
+function governor_check() {
+    GET_GOVERNOR=$(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor) # Check the setted governor
+    SET_GOVERNOR=$1 # You need to invoke the function with the governor that you want to set it to
+
+    if [[ ! $SET_GOVERNOR == $GET_GOVERNOR ]]; then
+        notify-send "Setting up the Governor to $SET_GOVERNOR"
+        pkexec bash -c "echo $SET_GOVERNOR | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
+    else
+        notify-send "Already setted Governor at $SET_GOVERNOR"
+    fi
+}
+
+case "${1}" in
+    per)
+        governor_check performance
+        powerprofile_check performance
+        ;;
+    bal)
+        governor_check powersave
+        powerprofile_check balanced
+        ;;
+    sav)
+        governor_check powersave
+        powerprofile_check power-saver
+        ;;
+    -h|--help)
+        # If there isn't any arguments display the help menu and exit
+        echo -e "Usage; just type this on the terminal to change the power profile and governor of your cpu:\n
+        pp per  # For performance, governor and powerprofiles set to performance
+        pp bal  # For balanced, governor set to power saving, and powerprofiles to balanced, this is the recommended
+        pp sav  # For saver, governor and powerprofiles set to power saving"
+        ;;
+    *)
+        PRINT_GOVERNOR=$(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor) # Check the setted governor
+        PRINT_POWERPROFILE=$(powerprofilesctl get) # Check the setted power profile
+        notify-send \
+"Governor: $PRINT_GOVERNOR
+Power Profile: $PRINT_POWERPROFILE"
+        ;;
+esac
