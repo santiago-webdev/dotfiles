@@ -204,7 +204,7 @@ alias -g sn='sudo -E nvim' # Open nvim with superuser privileges maintaining use
 alias -g s='sudoedit'
 alias txe='toolbox enter'
 alias txr='toolbox run -c'
-alias n="nice -20 ~/.local/bin/nvim --listen $NVIMREMOTE"
+alias n="nice -20 nvim --listen $NVIMREMOTE"
 # Package managers
 alias pac='sudo pacman -Syu --noconfirm' # Update
 alias pacinst='sudo pacman -S' # Install programs
@@ -246,7 +246,9 @@ function last-command {
     zle accept-line
 }
 zle -N last-command
-bindkey '^[r' last-command # <A-r>
+# bindkey '^[r' last-command # <A-r>
+bindkey -M viins '^R' last-command # <C-r>
+bindkey -M vicmd '^R' last-command # <C-r>
 
 
 function exit-proc { exit; zle accept-line }
@@ -254,7 +256,7 @@ zle -N exit-proc
 bindkey '^[c' exit-proc # <A-c>
 
 # Clone plugins repos
-function clone_plugins {
+function clone-plugins {
     mkdir -p "${ZDOTDIR}/plugins"
     cd "${ZDOTDIR}/plugins"
     git clone --depth=1 git://github.com/zsh-users/zsh-completions.git
