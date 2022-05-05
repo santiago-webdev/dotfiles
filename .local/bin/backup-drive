@@ -7,7 +7,7 @@
 mkdir_datos() {
     if [[ ! -d "$HOME/.local/data" ]]
     then
-        sudo mkdir ~/.local/data
+        sudo mkdir -p ~/.local/data
         sudo chown "$USER" ~/.local/data
         sudo chmod 750 ~/.local/data
     else
