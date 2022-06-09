@@ -202,6 +202,7 @@ alias free='free -m'
 alias -g wget="wget --hsts-file=${XDG_CACHE_HOME}/wget-hsts"
 alias -g sn='sudo -E nvim' # Open nvim with superuser privileges maintaining user configs
 alias -g s='sudoedit'
+alias nix-shell="nix-shell --run zsh"
 alias txe='toolbox enter'
 alias txr='toolbox run -c'
 alias n="nice -20 nvim --listen $NVIMREMOTE"

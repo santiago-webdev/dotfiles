@@ -1,7 +1,9 @@
 #!/bin/bash
 
 cp -r "$HOME/.zshenv" .
-cp -r "$HOME/.gitconfig" .
+
+mkdir -p .config/git
+cp -r "$HOME/.config/git/config" .config/git/config
 
 mkdir -p .config/autostart
 cp -r "$HOME/.config/autostart/unclutter.desktop" .config/autostart
@@ -26,5 +28,5 @@ cp -r "$HOME/.local/share/color-schemes/JetJBP.colors" .local/share/color-scheme
 cp -r "$HOME/.local/share/color-schemes/JetJBPLight.colors" .local/share/color-schemes
 cp -r "$HOME/.local/share/color-schemes/JetJBS.colors" .local/share/color-schemes
 
-mkdir -p .local/share/icons
-cp -r "$HOME/.local/share/icons/arch_icon.png" .local/share/icons
+mkdir -p .local/share/konsole
+cp -r "$HOME/.local/share/konsole" .local/share/
