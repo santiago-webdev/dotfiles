@@ -260,7 +260,7 @@ bindkey '^[c' exit-proc # <A-c>
 function clone-plugins {
     mkdir -p "${ZDOTDIR}/plugins"
     cd "${ZDOTDIR}/plugins"
-    git clone --depth=1 git://github.com/zsh-users/zsh-completions.git
+    git clone --depth=1 https://github.com/zsh-users/zsh-completions.git
     git clone --depth=1 https://github.com/Aloxaf/fzf-tab
     git clone --depth=1 https://github.com/hlissner/zsh-autopair
     git clone --depth=1 https://github.com/romkatv/zsh-defer
@@ -274,19 +274,19 @@ function clone-plugins {
 function ex {
     if [ -f $1 ] ; then
         case $1 in
-            *.tar.bz2)  tar xjf $1   ;;
-            *.tar.gz)   tar xzf $1   ;;
-            *.tar.xz)   tar xJf $1   ;;
-            *.bz2)      bunzip2 $1   ;;
-            *.rar)      unrar x $1   ;;
-            *.gz)       gunzip $1    ;;
-            *.tar)      tar xf $1    ;;
-            *.tbz2)     tar xjf $1   ;;
-            *.tgz)      tar xzf $1   ;;
-            *.zip)      unzip $1     ;;
+            *.tar.bz2)  tar xjf $1;;
+            *.tar.gz)   tar xzf $1;;
+            *.tar.xz)   tar xJf $1;;
+            *.bz2)      bunzip2 $1;;
+            *.rar)      unrar x $1;;
+            *.gz)       gunzip $1;;
+            *.tar)      tar xf $1;;
+            *.tbz2)     tar xjf $1;;
+            *.tgz)      tar xzf $1;;
+            *.zip)      unzip $1 -d $(basename $1 .zip);;
             *.Z)        uncompress $1;;
-            *.7z)       7z x $1      ;;
-            *)          echo "'$1' cannot be extracted via ex" ;;
+            *.7z)       7z x $1 ;;
+            *)          echo "'$1' cannot be extracted via ex";;
         esac
     else
         echo "'$1' is not a valid file"
