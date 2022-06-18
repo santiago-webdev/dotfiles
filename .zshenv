@@ -45,6 +45,8 @@ export NVM_DIR=${XDG_DATA_HOME}/nvm # NVM
 export NPM_CONFIG_USERCONFIG=${XDG_CONFIG_HOME}/npm/npmrc # NPM
 export SDKMAN_DIR=${HOME}/.local/lib/sdkman # SDKMAN
 export NVIMREMOTE="/tmp/nvim.pipe"
+export GTK2_RC_FILES=${XDG_CONFIG_HOME}/gtk-2.0/gtkrc # This isn't going to work because KDE Plasma hardcodes the value
+export NPM_CONFIG_USERCONFIG=${XDG_CONFIG_HOME}/npm/npmrc;
 
 # Manpagers
 if which bat >/dev/null; then

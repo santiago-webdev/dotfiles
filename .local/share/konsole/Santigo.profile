@@ -9,8 +9,9 @@ Name=Santigo
 Parent=FALLBACK/
 ShowTerminalSizeHint=true
 TerminalCenter=false
+TerminalColumns=500
 TerminalMargin=0
-TerminalRows=66
+TerminalRows=500
 
 [Interaction Options]
 AutoCopySelectedText=true
