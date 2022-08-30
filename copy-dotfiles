@@ -1,35 +1,91 @@
 #!/usr/bin/env bash
 
-cp -r "$HOME/.zshenv" .
-
+# Git
 mkdir -p .config/git
 cp -r "$HOME/.config/git/config" .config/git/config
 
+# Autostart
 mkdir -p .config/autostart
-cp -r "$HOME/.config/autostart/unclutter.desktop" .config/autostart
+cp -r "$HOME/.config/autostart/" .config/
 
+# Kitty
 mkdir -p .config/kitty
 cp -r "$HOME/.config/kitty/kitty.conf" .config/kitty
 
+# Wezterm
+mkdir -p .config/wezterm
+cp -r "$HOME/.config/wezterm" .config/
+
+# Zsh
+cp -r "$HOME/.zshenv" .
 mkdir -p .config/zsh
 cp -r "$HOME/.config/zsh/.zshrc" .config/zsh
 cp -r "$HOME/.config/zsh/.zlogin" .config/zsh
 
+# Scripts
 mkdir -p .local/bin
 cp -r "$HOME/.local/bin/backup-drive" .local/bin
 cp -r "$HOME/.local/bin/bcm" .local/bin
 cp -r "$HOME/.local/bin/clean-zsh" .local/bin
 cp -r "$HOME/.local/bin/pp" .local/bin
 cp -r "$HOME/.local/bin/ww" .local/bin
+cp -r "$HOME/.local/bin/wwconsole" .local/bin
+cp -r "$HOME/.local/bin/wwwebbrowser" .local/bin
 cp -r "$HOME/.local/bin/zzz" .local/bin
 
+# Kde Plasma colorscemes
 mkdir -p .local/share/color-schemes
 cp -r "$HOME/.local/share/color-schemes/JetJBP.colors" .local/share/color-schemes
-cp -r "$HOME/.local/share/color-schemes/JetJBPLight.colors" .local/share/color-schemes
-cp -r "$HOME/.local/share/color-schemes/JetJBS.colors" .local/share/color-schemes
 
+# Konsole
 mkdir -p .local/share/konsole
 cp -r "$HOME/.local/share/konsole" .local/share/
 
+# npm
 mkdir -p .config/npm
 cp -r "$HOME/.config/npm/npmrc" .config/npm/
+
+# Plasma config
+cp -r "$HOME/.config/gtk-3.0" .config/
+cp -r "$HOME/.config/gtk-4.0" .config/
+cp -r "$HOME/.config/KDE" .config/
+cp -r "$HOME/.config/kde.org" .config/
+cp -r "$HOME/.config/plasma-workspace" .config/
+cp -r "$HOME/.config/xsettingsd" .config/
+cp -r "$HOME/.config/akregatorrc" .config/
+cp -r "$HOME/.config/baloofilerc" .config/
+cp -r "$HOME/.config/bluedevilglobalrc" .config/
+cp -r "$HOME/.config/dolphinrc" .config/
+cp -r "$HOME/.config/gtkrc" .config/
+cp -r "$HOME/.config/gtkrc-2.0" .config/
+cp -r "$HOME/.config/gwenviewrc" .config/
+cp -r "$HOME/.config/kactivitymanagerd-statsrc" .config/
+cp -r "$HOME/.config/kactivitymanagerdrc" .config/
+cp -r "$HOME/.config/kcminputrc" .config/
+cp -r "$HOME/.config/kconf_updaterc" .config/
+cp -r "$HOME/.config/kded5rc" .config/
+cp -r "$HOME/.config/kdeglobals" .config/
+cp -r "$HOME/.config/kglobalshortcutsrc" .config/
+cp -r "$HOME/.config/khotkeysrc" .config/
+cp -r "$HOME/.config/kmixrc" .config/
+cp -r "$HOME/.config/konsolerc" .config/
+cp -r "$HOME/.config/kscreenlockerrc" .config/
+cp -r "$HOME/.config/ksmserverrc" .config/
+cp -r "$HOME/.config/ksplashrc" .config/
+cp -r "$HOME/.config/ktimezonedrc" .config/
+cp -r "$HOME/.config/kwinrc" .config/
+cp -r "$HOME/.config/kwinrulesrc" .config/
+cp -r "$HOME/.config/kxkbrc" .config/
+cp -r "$HOME/.config/plasma-localerc" .config/
+cp -r "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc" .config/
+cp -r "$HOME/.config/plasmarc" .config/
+cp -r "$HOME/.config/plasmashellrc" .config/
+cp -r "$HOME/.config/powermanagementprofilesrc" .config/
+cp -r "$HOME/.config/spectaclerc" .config/
+cp -r "$HOME/.config/systemsettingsrc" .config/
+cp -r "$HOME/.config/Trolltech.conf" .config/
+cp -r "$HOME/.config/user-dirs.dirs" .config/
+cp -r "$HOME/.config/user-dirs.locale" .config/
+cp -r "$HOME/.config/okularrc" .config/
+cp -r "$HOME/.config/okularpartrc" .config/
+cp -r "$HOME/.config/krunnerrc" .config/

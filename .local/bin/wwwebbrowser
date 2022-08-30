@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+ww -f firefoxdeveloperedition -c firefox-developer-edition

@@ -1,7 +1,14 @@
 [Appearance]
+BoldIntense=true
 ColorScheme=JetJBP
 Font=Iosevka Term,16,-1,5,50,0,0,0,0,0
+LineSpacing=0
 TabColor=35,33,54,0
+UseFontLineChararacters=false
+
+[Cursor Options]
+CustomCursorColor=0,170,255
+UseCustomCursorColor=true
 
 [General]
 InvertSelectionColors=true
@@ -23,10 +30,11 @@ UnderlineFilesEnabled=true
 
 [Scrolling]
 HighlightScrolledLines=false
-HistoryMode=2
+HistoryMode=1
 HistorySize=10000
 ReflowLines=true
 ScrollBarPosition=2
+ScrollFullPage=true
 
 [Terminal Features]
 BlinkingCursorEnabled=true

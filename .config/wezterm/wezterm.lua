@@ -5,20 +5,17 @@ return {
     -- font = wezterm.font('Operator Mono'),
     -- font = wezterm.font('Cartograph CF'),
     -- font = wezterm.font('JetBrains Mono'),
-    font = wezterm.font('Iosevka'),
-    font_size = 14,
-    -- font_size = 13.6,
-    -- line_height = 1.2,
-    -- line_height = 1.05,
-    -- line_height = 1.05,
-    -- line_height = 1.14,
+    font = wezterm.font('Iosevka Term'),
+    font_size = 16.6,
+    line_height = 0.98,
 
-    custom_block_glyphs = false,
-    foreground_text_hsb = {
-        hue = 1.0,
-        saturation = 1.0,
-        brightness = 1.05,
-    },
+    -- custom_block_glyphs = false,
+
+    -- foreground_text_hsb = {
+    --     hue = 1.0,
+    --     saturation = 1.0,
+    --     brightness = 1.05,
+    -- },
     window_padding = {
         top = 0,
         left = 0,
@@ -35,7 +32,7 @@ return {
     -- Tab bar
     hide_tab_bar_if_only_one_tab = true,
     enable_tab_bar = true,
-    use_fancy_tab_bar = false,
+    use_fancy_tab_bar = true,
     tab_max_width = 33,
     tab_bar_at_bottom = true,
 

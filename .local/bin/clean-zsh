@@ -2,4 +2,4 @@
 
 rm -f "$ZDOTDIR"/refer/{.zcompdump,.zcompdump.zwc}
 zsh -l
-zcompile "~/.config/zsh/refer/.zcompdump"
+zcompile "$ZDOTDIR/refer/.zcompdump"
