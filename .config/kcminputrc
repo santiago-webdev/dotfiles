@@ -1,0 +1,20 @@
+[$Version]
+update_info=delete_cursor_old_default_size.upd:DeleteCursorOldDefaultSize,kcminputrc_fix_botched_5_21_0.upd:kcminputrc_fix_botched_5_21_0_pre,kcminputrc_fix_botched_5_21_0.upd:kcminputrc_fix_botched_5_21_0,kcminputrc_repeat.upd:kcminputrc_migrate_key_repeat
+
+[Keyboard]
+RepeatDelay=166
+RepeatRate=100
+
+[Libinput][10248][257][MSFT0001:01 2808:0101 Touchpad]
+MiddleButtonEmulation=true
+PointerAcceleration=0.200
+TapToClick=true
+
+[Libinput][3141][31494][SONiX USB Keyboard]
+MiddleButtonEmulation=true
+
+[Mouse]
+cursorTheme=Breeze_Snow
+
+[Tmp]
+update_info=delete_cursor_old_default_size.upd:DeleteCursorOldDefaultSize

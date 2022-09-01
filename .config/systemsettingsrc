@@ -1,0 +1,17 @@
+[KFileDialog Settings]
+Recent Files[$e]=wwconsole,file:$HOME/.local/bin/wwwebbrowser,file:$HOME/.local/bin/wwconsole
+Recent URLs[$e]=file:$HOME/.local/bin/,file:$HOME/
+detailViewIconSize=16
+
+[MainWindow]
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAAAABMgAAANIAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+eDP-1 HDMI-A-1 Height 1080x1920=840
+eDP-1 HDMI-A-1 Height 1920x1080=840
+eDP-1 HDMI-A-1 Width 1080x1920=1224
+eDP-1 HDMI-A-1 Width 1920x1080=1224
+
+[Open-with settings]
+CompletionMode=1
+History=/home/st/.local/bin/wwwebbrowser,/home/st/.local/bin/wwconsole

@@ -1,0 +1,41 @@
+[Desktop Entry]
+DefaultProfile=Santigo.profile
+
+[FileLocation]
+scrollbackUseCacheLocation=true
+scrollbackUseSystemLocation=false
+
+[General]
+ConfigVersion=1
+
+[KonsoleWindow]
+AllowMenuAccelerators=true
+ShowWindowTitleOnTitleBar=true
+
+[MainWindow]
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAQAAAAAAAAAAAAAAAPwCAAAAAvsAAAAiAFEAdQBpAGMAawBDAG8AbQBtAGEAbgBkAHMARABvAGMAawAAAAAA/////wAAAU4BAAAD+wAAABwAUwBTAEgATQBhAG4AYQBnAGUAcgBEAG8AYwBrAAAAAAD/////AAAA1wEAAAMAAAdcAAAEOAAAAAQAAAAEAAAACAAAAAj8AAAAAQAAAAIAAAACAAAAFgBtAGEAaQBuAFQAbwBvAGwAQgBhAHIAAAAAAP////8AAAAAAAAAAAAAABwAcwBlAHMAcwBpAG8AbgBUAG8AbwBsAGIAYQByAAAAAAD/////AAAAAAAAAAA=
+eDP-1 HDMI-A-1 Height 1080x1920=927
+eDP-1 HDMI-A-1 Height 1920x1080=554
+eDP-1 HDMI-A-1 Width 1080x1920=1080
+eDP-1 HDMI-A-1 Width 1920x1080=911
+eDP-1 HDMI-A-1 Window-Maximized 1080x1920=true
+eDP-1 HDMI-A-1 Window-Maximized 1920x1080=true
+eDP-1 Window-Maximized 1920x1080=true
+
+[SearchSettings]
+SearchCaseSensitive=true
+SearchRegExpression=true
+
+[SplitView]
+SplitDragHandleSize=SplitDragHandleMedium
+
+[TabBar]
+CloseTabOnMiddleMouseButton=true
+
+[ThumbnailsSettings]
+ThumbnailShift=true
+ThumbnailSize=333
+
+[UiSettings]
+ColorScheme=

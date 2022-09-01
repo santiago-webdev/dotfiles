@@ -8,12 +8,13 @@ UseFontLineChararacters=false
 
 [Cursor Options]
 CustomCursorColor=0,170,255
-UseCustomCursorColor=true
+UseCustomCursorColor=false
 
 [General]
 InvertSelectionColors=true
 Name=Santigo
 Parent=FALLBACK/
+SemanticInputClick=true
 ShowTerminalSizeHint=true
 TerminalCenter=false
 TerminalColumns=500
