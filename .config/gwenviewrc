@@ -1,2 +1,20 @@
 [$Version]
 update_info=gwenview.upd:SideBar_StatusBar_Rename,gwenview.upd:ImageView_AlphaBackgroundMode_Update,gwenview.upd:DeleteThumbnailSetting_Rename
+
+[General]
+LastUsedVersion=210800
+
+[KFileDialog Settings]
+Places Icons Auto-resize=false
+Places Icons Static Size=32
+
+[MainWindow]
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAAAAAoAAAAGyAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+eDP-1 HDMI-A-1 Height 1920x1080=480
+eDP-1 HDMI-A-1 Width 1920x1080=640
+
+[Recent Files]
+File1[$e]=$HOME/workspace/neovim-repo/contrib/doxygen/logo-devdoc.png
+Name1[$e]=logo-devdoc.png

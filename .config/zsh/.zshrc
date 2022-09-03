@@ -441,7 +441,7 @@ gitstatus
 zsh-defer source-file "${HOME}/.local/lib/sdkman/bin/sdkman-init.sh" # SDKMAN
 zsh-defer source-file "${XDG_DATA_HOME}/cargo/env"
 # zsh-defer source-file "${NVM_DIR}/nvm.sh" # NVM
-# zsh-defer source-file "${XDG_DATA_HOME}/ghcup/env" # ghcup-env
+zsh-defer source-file "${XDG_DATA_HOME}/ghcup/env" # ghcup-env
 
 # Actions when changing of directory
 function show_context() {
