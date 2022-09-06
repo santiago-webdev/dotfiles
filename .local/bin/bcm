@@ -8,7 +8,8 @@ get_state=$( (cat ${driver})) # The double parens convert it to a number instead
 
 enable() {
     # If the conservation mode is already enabled do not cat again
-    if [[ $get_state != 1 ]];then
+    if [[ $get_state != 1 ]]
+    then
         pkexec bash -c "echo 1 > ${driver}"
         notify-send --app-name='Battery Conservation Mode' 'Enabled'
     else
@@ -18,7 +19,8 @@ enable() {
 
 disable() {
     # If the conservation mode is already disabled do not cat again
-    if [[ $get_state != 0 ]];then
+    if [[ $get_state != 0 ]]
+    then
         pkexec bash -c "echo 0 > ${driver}"
         notify-send --app-name='Battery Conservation Mode' 'Disabled'
     else
@@ -34,7 +36,8 @@ case "${1}" in
         disable
     ;;
     *)
-        if kdialog --title 'Battery Conservation' --yesno 'Battery Conservation' --yes-label 'enable' --no-label 'disable'; then
+        if kdialog --title 'Battery Conservation' --yesno 'Battery Conservation' --yes-label 'enable' --no-label 'disable'
+        then
             enable
         else
             disable
