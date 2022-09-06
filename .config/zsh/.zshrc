@@ -437,11 +437,18 @@ bindkey -M viins '^[a' autosuggest-execute
 autoload change_title
 gitstatus
 
-# # Package managers and other language specific tools
+# Package managers and other language specific tools
+
+# https://sdkman.io/install
+# curl -s "https://get.sdkman.io?rcupdate=false" | bash
 zsh-defer source-file "${HOME}/.local/lib/sdkman/bin/sdkman-init.sh" # SDKMAN
+
+# https://www.haskell.org/ghcup/
+# curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+zsh-defer source-file "${XDG_DATA_HOME}/ghcup/env" # ghcup-env
+
 zsh-defer source-file "${XDG_DATA_HOME}/cargo/env"
 # zsh-defer source-file "${NVM_DIR}/nvm.sh" # NVM
-zsh-defer source-file "${XDG_DATA_HOME}/ghcup/env" # ghcup-env
 
 # Actions when changing of directory
 function show_context() {

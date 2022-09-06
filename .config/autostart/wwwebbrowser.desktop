@@ -1,7 +1,0 @@
-[Desktop Entry]
-Exec=/home/st/.local/bin/wwwebbrowser
-Icon=dialog-scripts
-Name=wwwebbrowser
-Path=
-Type=Application
-X-KDE-AutostartScript=true

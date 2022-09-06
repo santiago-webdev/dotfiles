@@ -17,7 +17,8 @@ plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
 [Containments][1][General]
-ToolBoxButtonState=top
+ToolBoxButtonState=topcenter
+ToolBoxButtonX=339
 
 [Containments][1][Wallpaper][org.kde.image][General]
 Image=file:///usr/share/wallpapers/Next/contents/images/1920x1080.jpg
@@ -43,7 +44,7 @@ activityId=
 formfactor=3
 immutability=1
 lastScreen=0
-location=6
+location=5
 plugin=org.kde.panel
 wallpaperplugin=org.kde.image
 
@@ -61,6 +62,12 @@ DialogWidth=920
 [Containments][3][Applets][24]
 immutability=1
 plugin=org.kde.plasma.colorpicker
+
+[Containments][3][Applets][24][Configuration]
+PreloadWeight=100
+
+[Containments][3][Applets][24][Configuration][General]
+history=#a5e2a0,#edaa82,#7ebdb6,#6a88be,#262a32,#c6d0f5,#c1bfd5,#1e1e2e,#262a32
 
 [Containments][3][Applets][4]
 immutability=1
@@ -83,10 +90,6 @@ global=Alt+F1
 
 [Containments][3][Applets][4][Shortcuts]
 global=Alt+F1
-
-[Containments][3][Applets][5]
-immutability=1
-plugin=org.kde.plasma.pager
 
 [Containments][3][Applets][6]
 immutability=1
@@ -114,17 +117,17 @@ SystrayContainmentId=9
 
 [Containments][3][ConfigDialog]
 DialogHeight=1080
-DialogWidth=164
+DialogWidth=193
 
 [Containments][3][General]
-AppletOrder=4;5;23;6;7;24;8
+AppletOrder=4;23;6;7;24;8
 
 [Containments][9]
 activityId=
 formfactor=3
 immutability=1
 lastScreen=0
-location=6
+location=5
 plugin=org.kde.plasma.private.systemtray
 wallpaperplugin=org.kde.image
 
@@ -136,7 +139,7 @@ immutability=1
 plugin=org.kde.plasma.devicenotifier
 
 [Containments][9][Applets][11][Configuration]
-PreloadWeight=80
+PreloadWeight=100
 
 [Containments][9][Applets][12][Configuration]
 PreloadWeight=42
@@ -160,7 +163,7 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][9][Applets][17][Configuration]
-PreloadWeight=75
+PreloadWeight=80
 
 [Containments][9][Applets][17][Configuration][ConfigDialog]
 DialogHeight=600
@@ -174,7 +177,7 @@ immutability=1
 plugin=org.kde.plasma.battery
 
 [Containments][9][Applets][20][Configuration]
-PreloadWeight=75
+PreloadWeight=97
 
 [Containments][9][Applets][20][Configuration][General]
 showPercentage=true
@@ -183,12 +186,15 @@ showPercentage=true
 immutability=1
 plugin=org.kde.plasma.networkmanagement
 
+[Containments][9][Applets][21][Configuration]
+PreloadWeight=60
+
 [Containments][9][Applets][22]
 immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][9][Applets][22][Configuration]
-PreloadWeight=55
+PreloadWeight=77
 
 [Containments][9][Applets][25]
 immutability=1

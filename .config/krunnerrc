@@ -3,3 +3,8 @@ FreeFloating=true
 
 [PlasmaRunnerManager]
 migrated=true
+
+[Plugins]
+helprunnerEnabled=false
+katesessionsEnabled=false
+konsoleprofilesEnabled=false
