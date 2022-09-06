@@ -18,7 +18,8 @@ export XDG_DATA_DIRS=/usr/local/share:/usr/share
 export XDG_CONFIG_DIRS=/etc/xdg
 
 # Manpagers
-if which bat >/dev/null; then
+if which bat >/dev/null
+then
   export MANPAGER="bash -c 'col -b | bat -l man -p'"
 fi
 export MANWIDTH=999
