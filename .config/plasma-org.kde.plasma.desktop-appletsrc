@@ -44,7 +44,7 @@ activityId=
 formfactor=3
 immutability=1
 lastScreen=0
-location=5
+location=6
 plugin=org.kde.panel
 wallpaperplugin=org.kde.image
 
@@ -127,7 +127,7 @@ activityId=
 formfactor=3
 immutability=1
 lastScreen=0
-location=5
+location=6
 plugin=org.kde.plasma.private.systemtray
 wallpaperplugin=org.kde.image
 
