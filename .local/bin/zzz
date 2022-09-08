@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-# Sleep machine using systemd, I only have this to call in from krunner
+# Sleep machine using systemd, I have this script to call it from krunner
 
 systemctl suspend

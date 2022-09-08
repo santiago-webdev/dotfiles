@@ -26,9 +26,9 @@ done=PlasmaVolume_DisableKMixAutostart
 mtime=1662473585
 
 [dolphin_detailsmodesettings.upd]
-ctime=1661896581
+ctime=1662666158
 done=rename-leading-padding
-mtime=1660846188
+mtime=1662484864
 
 [filepicker.upd]
 ctime=1661896578
@@ -61,9 +61,9 @@ done=gtk_theme,dont_use_gtk_css_for_window_decorations,remove_deprecated_gtk4_op
 mtime=1662472786
 
 [gwenview.upd]
-ctime=1661896586
+ctime=1662666158
 done=SideBar_StatusBar_Rename,ImageView_AlphaBackgroundMode_Update,DeleteThumbnailSetting_Rename
-mtime=1660846726
+mtime=1662488560
 
 [icons_remove_effects.upd]
 ctime=1662486207
@@ -86,9 +86,9 @@ done=kcminputrc_migrate_key_repeat
 mtime=1662473153
 
 [konsole_globalaccel.upd]
-ctime=1661896583
+ctime=1662666158
 done=konsole_globalaccel
-mtime=1660854558
+mtime=1662494723
 
 [krunnerglobalshortcuts2.upd]
 ctime=1662486207
@@ -131,28 +131,28 @@ done=split-variants
 mtime=1662473153
 
 [okular.upd]
-ctime=1661896584
+ctime=1662666158
 done=annotation-toolbar,builtin-annotations
-mtime=1660846752
+mtime=1662488860
 
 [spectacle_clipboard.upd]
-ctime=1661896585
+ctime=1662666158
 done=clipboard-settings-change
-mtime=1660846837
+mtime=1662489032
 
 [spectacle_newConfig.upd]
-ctime=1661896585
-mtime=1660846837
+ctime=1662666158
+mtime=1662489032
 
 [spectacle_rememberregion.upd]
-ctime=1661896585
+ctime=1662666158
 done=spectacle-migrate-rememberregion
-mtime=1660846837
+mtime=1662489032
 
 [spectacle_shortcuts.upd]
-ctime=1661896585
+ctime=1662666158
 done=spectacle-migrate-shortcuts
-mtime=1660846837
+mtime=1662489032
 
 [style_widgetstyle_default_breeze.upd]
 ctime=1662486207
