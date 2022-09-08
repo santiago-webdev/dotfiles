@@ -1,29 +1,29 @@
 updateInfoAdded=true
 
 [breezehighcontrasttobreezedark.upd]
-ctime=1661896579
+ctime=1662486206
 done=BreezeHighContrastToBreezeDark
-mtime=1659472557
+mtime=1662471086
 
 [breezetobreezeclassic.upd]
-ctime=1661896579
+ctime=1662486206
 done=BreezeToBreezeClassic
-mtime=1659472557
+mtime=1662471086
 
 [breezetobreezelight.upd]
-ctime=1661896579
+ctime=1662486206
 done=BreezeToBreezeLight
-mtime=1659472557
+mtime=1662471086
 
 [delete_cursor_old_default_size.upd]
-ctime=1661896582
+ctime=1662486207
 done=DeleteCursorOldDefaultSize
-mtime=1659473195
+mtime=1662471719
 
 [disable_kmix.upd]
-ctime=1661896585
+ctime=1662486208
 done=PlasmaVolume_DisableKMixAutostart
-mtime=1659475060
+mtime=1662473585
 
 [dolphin_detailsmodesettings.upd]
 ctime=1661896581
@@ -36,29 +36,29 @@ done=filepicker-remove-old-previews-entry
 mtime=1660582591
 
 [fonts_akregator.upd]
-ctime=1661896582
+ctime=1662486207
 done=Plasma_Fonts_Akregator
-mtime=1659473155
+mtime=1662471678
 
 [fonts_global.upd]
-ctime=1661896582
+ctime=1662486207
 done=Fonts_Global
-mtime=1659473155
+mtime=1662471678
 
 [fonts_global_toolbar.upd]
-ctime=1661896582
+ctime=1662486207
 done=Fonts_Global_Toolbar
-mtime=1659473155
+mtime=1662471678
 
 [fonts_kate.upd]
-ctime=1661896582
+ctime=1662486207
 done=Plasma_Fonts_Kate
-mtime=1659473155
+mtime=1662471678
 
 [gtkconfig.upd]
-ctime=1661896579
+ctime=1662486206
 done=gtk_theme,dont_use_gtk_css_for_window_decorations,remove_deprecated_gtk4_option
-mtime=1659474260
+mtime=1662472786
 
 [gwenview.upd]
 ctime=1661896586
@@ -66,24 +66,24 @@ done=SideBar_StatusBar_Rename,ImageView_AlphaBackgroundMode_Update,DeleteThumbna
 mtime=1660846726
 
 [icons_remove_effects.upd]
-ctime=1661896582
+ctime=1662486207
 done=IconsRemoveEffects
-mtime=1659473195
+mtime=1662471719
 
 [kcm_rename_plasma_desktop.upd]
-ctime=1661896584
+ctime=1662486208
 done=5.24PlasmaDesktopKCMRename
-mtime=1659474629
+mtime=1662473153
 
 [kcminputrc_fix_botched_5_21_0.upd]
-ctime=1661896584
+ctime=1662486208
 done=kcminputrc_fix_botched_5_21_0_pre,kcminputrc_fix_botched_5_21_0
-mtime=1659474629
+mtime=1662473153
 
 [kcminputrc_repeat.upd]
-ctime=1661896584
+ctime=1662486208
 done=kcminputrc_migrate_key_repeat
-mtime=1659474629
+mtime=1662473153
 
 [konsole_globalaccel.upd]
 ctime=1661896583
@@ -91,44 +91,44 @@ done=konsole_globalaccel
 mtime=1660854558
 
 [krunnerglobalshortcuts2.upd]
-ctime=1661896582
+ctime=1662486207
 done=5.22KRunnerGlobalShortcuts
-mtime=1659473195
+mtime=1662471719
 
 [krunnerhistory.upd]
-ctime=1661896582
+ctime=1662486207
 done=5.21KRunnerHistory
-mtime=1659473195
+mtime=1662471719
 
 [kscreenlocker.upd]
-ctime=1661896582
+ctime=1662486206
 done=0.1-autolock
-mtime=1659472409
+mtime=1662470937
 
 [ksmserver_update_loginMode_value.upd]
-ctime=1661896584
+ctime=1662486208
 done=ksmserver_update_loginMode_value_default_enum
-mtime=1659474629
+mtime=1662473153
 
 [kwin.upd]
-ctime=1661896582
+ctime=1662486207
 done=replace-scalein-with-scale,port-minimizeanimation-effect-to-js,port-scale-effect-to-js,port-dimscreen-effect-to-js,auto-bordersize,animation-speed,desktop-grid-click-behavior,no-swap-encourage,make-translucency-effect-disabled-by-default,remove-flip-switch-effect,remove-cover-switch-effect,remove-cubeslide-effect,remove-xrender-backend,enable-scale-effect-by-default,overview-group-plugin-id,animation-speed-cleanup
-mtime=1659472623
+mtime=1662471149
 
 [kwinrules.upd]
-ctime=1661896582
+ctime=1662486207
 done=replace-placement-string-to-enum,use-virtual-desktop-ids
-mtime=1659472623
+mtime=1662471149
 
 [kxkb.upd]
-ctime=1661896584
+ctime=1662486208
 done=remove-empty-lists,add-back-resetoptions
-mtime=1659474629
+mtime=1662473153
 
 [kxkb_variants.upd]
-ctime=1661896584
+ctime=1662486208
 done=split-variants
-mtime=1659474629
+mtime=1662473153
 
 [okular.upd]
 ctime=1661896584
@@ -155,6 +155,6 @@ done=spectacle-migrate-shortcuts
 mtime=1660846837
 
 [style_widgetstyle_default_breeze.upd]
-ctime=1661896582
+ctime=1662486207
 done=StyleWidgetStyleDefaultBreeze
-mtime=1659473195
+mtime=1662471719

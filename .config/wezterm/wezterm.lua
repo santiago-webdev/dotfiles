@@ -6,8 +6,9 @@ return {
     -- font = wezterm.font('Cartograph CF'),
     -- font = wezterm.font('JetBrains Mono'),
     font = wezterm.font('Iosevka Term'),
-    font_size = 16.6,
-    line_height = 0.98,
+    font_size = 16,
+    -- line_height = 0.98,
+   -- line_height = 1.02,
 
     -- custom_block_glyphs = false,
 

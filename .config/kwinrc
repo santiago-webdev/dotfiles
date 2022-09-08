@@ -24,6 +24,9 @@ Rows=2
 BlurStrength=6
 NoiseStrength=12
 
+[Effect-desktopgrid]
+ShowAddRemove=false
+
 [Effect-diminactive]
 DimDesktop=true
 Strength=30
@@ -35,6 +38,7 @@ VerticalGap=0
 
 [Effect-windowview]
 BorderActivateAll=9
+LayoutMode=0
 
 [ModifierOnlyShortcuts]
 Meta=org.kde.krunner,/App,,toggleDisplay

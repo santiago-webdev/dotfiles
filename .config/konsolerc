@@ -21,7 +21,8 @@ eDP-1 HDMI-A-1 Width 1080x1920=1080
 eDP-1 HDMI-A-1 Width 1920x1080=911
 eDP-1 HDMI-A-1 Window-Maximized 1080x1920=true
 eDP-1 HDMI-A-1 Window-Maximized 1920x1080=true
-eDP-1 Window-Maximized 1920x1080=true
+eDP-1 Height 1920x1080=882
+eDP-1 Width 1920x1080=1445
 
 [SearchSettings]
 SearchCaseSensitive=true

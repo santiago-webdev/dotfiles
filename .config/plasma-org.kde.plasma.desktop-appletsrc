@@ -67,7 +67,7 @@ plugin=org.kde.plasma.colorpicker
 PreloadWeight=100
 
 [Containments][3][Applets][24][Configuration][General]
-history=#a5e2a0,#edaa82,#7ebdb6,#6a88be,#262a32,#c6d0f5,#c1bfd5,#1e1e2e,#262a32
+history=#292c35,#a5e2a0,#edaa82,#7ebdb6,#6a88be,#262a32,#c6d0f5,#c1bfd5,#1e1e2e
 
 [Containments][3][Applets][4]
 immutability=1
@@ -148,6 +148,9 @@ PreloadWeight=42
 immutability=1
 plugin=org.kde.plasma.notifications
 
+[Containments][9][Applets][13][Configuration]
+PreloadWeight=55
+
 [Containments][9][Applets][14][Configuration]
 PreloadWeight=42
 
@@ -163,7 +166,7 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][9][Applets][17][Configuration]
-PreloadWeight=80
+PreloadWeight=85
 
 [Containments][9][Applets][17][Configuration][ConfigDialog]
 DialogHeight=600
@@ -177,7 +180,7 @@ immutability=1
 plugin=org.kde.plasma.battery
 
 [Containments][9][Applets][20][Configuration]
-PreloadWeight=97
+PreloadWeight=89
 
 [Containments][9][Applets][20][Configuration][General]
 showPercentage=true
@@ -187,14 +190,14 @@ immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][9][Applets][21][Configuration]
-PreloadWeight=60
+PreloadWeight=70
 
 [Containments][9][Applets][22]
 immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][9][Applets][22][Configuration]
-PreloadWeight=77
+PreloadWeight=82
 
 [Containments][9][Applets][25]
 immutability=1
@@ -214,7 +217,6 @@ DialogWidth=1363
 [Containments][9][General]
 extraItems=org.kde.plasma.bluetooth,org.kde.plasma.battery,org.kde.plasma.devicenotifier,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,org.kde.plasma.nightcolorcontrol,org.kde.plasma.networkmanagement,org.kde.plasma.volume,org.kde.plasma.clipboard
 hiddenItems=org.kde.plasma.bluetooth,org.kde.plasma.networkmanagement,org.kde.plasma.clipboard,org.kde.plasma.nightcolorcontrol
-iconSpacing=6
 knownItems=org.kde.plasma.bluetooth,org.kde.plasma.battery,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,org.kde.plasma.keyboardindicator,org.kde.plasma.nightcolorcontrol,org.kde.plasma.keyboardlayout,org.kde.plasma.networkmanagement,org.kde.plasma.volume
 scaleIconsToFit=true
 
