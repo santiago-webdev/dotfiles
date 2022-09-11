@@ -10,31 +10,15 @@ Places Icons Static Size=32
 
 [MainWindow]
 MenuBar=Disabled
-State=AAAA/wAAAAD9AAAAAAAAAoAAAAGyAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+State=AAAA/wAAAAD9AAAAAAAABCUAAAVBAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
 ToolBarsMovable=Disabled
+eDP-1 HDMI-A-1 Height 1080x1920=1391
 eDP-1 HDMI-A-1 Height 1920x1080=480
+eDP-1 HDMI-A-1 Width 1080x1920=1061
 eDP-1 HDMI-A-1 Width 1920x1080=640
 eDP-1 Height 1920x1080=979
 eDP-1 Width 1920x1080=1256
 
 [Recent Files]
-File1[$e]=$HOME/.local/mnt/telefono/Camera/IMG_20210522_185612723.jpg
-File10[$e]=$HOME/.local/mnt/telefono/Camera/IMG_20210211_233941649.jpg
-File2[$e]=$HOME/.local/mnt/telefono/Camera/IMG_20210531_200518324.jpg
-File3[$e]=$HOME/.local/mnt/telefono/Camera/IMG_20210531_200524655.jpg
-File4[$e]=$HOME/.local/mnt/telefono/Camera/IMG_20210601_112848293.jpg
-File5[$e]=$HOME/.local/mnt/telefono/Camera/IMG_20210601_112853787.jpg
-File6[$e]=$HOME/.local/mnt/telefono/Camera/IMG_20210601_112901012.jpg
-File7[$e]=$HOME/.local/mnt/telefono/Camera/IMG_20210608_113624393.jpg
-File8[$e]=$HOME/.local/mnt/telefono/Camera/IMG_20210113_184600841_HDR.jpg
-File9[$e]=$HOME/.local/mnt/telefono/Camera/IMG_20210209_185724825.jpg
-Name1[$e]=IMG_20210522_185612723.jpg
-Name10[$e]=IMG_20210211_233941649.jpg
-Name2[$e]=IMG_20210531_200518324.jpg
-Name3[$e]=IMG_20210531_200524655.jpg
-Name4[$e]=IMG_20210601_112848293.jpg
-Name5[$e]=IMG_20210601_112853787.jpg
-Name6[$e]=IMG_20210601_112901012.jpg
-Name7[$e]=IMG_20210608_113624393.jpg
-Name8[$e]=IMG_20210113_184600841_HDR.jpg
-Name9[$e]=IMG_20210209_185724825.jpg
+File1[$e]=$HOME/.local/Pictures/Screenshot_20220910_190828.png
+Name1[$e]=Screenshot_20220910_190828.png
