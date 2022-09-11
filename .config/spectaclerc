@@ -8,3 +8,12 @@ onLaunchAction=UseLastUsedCapturemode
 [GuiConfig]
 captureMode=2
 window-position=50,50
+
+[KFileDialog Settings]
+Recent Files[$e]=file:$HOME/.local/Pictures/Screenshot_20220910_190828.png,file:$HOME/.local/Pictures/Screenshot_20220910_190828.png
+Recent URLs[$e]=file:$HOME/.local/Pictures/
+detailViewIconSize=16
+
+[Save]
+lastSaveAsLocation=file:///home/st/.local/Pictures/Screenshot_20220910_190828.png
+lastSaveLocation=file:///home/st/.local/Pictures/Screenshot_20220910_190828.png

@@ -78,7 +78,6 @@ cp -r "$HOME/.config/kwinrulesrc" .config/
 cp -r "$HOME/.config/kxkbrc" .config/
 cp -r "$HOME/.config/plasma-localerc" .config/
 cp -r "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc" .config/
-cp -r "$HOME/.config/plasmarc" .config/
 cp -r "$HOME/.config/plasmashellrc" .config/
 cp -r "$HOME/.config/powermanagementprofilesrc" .config/
 cp -r "$HOME/.config/spectaclerc" .config/
