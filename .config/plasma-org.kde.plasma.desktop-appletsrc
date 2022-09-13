@@ -149,7 +149,7 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][9][Applets][13][Configuration]
-PreloadWeight=55
+PreloadWeight=60
 
 [Containments][9][Applets][14][Configuration]
 PreloadWeight=42
@@ -180,7 +180,7 @@ immutability=1
 plugin=org.kde.plasma.battery
 
 [Containments][9][Applets][20][Configuration]
-PreloadWeight=89
+PreloadWeight=99
 
 [Containments][9][Applets][20][Configuration][General]
 showPercentage=true
@@ -190,7 +190,7 @@ immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][9][Applets][21][Configuration]
-PreloadWeight=70
+PreloadWeight=100
 
 [Containments][9][Applets][22]
 immutability=1

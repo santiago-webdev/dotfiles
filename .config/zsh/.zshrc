@@ -237,6 +237,7 @@ alias -g s='sudoedit'
 # alias txe='toolbox enter'
 # alias txr='toolbox run -c'
 alias n="nice -20 nvim --listen $NVIMREMOTE"
+alias csjn="nice -20 nvim --listen $NVIMREMOTE -u ${XDG_CONFIG_HOME}/nvim/csjneovim.lua"
 # alias h="Hyprland"
 
 # Package managers
