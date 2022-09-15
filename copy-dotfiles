@@ -33,13 +33,9 @@ cp -r "$HOME/.local/bin/wwconsole" .local/bin
 cp -r "$HOME/.local/bin/wwwebbrowser" .local/bin
 cp -r "$HOME/.local/bin/zzz" .local/bin
 
-# Kde Plasma colorscemes
-mkdir -p .local/share/color-schemes
-cp -r "$HOME/.local/share/color-schemes/JetJBP.colors" .local/share/color-schemes
-
 # Konsole
 mkdir -p .local/share/konsole
-cp -r "$HOME/.local/share/konsole" .local/share/
+cp -r "$HOME/.local/share/konsole/Santigo.profile" .local/share/konsole
 
 # npm
 mkdir -p .config/npm
