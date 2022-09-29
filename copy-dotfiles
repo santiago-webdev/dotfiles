@@ -35,7 +35,8 @@ cp -r "$HOME/.local/bin/zzz" .local/bin
 
 # Konsole
 mkdir -p .local/share/konsole
-cp -r "$HOME/.local/share/konsole/Santigo.profile" .local/share/konsole
+cp -r "$HOME/.local/share/konsole/Main.profile" .local/share/konsole
+cp -r "$HOME/.local/share/konsole/MainToolbox.profile" .local/share/konsole
 
 # npm
 mkdir -p .config/npm

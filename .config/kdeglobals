@@ -42,6 +42,42 @@ BackgroundAlternate=31,29,46
 BackgroundNormal=27,29,40
 DecorationFocus=76,99,125
 DecorationHover=76,99,125
+ForegroundActive[$d]
+ForegroundInactive[$d]
+ForegroundLink[$d]
+ForegroundNegative[$d]
+ForegroundNeutral[$d]
+ForegroundNormal[$d]
+ForegroundPositive[$d]
+ForegroundVisited[$d]
+
+[Colors:Header]
+BackgroundAlternate[$d]
+BackgroundNormal[$d]
+DecorationFocus[$d]
+DecorationHover[$d]
+ForegroundActive[$d]
+ForegroundInactive[$d]
+ForegroundLink[$d]
+ForegroundNegative[$d]
+ForegroundNeutral[$d]
+ForegroundNormal[$d]
+ForegroundPositive[$d]
+ForegroundVisited[$d]
+
+[Colors:Header][Inactive]
+BackgroundAlternate[$d]
+BackgroundNormal[$d]
+DecorationFocus[$d]
+DecorationHover[$d]
+ForegroundActive[$d]
+ForegroundInactive[$d]
+ForegroundLink[$d]
+ForegroundNegative[$d]
+ForegroundNeutral[$d]
+ForegroundNormal[$d]
+ForegroundPositive[$d]
+ForegroundVisited[$d]
 
 [Colors:Selection]
 BackgroundAlternate=76,99,125
@@ -137,7 +173,7 @@ Speedbar Width=168
 View Style=DetailTree
 
 [KShortcutsDialog Settings]
-Dialog Size=600,480
+Dialog Size=949,618
 
 [PreviewSettings]
 MaximumRemoteSize=69206016

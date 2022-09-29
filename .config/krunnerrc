@@ -5,6 +5,10 @@ FreeFloating=true
 migrated=true
 
 [Plugins]
+CharacterRunnerEnabled=false
+appstreamEnabled=false
 helprunnerEnabled=false
 katesessionsEnabled=false
-konsoleprofilesEnabled=false
+konsoleprofilesEnabled=true
+recentdocumentsEnabled=false
+servicesEnabled=true

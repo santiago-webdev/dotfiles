@@ -67,7 +67,7 @@ plugin=org.kde.plasma.colorpicker
 PreloadWeight=100
 
 [Containments][3][Applets][24][Configuration][General]
-history=#292c35,#a5e2a0,#edaa82,#7ebdb6,#6a88be,#262a32,#c6d0f5,#c1bfd5,#1e1e2e
+history=#8689b9
 
 [Containments][3][Applets][4]
 immutability=1
@@ -82,7 +82,7 @@ DialogWidth=720
 
 [Containments][3][Applets][4][Configuration][General]
 favoritesPortedToKAstats=true
-icon=/home/st/.local/share/icons/arch_icon.png
+icon=fedora-logo-icon
 systemFavorites=suspend\\,hibernate\\,reboot\\,shutdown
 
 [Containments][3][Applets][4][Configuration][Shortcuts]
@@ -197,7 +197,7 @@ immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][9][Applets][22][Configuration]
-PreloadWeight=82
+PreloadWeight=26
 
 [Containments][9][Applets][25]
 immutability=1
@@ -205,19 +205,30 @@ plugin=org.kde.plasma.clipboard
 
 [Containments][9][Applets][26]
 immutability=1
-plugin=org.kde.plasma.mediacontroller
+plugin=org.kde.plasma.printmanager
 
 [Containments][9][Applets][26][Configuration]
 PreloadWeight=0
+
+[Containments][9][Applets][27]
+immutability=1
+plugin=org.kde.plasma.vault
+
+[Containments][9][Applets][28]
+immutability=1
+plugin=org.kde.plasma.mediacontroller
+
+[Containments][9][Applets][28][Configuration]
+PreloadWeight=2
 
 [Containments][9][ConfigDialog]
 DialogHeight=795
 DialogWidth=1363
 
 [Containments][9][General]
-extraItems=org.kde.plasma.bluetooth,org.kde.plasma.battery,org.kde.plasma.devicenotifier,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,org.kde.plasma.nightcolorcontrol,org.kde.plasma.networkmanagement,org.kde.plasma.volume,org.kde.plasma.clipboard
+extraItems=org.kde.plasma.bluetooth,org.kde.plasma.battery,org.kde.plasma.devicenotifier,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,org.kde.plasma.nightcolorcontrol,org.kde.plasma.networkmanagement,org.kde.plasma.volume,org.kde.plasma.clipboard,org.kde.plasma.printmanager,org.kde.plasma.vault
 hiddenItems=org.kde.plasma.bluetooth,org.kde.plasma.networkmanagement,org.kde.plasma.clipboard,org.kde.plasma.nightcolorcontrol
-knownItems=org.kde.plasma.bluetooth,org.kde.plasma.battery,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,org.kde.plasma.keyboardindicator,org.kde.plasma.nightcolorcontrol,org.kde.plasma.keyboardlayout,org.kde.plasma.networkmanagement,org.kde.plasma.volume
+knownItems=org.kde.plasma.bluetooth,org.kde.plasma.battery,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,org.kde.plasma.keyboardindicator,org.kde.plasma.nightcolorcontrol,org.kde.plasma.keyboardlayout,org.kde.plasma.networkmanagement,org.kde.plasma.volume,org.kde.plasma.printmanager,org.kde.plasma.vault
 scaleIconsToFit=true
 
 [ScreenMapping]

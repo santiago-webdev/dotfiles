@@ -12,7 +12,7 @@ UseCustomCursorColor=false
 
 [General]
 InvertSelectionColors=true
-Name=Santigo
+Name=Main
 Parent=FALLBACK/
 SemanticInputClick=true
 ShowTerminalSizeHint=true

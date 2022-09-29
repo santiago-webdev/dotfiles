@@ -203,13 +203,16 @@ function gitstatus() {
   }
 
   zstyle ':vcs_info:*' check-for-changes true
-  zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}❰%{$fg[red]%}%m%u%c%{$fg[yellow]%}%{$fg[magenta]%} %b%{$fg[blue]%}❱"
+  zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}❰%{$fg[red]%}%m%u%c%{$fg[yellow]%} %{$fg[magenta]%} %b%{$fg[blue]%}❱"
 }
 
-# Prompt
-PS1="%n%F{white}@%f%{$reset_color%}%m%F{white} %3~%f%{$reset_color%}%F{white}  %{$reset_color%}"
-# Right prompt
-RPS1='$(check_last_exit_code) ${vi_mode} $vcs_info_msg_0_%{$reset_color%}'
+if [[ -n ${TOOLBOX_PATH} ]]; then
+  TOOLBOX_NAME=$(awk '/name=/{print $2}' FS='"' /run/.containerenv)
+  PS1="tlbx%F{white}@%{$reset_color%}${TOOLBOX_NAME}%{$reset_color%} %F{white}%3~%    "
+else
+  PS1="%n%F{white}@%f%{$reset_color%}%m%F{white} %3~%f%{$reset_color%}%F{white}  "
+fi
+RPS1='%{$reset_color%} $(check_last_exit_code) ${vi_mode} $vcs_info_msg_0_%{$reset_color%}'
 
 # Alias, functions and keymaps
 alias -g ...='../..'
@@ -221,7 +224,7 @@ alias mv='mv -iv'
 alias rm='rm -v'
 alias plasma-restart='kquitapp5 plasmashell && sleep 8 && kstart5 plasmashell && sleep 8 && kwin_wayland --replace &'
 alias ip='ip --color=auto'
-alias mine='sudo chown -R $USER:$USER .'
+alias mine='sudo chown -R "$USER":"$USER" .'
 alias -g DN=/dev/null
 alias -g H='| head'
 alias -g S='| sort'
@@ -231,14 +234,9 @@ alias -g PIPE='|'
 alias df='df -h -P --total --exclude-type=devtmpfs 2>/dev/null'
 alias du='du -h'
 alias free='free -m'
-alias -g sn='sudo -E nvim' # Open nvim with superuser privileges maintaining user configs
+alias -g sn='sudo -E $(which "$EDITOR")' # Alternative to `sudoedit`, open with superuser privileges maintaining user configs
 alias -g s='sudoedit'
-# alias nix-shell="nix-shell --run zsh"
-# alias txe='toolbox enter'
-# alias txr='toolbox run -c'
 alias n="nice -20 nvim --listen $NVIMREMOTE"
-alias csjn="nice -20 nvim --listen $NVIMREMOTE -u ${XDG_CONFIG_HOME}/nvim/csjneovim.lua"
-# alias h="Hyprland"
 
 # Package managers
 alias pac='sudo pacman -Syu --noconfirm' # Update
@@ -263,10 +261,10 @@ alias -g gitsp='git stash pop'
 
 if type exa > /dev/null 2>&1; then
   alias e='exa -lah --time-style=long-iso --icons --colour-scale --group-directories-first --git'
-  alias ee='exa -lah --icons --colour-scale --group-directories-first --git -T -L4'
+  alias teg='exa -lah --icons --colour-scale --group-directories-first -T -L4 --git -I ".git|.gitignore" --git-ignore'
 else
   alias e='ls -lAhX --group-directories-first --color=auto'
-  alias ee='ls -F --color=auto'
+  alias teg='ls -F --color=auto'
 fi
 
 if type rg > /dev/null 2>&1; then
@@ -430,7 +428,8 @@ zsh-defer source "${ZDOTDIR}/plugins/fzf-tab/fzf-tab.plugin.zsh"
 
 # Zsh-autosuggestions
 # `-t1` will make this plugin not load till you run one command on the current terminal
-zsh-defer -t1 source "${ZDOTDIR}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+# zsh-defer -t1 source "${ZDOTDIR}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+zsh-defer source "${ZDOTDIR}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 bindkey -M vicmd '^[a' autosuggest-accept
 bindkey -M viins '^[a' autosuggest-execute
 

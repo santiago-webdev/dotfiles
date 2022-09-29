@@ -1,19 +1,6 @@
 [$Version]
 update_info=kwinrules.upd:replace-placement-string-to-enum,kwinrules.upd:use-virtual-desktop-ids
 
-[1]
-Description=Application settings for kitty
-ignoregeometry=true
-ignoregeometryrule=2
-placement=10
-placementrule=2
-wmclass=kitty
-wmclassmatch=1
-
-[General]
-count=1
-rules=1
-
 [c6ab4579-f376-4311-ae55-45f166f4e5bd]
 Description=Application settings for kitty
 ignoregeometry=true
