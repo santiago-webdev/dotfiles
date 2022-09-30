@@ -287,10 +287,10 @@ kcm-users=none,none,Users
 powerdevilprofilesconfig=none,none,Energy Saving
 screenlocker=none,none,Screen Locking
 
-[wwconsole-7.desktop]
+[wwconsole.desktop]
 _k_friendly_name=wwconsole
 _launch=Meta+Return,none,wwconsole
 
-[wwwebbrowser-4.desktop]
+[wwwebbrowser.desktop]
 _k_friendly_name=wwwebbrowser
 _launch=Meta+B,none,wwwebbrowser
