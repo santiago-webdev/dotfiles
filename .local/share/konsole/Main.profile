@@ -30,7 +30,7 @@ TrimTrailingSpacesInSelectedText=true
 UnderlineFilesEnabled=true
 
 [Scrolling]
-HighlightScrolledLines=false
+HighlightScrolledLines=true
 HistoryMode=1
 HistorySize=10000
 ReflowLines=true
