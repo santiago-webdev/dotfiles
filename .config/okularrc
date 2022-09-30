@@ -13,13 +13,3 @@ eDP-1 HDMI-A-1 Height 1080x1920=1051
 eDP-1 HDMI-A-1 Height 1920x1080=1051
 eDP-1 HDMI-A-1 Width 1080x1920=942
 eDP-1 HDMI-A-1 Width 1920x1080=942
-
-[Recent Files]
-File1[$e]=$HOME/.config/nvim/.gitignore
-File2[$e]=$HOME/.config/nvim/.styluaignore
-File3[$e]=$HOME/workspace/repositories/right-corner-diagnostics.nvim/README.md
-File4[$e]=$HOME/workspace/learning/unabombermanifesto.pdf
-Name1[$e]=.gitignore
-Name2[$e]=.styluaignore
-Name3[$e]=README.md
-Name4[$e]=unabombermanifesto.pdf
