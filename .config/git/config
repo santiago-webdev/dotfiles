@@ -1,7 +1,7 @@
 [user]
-    name = Santiago Gonzalez
-    email = santiagogonzalezbogado@gmail.com
+  name = Santiago Gonzalez
+  email = santiagogonzalezbogado@gmail.com
 [color]
-    ui = auto
+  ui = auto
 [core]
-    editor = nvim
+  editor = nvim

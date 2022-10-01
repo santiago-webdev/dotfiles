@@ -136,6 +136,7 @@ ForegroundPositive=234,157,52
 ForegroundVisited=86,148,159
 
 [General]
+ColorScheme=JetJBP
 ColorSchemeHash=2538008784496286a3cb4abe26766ab448346c4a
 XftHintStyle=hintslight
 XftSubPixel=rgb

@@ -1,5 +1,4 @@
-# Profiling zsh
-# zmodload zsh/zprof
+# zmodload zsh/zprof # Profiling zsh
 
 # Some keycodes for keybinds taken from a stackexchange answer
 # key[F1]        = '^[[[A'
@@ -236,32 +235,47 @@ alias du='du -h'
 alias free='free -m'
 alias -g sn='sudo -E $(which "$EDITOR")' # Alternative to `sudoedit`, open with superuser privileges maintaining user configs
 alias -g s='sudoedit'
-alias n="nice -20 nvim --listen $NVIMREMOTE"
 
-# Package managers
-alias pac='sudo pacman -Syu --noconfirm' # Update
-alias pacinst='sudo pacman -S' # Install programs
-alias pacparu='sudo pacman -Syyuu --noconfirm && paru' # Also update AUR packages
-alias pacorphans='pacman -Qtdq' # Show orphans
-alias pacremoveorphans='sudo pacman -Rns $(pacman -Qtdq)' # Remove orphan packages
+if [[ -n ${TOOLBOX_PATH} ]]; then
+  alias n="nice -20 nvim --listen $NVIMREMOTE"
+else
+  alias n="toolbox run -c main nice -20 $(which nvim) --listen $NVIMREMOTE"
+fi
+
+# # Package managers
+# alias pac='sudo pacman -Syu --noconfirm' # Update
+# alias pacinst='sudo pacman -S' # Install programs
+# alias pacparu='sudo pacman -Syyuu --noconfirm && paru' # Also update AUR packages
+# alias pacorphans='pacman -Qtdq' # Show orphans
+# alias pacremoveorphans='sudo pacman -Rns $(pacman -Qtdq)' # Remove orphan packages
 
 # Git
-alias -g ga='git add --all'
+alias -g ga='git add'
+alias -g gaa='git add --all'
 alias -g gco='git commit -v -m'
-alias -g gaco='git add --all && git commit -v -m'
+alias -g gaaco='git add --all && git commit -v -m'
+alias -g gaac='git add --all && git commit'
 alias -g gpush='git push'
 alias -g gpull='git pull'
-alias -g gpullall='for i in */.git; do ( echo $i; cd $i/..; git pull; ); done'
+alias -g gpullall='find . -mindepth 1 -maxdepth 1 -type d -print -exec git -C {} pull \;'
 alias -g gd='git diff'
-alias -g gcb='git checkout -b'
+alias -g gc='git checkout'
 alias -g gl='git log'
 alias -g gs='git status'
 alias -g gits='git stash'
 alias -g gitsp='git stash pop'
+alias -g gcs='git clone --depth=1'
 
 if type exa > /dev/null 2>&1; then
   alias e='exa -lah --time-style=long-iso --icons --colour-scale --group-directories-first --git'
-  alias teg='exa -lah --icons --colour-scale --group-directories-first -T -L4 --git -I ".git|.gitignore" --git-ignore'
+  alias teg='exa \
+    -lah \
+    --icons \
+    --colour-scale \
+    --group-directories-first \
+    -T -L4 \
+    --git-ignore \
+    --git -I ".git|.gitignore|.styluaignore|.stylua.toml|README.*"'
 else
   alias e='ls -lAhX --group-directories-first --color=auto'
   alias teg='ls -F --color=auto'
@@ -273,10 +287,6 @@ else
   alias -g G='| grep'
   alias grep='grep --color'
 fi
-
-function gclo() {
-  git clone --depth=1 "$@" &; disown
-}
 
 if type bat > /dev/null 2>&1; then
   themes=('1337' 'Coldark-Cold' 'Coldark-Dark' 'DarkNeon' 'Dracula' 'GitHub' 'Monokai Extended' 'Monokai Extended Bright' 'Monokai Extended Light' 'Monokai Extended Origin' 'Nord' 'OneHalfDark' 'OneHalfLight' 'Sublime Snazzy' 'TwoDark' 'Visual Studio Dark+' 'ansi' 'base16' 'base16-256' 'gruvbox-dark' 'gruvbox-light' 'zenburn')
