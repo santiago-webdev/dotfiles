@@ -137,6 +137,8 @@ zmodload zsh/parameter
 autoload zcalc
 autoload zmv
 
+source "${ZDOTDIR}/utils.zsh" # Utils
+
 # Vi mode
 bindkey -v
 function cursor_shape() {
@@ -169,48 +171,7 @@ zle -N cursor_shape
 autoload -Uz cursor_shape
 cursor_shape
 
-# Exit error code of the last command
-function check_last_exit_code() {
-  local LAST_EXIT_CODE=$?
-  if [[ $LAST_EXIT_CODE -ne 0 ]]; then
-    local EXIT_CODE_PROMPT=' '
-    EXIT_CODE_PROMPT+="%{$fg[red]%}❰%{$reset_color%}"
-    EXIT_CODE_PROMPT+="%{$fg_bold[red]%}$LAST_EXIT_CODE%{$reset_color%}"
-    EXIT_CODE_PROMPT+="%{$fg[red]%}❱%{$reset_color%}"
-    echo "$EXIT_CODE_PROMPT"
-  fi
-}
-
-# Git Status
-function gitstatus() {
-  autoload -Uz vcs_info
-  zstyle ':vcs_info:*' enable git svn
-
-  # Setup a hook that runs before every ptompt.
-  function precmd_vcs_info() {
-    vcs_info
-  }
-  precmd_functions+=(precmd_vcs_info)
-
-  zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
-
-  function +vi-git-untracked() {
-    if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
-      git status --porcelain | grep '??' &> /dev/null ; then
-        hook_com[staged]+='!' # Signify new files with a bang
-    fi
-  }
-
-  zstyle ':vcs_info:*' check-for-changes true
-  zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}❰%{$fg[red]%}%m%u%c%{$fg[yellow]%} %{$fg[magenta]%} %b%{$fg[blue]%}❱"
-}
-
-if [[ -n ${TOOLBOX_PATH} ]]; then
-  TOOLBOX_NAME=$(awk '/name=/{print $2}' FS='"' /run/.containerenv)
-  PS1="tlbx%F{white}@%{$reset_color%}${TOOLBOX_NAME}%{$reset_color%} %F{white}%3~%    "
-else
-  PS1="%n%F{white}@%f%{$reset_color%}%m%F{white} %3~%f%{$reset_color%}%F{white}  "
-fi
+PS1="%n%F{white}@%f%{$reset_color%}%m%F{white} %3~%f%{$reset_color%}%F{red} ﴱ %{$reset_color%}"
 RPS1='%{$reset_color%} $(check_last_exit_code) ${vi_mode} $vcs_info_msg_0_%{$reset_color%}'
 
 # Alias, functions and keymaps
@@ -235,12 +196,7 @@ alias du='du -h'
 alias free='free -m'
 alias -g sn='sudo -E $(which "$EDITOR")' # Alternative to `sudoedit`, open with superuser privileges maintaining user configs
 alias -g s='sudoedit'
-
-if [[ -n ${TOOLBOX_PATH} ]]; then
-  alias n="nice -20 nvim --listen $NVIMREMOTE"
-else
-  alias n="toolbox run -c main nice -20 $(which nvim) --listen $NVIMREMOTE"
-fi
+alias n="toolbox run -c main nice -20 $(which nvim) --listen $NVIMREMOTE"
 
 # # Package managers
 # alias pac='sudo pacman -Syu --noconfirm' # Update
@@ -293,8 +249,8 @@ if type bat > /dev/null 2>&1; then
   alias bat='bat --theme ${themes[RANDOM%${#themes[@]}]} --italic-text=always'
 fi
 
-# Create python virtual environment with the name of the directory
-function venv() { NAME_ENV=$(basename $(pwd)); python -m venv .venv --prompt $NAME_ENV }
+# # Create python virtual environment with the name of the directory
+# function venv() { NAME_ENV=$(basename $(pwd)); python -m venv .venv --prompt $NAME_ENV }
 
 # Get your public ip
 function myip() { echo 'Your ip is:'; curl ipinfo.io/ip }
@@ -320,43 +276,6 @@ bindkey -M vicmd '^R' last-command # <C-r>
 function exit-proc() { exit; zle accept-line }
 zle -N exit-proc
 bindkey '^[c' exit-proc # <A-c>
-
-# Clone plugins repos
-function clone-plugins() {
-  mkdir -p "${ZDOTDIR}/plugins"
-  cd "${ZDOTDIR}/plugins"
-  git clone --depth=1 https://github.com/zsh-users/zsh-completions.git
-  git clone --depth=1 https://github.com/Aloxaf/fzf-tab
-  git clone --depth=1 https://github.com/hlissner/zsh-autopair
-  git clone --depth=1 https://github.com/romkatv/zsh-defer
-  git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions
-  git clone --depth=1 https://github.com/agkozak/zsh-z
-  git clone --depth=1 https://github.com/zsh-users/zsh-history-substring-search
-  git clone --depth=1 https://github.com/zdharma-continuum/fast-syntax-highlighting
-}
-
-# Extracting files
-function ex() {
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)  tar xjf $1;;
-      *.tar.gz)   tar xzf $1;;
-      *.tar.xz)   tar xJf $1;;
-      *.bz2)      bunzip2 $1;;
-      *.rar)      unrar x $1;;
-      *.gz)       gunzip $1;;
-      *.tar)      tar xf $1;;
-      *.tbz2)     tar xjf $1;;
-      *.tgz)      tar xzf $1;;
-      *.zip)      unzip $1 -d $(basename $1 .zip);;
-      *.Z)        uncompress $1;;
-      *.7z)       7z x $1 ;;
-      *)          echo "'$1' cannot be extracted via ex";;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
-}
 
 # Change title of the window to the working directory
 function change_title() {
@@ -465,19 +384,6 @@ function show_context() {
   exa -1ah --icons --colour-scale --group-directories-first -T -L1
 }
 
-function enter_venv() {
-  if [[ -z "${VIRTUAL_ENV}" ]]; then
-    if [[ -d ./.venv ]] ; then
-      source ./.venv/bin/activate
-    fi
-  else
-    parentdir="$(dirname "$VIRTUAL_ENV")"
-    if [[ "$PWD"/ != "$parentdir"/* ]] ; then
-      deactivate
-    fi
-  fi
-}
-
 chpwd_functions=(${chpwd_functions[@]} "show_context" "enter_venv") # This array is run each time the directory is changed
 
 # Automatically remove duplicates from these arrays
@@ -485,3 +391,4 @@ typeset -U path PATH cdpath CDPATH fpath FPATH manpath MANPATH
 
 # Make the prompt show up at the bottom of the terminal
 printf '\n%.0s' {1..100}
+source "${ZDOTDIR}/containers.zsh"

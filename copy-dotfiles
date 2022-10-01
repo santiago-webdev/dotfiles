@@ -21,6 +21,8 @@ cp -r "$HOME/.zshenv" .
 mkdir -p .config/zsh
 cp -r "$HOME/.config/zsh/.zshrc" .config/zsh
 cp -r "$HOME/.config/zsh/.zlogin" .config/zsh
+cp -r "$HOME/.config/zsh/containers.zsh" .config/zsh
+cp -r "$HOME/.config/zsh/utils.zsh" .config/zsh
 
 # Scripts
 mkdir -p .local/bin
