@@ -5,3 +5,5 @@
   ui = auto
 [core]
   editor = nvim
+[advice]
+  detachedHead = true

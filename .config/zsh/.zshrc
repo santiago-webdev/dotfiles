@@ -244,11 +244,6 @@ else
   alias grep='grep --color'
 fi
 
-if type bat > /dev/null 2>&1; then
-  themes=('1337' 'Coldark-Cold' 'Coldark-Dark' 'DarkNeon' 'Dracula' 'GitHub' 'Monokai Extended' 'Monokai Extended Bright' 'Monokai Extended Light' 'Monokai Extended Origin' 'Nord' 'OneHalfDark' 'OneHalfLight' 'Sublime Snazzy' 'TwoDark' 'Visual Studio Dark+' 'ansi' 'base16' 'base16-256' 'gruvbox-dark' 'gruvbox-light' 'zenburn')
-  alias bat='bat --theme ${themes[RANDOM%${#themes[@]}]} --italic-text=always'
-fi
-
 # # Create python virtual environment with the name of the directory
 # function venv() { NAME_ENV=$(basename $(pwd)); python -m venv .venv --prompt $NAME_ENV }
 
@@ -315,23 +310,13 @@ bindkey '^[v' edit-command-line
 bindkey -M vicmd '/' history-incremental-search-backward
 
 # Zsh-completions
+fpath=("${ZDOTDIR}/completion" $fpath)
 fpath=("${ZDOTDIR}/plugins/zsh-completions/src" $fpath)
 
-# Zsh-autopairs
-zsh-defer source "${ZDOTDIR}/plugins/zsh-autopair/autopair.zsh"
-
-# Fast-syntax-highlighting
-zsh-defer source "${ZDOTDIR}/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
-
-# Zsh-history-substring-search
-zsh-defer source "${ZDOTDIR}/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh"
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
-
 # Fzf-tab
-# zstyle ':fzf-tab:complete:nvim:*' fzf-preview 'bat --color=always --italic-text=always $realpath' # preview directory's content with exa when completing cd
-# zstyle ':fzf-tab:complete:cp:*' fzf-preview 'bat --color=always --italic-text=always $realpath' # preview directory's content with exa when completing cd
-# zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1a --colour-scale --icons --group-directories-first --color=always $realpath' # preview directory's content with exa when completing cd
+zstyle ':fzf-tab:complete:nvim:*' fzf-preview 'bat --color=always --italic-text=always $realpath'
+zstyle ':fzf-tab:complete:cp:*' fzf-preview 'bat --color=always --italic-text=always $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1a --colour-scale --icons --group-directories-first --color=always $realpath'
 function check_terminal_size() {
   if [[ "$LINES $COLUMNS" != "$previous_lines $previous_columns" ]]; then
     set_default_opts
@@ -353,12 +338,21 @@ function set_default_opts() {
 }
 
 set_default_opts && trap 'check_terminal_size' WINCH
-zsh-defer source "${ZDOTDIR}/plugins/fzf-tab/fzf-tab.plugin.zsh"
+zsh-defer source-file "${ZDOTDIR}/plugins/fzf-tab/fzf-tab.plugin.zsh"
 
-# Zsh-autosuggestions
-# `-t1` will make this plugin not load till you run one command on the current terminal
-# zsh-defer -t1 source "${ZDOTDIR}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
-zsh-defer source "${ZDOTDIR}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+# Zsh-autopairs
+zsh-defer source-file "${ZDOTDIR}/plugins/zsh-autopair/autopair.zsh"
+
+# Fast-syntax-highlighting
+zsh-defer source-file "${ZDOTDIR}/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+
+# Zsh-history-substring-search
+zsh-defer source-file "${ZDOTDIR}/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh"
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
+# Autosuggestions
+zsh-defer source-file "${ZDOTDIR}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 bindkey -M vicmd '^[a' autosuggest-accept
 bindkey -M viins '^[a' autosuggest-execute
 
@@ -366,29 +360,22 @@ bindkey -M viins '^[a' autosuggest-execute
 autoload change_title
 gitstatus
 
-# Package managers and other language specific tools
+# Package managers and other development specific tools
 
-# https://sdkman.io/install
-# curl -s "https://get.sdkman.io?rcupdate=false" | bash
-zsh-defer source-file "${HOME}/.local/lib/sdkman/bin/sdkman-init.sh" # SDKMAN
+# Java
+zsh-defer source-file "${HOME}/.local/lib/sdkman/bin/sdkman-init.sh" # SDKMAN!
 
-# https://www.haskell.org/ghcup/
-# curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+# Haskell
 zsh-defer source-file "${XDG_DATA_HOME}/ghcup/env" # ghcup-env
 
-zsh-defer source-file "${XDG_DATA_HOME}/cargo/env"
+# Rust
+zsh-defer source-file "${XDG_DATA_HOME}/cargo/env" # Cargo
+
+# JS
 # zsh-defer source-file "${NVM_DIR}/nvm.sh" # NVM
 
-# Actions when changing of directory
-function show_context() {
-  exa -1ah --icons --colour-scale --group-directories-first -T -L1
-}
+zsh-defer source-file "${ZDOTDIR}/containers.zsh"
 
 chpwd_functions=(${chpwd_functions[@]} "show_context" "enter_venv") # This array is run each time the directory is changed
-
-# Automatically remove duplicates from these arrays
-typeset -U path PATH cdpath CDPATH fpath FPATH manpath MANPATH
-
-# Make the prompt show up at the bottom of the terminal
-printf '\n%.0s' {1..100}
-source "${ZDOTDIR}/containers.zsh"
+typeset -U path PATH cdpath CDPATH fpath FPATH manpath MANPATH # Automatically remove duplicates from these arrays
+printf '\n%.0s' {1..100} # Make the prompt show up at the bottom of the terminal

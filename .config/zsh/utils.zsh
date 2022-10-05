@@ -63,6 +63,24 @@ function clone-plugins() {
   git clone --depth=1 https://github.com/zdharma-continuum/fast-syntax-highlighting
 }
 
+function setup-dev-env() {
+  # Completion for podman
+  mkdir "${ZDOTDIR}/completion"
+  podman completion zsh -f ${ZDOTDIR}/completion/_podman
+  rm -rf ${ZDOTDIR}/.zcompdump
+
+  # You can get fzf binary from releases to avoid having to layer fzf in fedora silverblue/kinoite or opensuse microos
+  # wget https://github.com/junegunn/fzf/releases/download/0.34.0/fzf-0.34.0-linux_amd64.tar.gz
+
+  # SDKMAN!
+  # https://sdkman.io/install
+  # curl -s "https://get.sdkman.io?rcupdate=false" | bash
+
+  # Haskell
+  # https://www.haskell.org/ghcup/
+  # curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+}
+
 # Extracting files
 function ex() {
   if [ -f $1 ] ; then
