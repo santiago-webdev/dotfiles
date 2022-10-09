@@ -69,7 +69,7 @@ function setup-dev-env() {
   podman completion zsh -f ${ZDOTDIR}/completion/_podman
   rm -rf ${ZDOTDIR}/.zcompdump
 
-  # You can get fzf binary from releases to avoid having to layer fzf in fedora silverblue/kinoite or opensuse microos
+  # Get fzf binary from releases
   # wget https://github.com/junegunn/fzf/releases/download/0.34.0/fzf-0.34.0-linux_amd64.tar.gz
 
   # SDKMAN!

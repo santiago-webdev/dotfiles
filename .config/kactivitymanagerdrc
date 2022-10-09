@@ -1,8 +1,0 @@
-[Plugins]
-org.kde.ActivityManager.VirtualDesktopSwitchEnabled=true
-
-[activities]
-19d28ce9-828a-445f-a5bc-09dd56bca8ab=Default
-
-[main]
-currentActivity=19d28ce9-828a-445f-a5bc-09dd56bca8ab
