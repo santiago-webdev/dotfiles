@@ -7,3 +7,5 @@
   editor = nvim
 [advice]
   detachedHead = true
+[init]
+	defaultBranch = main

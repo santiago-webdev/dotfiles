@@ -15,7 +15,9 @@ Command=toolbox enter main && exit
 InvertSelectionColors=true
 Name=MainToolbox
 Parent=FALLBACK/
+SemanticHints=2
 SemanticInputClick=true
+SemanticUpDown=true
 ShowTerminalSizeHint=true
 TerminalCenter=false
 TerminalColumns=500
@@ -40,3 +42,4 @@ ScrollFullPage=true
 
 [Terminal Features]
 BlinkingCursorEnabled=true
+PeekPrimaryKeySequence=Ctrl+Shift+M

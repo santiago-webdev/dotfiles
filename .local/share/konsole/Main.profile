@@ -1,4 +1,5 @@
 [Appearance]
+AntiAliasFonts=true
 BoldIntense=true
 ColorScheme=JetJBP
 Font=Iosevka Term,16,-1,5,50,0,0,0,0,0
@@ -14,7 +15,9 @@ UseCustomCursorColor=false
 InvertSelectionColors=true
 Name=Main
 Parent=FALLBACK/
+SemanticHints=2
 SemanticInputClick=true
+SemanticUpDown=true
 ShowTerminalSizeHint=true
 TerminalCenter=false
 TerminalColumns=500
@@ -39,3 +42,5 @@ ScrollFullPage=true
 
 [Terminal Features]
 BlinkingCursorEnabled=true
+PeekPrimaryKeySequence=Ctrl+Shift+M
+UrlHintsModifiers=0
