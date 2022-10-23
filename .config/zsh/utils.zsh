@@ -58,27 +58,41 @@ function clone-plugins() {
   git clone --depth=1 https://github.com/hlissner/zsh-autopair
   git clone --depth=1 https://github.com/romkatv/zsh-defer
   git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions
-  git clone --depth=1 https://github.com/agkozak/zsh-z
   git clone --depth=1 https://github.com/zsh-users/zsh-history-substring-search
   git clone --depth=1 https://github.com/zdharma-continuum/fast-syntax-highlighting
 }
 
 function setup-dev-env() {
-  # Completion for podman
-  mkdir "${ZDOTDIR}/completion"
-  podman completion zsh -f ${ZDOTDIR}/completion/_podman
-  rm -rf ${ZDOTDIR}/.zcompdump
+  mkdir "${ZDOTDIR}/completion" # Create directory to store completion
 
-  # Get fzf binary from releases
+  # TODO(santigo-zero): Define a local function to check if the tools are
+  # installed, if not run the scripts
+
+  # To get the fzf binary, chmod +x and put in in PATH
   # wget https://github.com/junegunn/fzf/releases/download/0.34.0/fzf-0.34.0-linux_amd64.tar.gz
 
   # SDKMAN!
   # https://sdkman.io/install
   # curl -s "https://get.sdkman.io?rcupdate=false" | bash
 
-  # Haskell
+  # GHCup
   # https://www.haskell.org/ghcup/
   # curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+
+  # Podman
+  podman completion zsh -f ${ZDOTDIR}/completion/_podman
+
+  # Rustup and Cargo
+  # https://rustup.rs/
+  # curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+  # Completion for rustup and cargo
+  rustup completions zsh rustup > ${ZDOTDIR}/completion/_rustup
+  rustup completions zsh cargo > ${ZDOTDIR}/completion/_cargo
+
+  rm -rf ${ZDOTDIR}/.zcompdump
+  rm -rf ${ZDOTDIR}/.zcompdump.zwc
+  echo 'Now you should run `exec zsh -l`'
 }
 
 # Extracting files

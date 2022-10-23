@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-ww -f org.kde.konsole -c konsole
+# ww -f org.kde.konsole -c konsole
+ww -f foot -c foot

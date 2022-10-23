@@ -1,47 +1,3 @@
-# zmodload zsh/zprof # Profiling zsh
-
-# Some keycodes for keybinds taken from a stackexchange answer
-# key[F1]        = '^[[[A'
-# key[F2]        = '^[[[B'
-# key[F3]        = '^[[[C'
-# key[F4]        = '^[[[D'
-# key[F5]        = '^[[[E'
-# key[F6]        = '^[[17~'
-# key[F7]        = '^[[18~'
-# key[F8]        = '^[[19~'
-# key[F9]        = '^[[20~'
-# key[F10]       = '^[[21~'
-# key[F11]       = '^[[23~'
-# key[F12]       = '^[[24~'
-# key[Shift-F1]  = '^[[25~'
-# key[Shift-F2]  = '^[[26~'
-# key[Shift-F3]  = '^[[28~'
-# key[Shift-F4]  = '^[[29~'
-# key[Shift-F5]  = '^[[31~'
-# key[Shift-F6]  = '^[[32~'
-# key[Shift-F7]  = '^[[33~'
-# key[Shift-F8]  = '^[[34~'
-# key[Insert]    = '^[[2~'
-# key[Delete]    = '^[[3~'
-# key[Home]      = '^[[1~'
-# key[End]       = '^[[4~'
-# key[PageUp]    = '^[[5~'
-# key[PageDown]  = '^[[6~'
-# key[Up]        = '^[[A'
-# key[Down]      = '^[[B'
-# key[Right]     = '^[[C'
-# key[Left]      = '^[[D'
-# key[Bksp]      = '^?'
-# key[Bksp-Alt]  = '^[^?'
-# key[Bksp-Ctrl] = '^H'    console only.
-# key[Esc]       = '^['    this is also alt depending on the terminal
-# key[Esc-Alt]   = '^[^['
-
-# autoload -U The option -U prevents alias from being expanded. That is, whenever
-# you define an alias and a function having the same name, the alias will be considered
-# first instead, so -U just skips alias expansion. And the option -z indicates that
-# the function will be auto-loaded using zsh or ksh style.
-
 function source-file() {
   # If the file exists source it, is like a protected call in lua
   if [[ -e "$1" ]]; then
@@ -53,6 +9,9 @@ autoload -Uz colors && colors
 
 # Zsh-defer
 source-file "${ZDOTDIR}/plugins/zsh-defer/zsh-defer.plugin.zsh"
+
+fpath+="${ZDOTDIR}/completion" # Other completions
+fpath+="${ZDOTDIR}/plugins/zsh-completions/src" # Zsh-completions
 
 # Completion settings
 autoload -Uz compinit # Compinit
@@ -90,6 +49,7 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower
 zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(..) ]] && reply=(..)'
 zstyle ':completion:*' matcher-list '' '+m:{[:lower:]}={[:upper:]}' '+m:{[:upper:]}={[:lower:]}' '+m:{_-}={-_}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' menu select
 
 # Setopt
 setopt MULTIOS # Perform implicit tees or cats when multiple redirections are attempted
@@ -222,6 +182,10 @@ alias -g gits='git stash'
 alias -g gitsp='git stash pop'
 alias -g gcs='git clone --depth=1'
 
+if type bat > /dev/null 2>&1; then
+  alias cat="bat -pp"
+fi
+
 if type exa > /dev/null 2>&1; then
   alias e='exa -lah --time-style=long-iso --icons --colour-scale --group-directories-first --git'
   alias teg='exa \
@@ -231,7 +195,7 @@ if type exa > /dev/null 2>&1; then
     --group-directories-first \
     -T -L4 \
     --git-ignore \
-    --git -I ".git|.gitignore|.styluaignore|.stylua.toml|README.*"'
+    --git -I ".git|.gitignore|.styluaignore|.stylua.toml|README.*|LICENSE"'
 else
   alias e='ls -lAhX --group-directories-first --color=auto'
   alias teg='ls -F --color=auto'
@@ -308,10 +272,6 @@ bindkey '^[v' edit-command-line
 
 # Search like in vim with /
 bindkey -M vicmd '/' history-incremental-search-backward
-
-# Zsh-completions
-fpath=("${ZDOTDIR}/completion" $fpath)
-fpath=("${ZDOTDIR}/plugins/zsh-completions/src" $fpath)
 
 # Fzf-tab
 zstyle ':fzf-tab:complete:nvim:*' fzf-preview 'bat --color=always --italic-text=always $realpath'

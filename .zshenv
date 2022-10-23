@@ -48,6 +48,9 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden' # fzf
 export NVIMREMOTE="${XDG_DATA_HOME}/nvim/nvim.pipe"
 # export GTK2_RC_FILES=${XDG_CONFIG_HOME}/gtk-2.0/gtkrc # This isn't going to work because KDE Plasma hardcodes the value
 
+# Flatpak related environment variables
+export PATH="$PATH:/var/lib/flatpak/exports/bin"
+
 # JS related environment variables
 export NPM_CONFIG_USERCONFIG=${XDG_CONFIG_HOME}/npm/npmrc # NPM
 export NPM_CONFIG_USERCONFIG=${XDG_CONFIG_HOME}/npm/npmrc;
@@ -62,6 +65,7 @@ export SDKMAN_DIR=${HOME}/.local/lib/sdkman # SDKMAN
 # Rust related environment variables
 export RUSTUP_HOME=${XDG_DATA_HOME}/rustup # Rustup
 export CARGO_HOME=${XDG_DATA_HOME:-$HOME/.local/share}/cargo # Cargo install dir
+export CARGO_INSTALL_ROOT=${XDG_DATA_HOME:-$HOME/.local/share}/cargo # Cargo install dir
 export PATH=$PATH:${XDG_DATA_HOME}/cargo/bin # Add cargo binaries to PATH
 
 # Haskell related environment variables

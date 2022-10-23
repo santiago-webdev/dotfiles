@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-# ww -f firefox -c firefox
-ww -fa librewolf -c "flatpak run io.gitlab.librewolf-community"
+ww -f firefox -c firefox
+# ww -fa librewolf -c "flatpak run io.gitlab.librewolf-community"

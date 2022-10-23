@@ -13,7 +13,6 @@ function show_context() {
 }
 
 if [[ -n ${TOOLBOX_PATH} ]]; then # We are inside a toolbox container.
-  alias cat="bat -pp"
   alias n="nice -20 nvim --listen $NVIMREMOTE"
 
   TOOLBOX_NAME=$(awk '/name=/{print $2}' FS='"' /run/.containerenv)
