@@ -131,7 +131,7 @@ zle -N cursor_shape
 autoload -Uz cursor_shape
 cursor_shape
 
-PS1="%n%F{white}@%f%{$reset_color%}%m%F{white} %3~%f%{$reset_color%}%F{yellow} ﴱ %{$reset_color%}"
+PS1="%n%F{green}@%f%{$reset_color%}%m%F{blue} %3~%f%{$reset_color%}%F{yellow} ﴱ %{$reset_color%}"
 RPS1='%{$reset_color%} $(check_last_exit_code) ${vi_mode} $vcs_info_msg_0_%{$reset_color%}'
 
 # Alias, functions and keymaps
