@@ -97,7 +97,7 @@ zmodload zsh/parameter
 autoload zcalc
 autoload zmv
 
-source "${ZDOTDIR}/utils.zsh" # Utils
+source-file "${ZDOTDIR}/utils.zsh" # Utils
 
 # Vi mode
 bindkey -v
