@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
-ww -f firefox -c firefox
+# ww -f firefox -c firefox
 # ww -fa librewolf -c "flatpak run io.gitlab.librewolf-community"
+ww -f firefoxdeveloperedition -c firefox-developer-edition

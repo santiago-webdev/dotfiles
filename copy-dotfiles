@@ -44,6 +44,10 @@ cp -r "$HOME/.local/share/konsole/MainToolbox.profile" .local/share/konsole
 mkdir -p .config/npm
 cp -r "$HOME/.config/npm/npmrc" .config/npm/
 
+# Foo Term
+mkdir -p .config/foot
+cp -r "$HOME/.config/foot/foot.ini" .config/foot
+
 # # Plasma config
 # cp -r "$HOME/.config/gtk-3.0" .config/
 # cp -r "$HOME/.config/gtk-4.0" .config/
