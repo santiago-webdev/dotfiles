@@ -1,5 +1,13 @@
 #!/usr/bin/env python
 
+# DESCRIPTION: This is a "simple" wrapper to mount/unmount encrypted devices, it was
+# created to mount one drive at a time, that uses the mapper cryptdata, which might be
+# changed in the future, you can use it as such:
+# To mount a drive:
+# drive.py /dev/sda1 --action=mount -o=defaults,noatime,autodefrag,compress-force=zstd:1,space_cache=v2,subvol=@
+# To unmount the drive that you mounted earlier:
+# drive.py /dev/sda1 --action=umount
+
 import argparse
 import os
 import sys
@@ -19,6 +27,7 @@ def get_args():
 
     parser.add_argument(
         "drive",
+        nargs="?",
         help="Drive that you want to mount, for example /dev/sda1.",
     )
 
@@ -49,7 +58,7 @@ class Drive:
     def __init__(self, drive, mount_point, action, opts) -> None:
         self.opts: str | None = opts
         self.action: str = action  # Will be evaluated in a match statement
-        self.drive: str = self.eval_drive(drive)
+        self.drive: str = drive
         self.dir: str = self.eval_mount_point(mount_point)
         self.crypt: str = "cryptdata"  # TODO(santigo-zero): Add a parser to change this
         self.mapper: str = f"/dev/mapper/{self.crypt}"
@@ -88,6 +97,7 @@ class Drive:
                 sys.exit(1)
 
     def mount(self) -> None:
+        self.eval_drive(self.drive)
         mount_drive = os.popen(f"sudo cryptsetup luksOpen {self.drive} {self.crypt}")
 
         # If the exit code doesn't exists on close() mount the crypt device
