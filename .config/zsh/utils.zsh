@@ -77,24 +77,6 @@ function setup-completion() {
   exec zsh -l
 }
 
-# TODO(santigo-zero): Define a local function to check if the tools are
-# installed, if not run the scripts
-
-# To get the fzf binary, chmod +x and put in in PATH
-# wget https://github.com/junegunn/fzf/releases/download/0.34.0/fzf-0.34.0-linux_amd64.tar.gz
-
-# SDKMAN!
-# https://sdkman.io/install
-# curl -s "https://get.sdkman.io?rcupdate=false" | bash
-
-# GHCup
-# https://www.haskell.org/ghcup/
-# curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
-
-# Rustup and Cargo
-# https://rustup.rs/
-# curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
 # Extracting files
 function ex() {
   if [ -f $1 ] ; then
@@ -124,6 +106,6 @@ function ex() {
 if [[ ! $(command -v paru) ]]
 then
   function paru() {
-    bash <(curl -L https://raw.githubusercontent.com/santigo-zero/managing-archlinux/master/25-aur)
+    cargo install paru
   }
 fi

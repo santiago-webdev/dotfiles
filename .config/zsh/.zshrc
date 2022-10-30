@@ -11,7 +11,7 @@ autoload -Uz colors && colors
 source-file "${ZDOTDIR}/plugins/zsh-defer/zsh-defer.plugin.zsh"
 
 fpath+="${ZDOTDIR}/completion" # Other completions
-fpath+="${ZDOTDIR}/plugins/zsh-completions/src" # Zsh-completions
+fpath+="${ZDOTDIR}/plugins/zsh-completions/src" # Zsh-completions plugin
 
 # Completion settings
 autoload -Uz compinit # Compinit
@@ -20,6 +20,20 @@ for dump in $ZDOTDIR/.zcompdump(N.mh+12); do # Twice a day it's updated
 done
 compinit -C # Basic auto/tab complete:
 _comp_options+=(globdots) # Include hidden files.
+
+# autoload -Uz bashcompinit
+# bashcompinit
+# # Having to cope with bashisms and other inferior completion systems that don't
+# # make any sense.
+# source "/home/st/.local/share/bash-completion/completions/distrobox"
+# source "/home/st/.local/share/bash-completion/completions/distrobox-create"
+# source "/home/st/.local/share/bash-completion/completions/distrobox-enter"
+# source "/home/st/.local/share/bash-completion/completions/distrobox-ephemeral"
+# source "/home/st/.local/share/bash-completion/completions/distrobox-generate-entry"
+# source "/home/st/.local/share/bash-completion/completions/distrobox-list"
+# source "/home/st/.local/share/bash-completion/completions/distrobox-rm"
+# source "/home/st/.local/share/bash-completion/completions/distrobox-stop"
+# source "/home/st/.local/share/bash-completion/completions/distrobox-upgrade"
 
 typeset -A __DOTS
 __DOTS[ITALIC_ON]=$'\e[3m'
@@ -333,9 +347,10 @@ zsh-defer source-file "${XDG_DATA_HOME}/cargo/env" # Cargo
 
 # JS
 # zsh-defer source-file "${NVM_DIR}/nvm.sh" # NVM
+# zsh-defer eval `fnm env`
 
 zsh-defer source-file "${ZDOTDIR}/containers.zsh"
 
 chpwd_functions=(${chpwd_functions[@]} "show_context" "enter_venv") # This array is run each time the directory is changed
 typeset -U path PATH cdpath CDPATH fpath FPATH manpath MANPATH # Automatically remove duplicates from these arrays
-printf '\n%.0s' {1..100} # Make the prompt show up at the bottom of the terminal
+# printf '\n%.0s' {1..100} # Make the prompt show up at the bottom of the terminal

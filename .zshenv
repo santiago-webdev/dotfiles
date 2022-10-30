@@ -30,10 +30,10 @@ export FPATH=${ZDOTDIR}/completion:$FPATH # Completion sources
 export LIBVA_DRIVER_NAME=iHD # Hardware acceleration
 export SUDO_EDITOR="nvim"
 export EDITOR="nvim"
-export BROWSER="firefox-developer-edition" # firefox brave firefox-developer-edition
+export BROWSER="firefox" # firefox brave firefox-developer-edition
 export MOZ_ENABLE_WAYLAND=1 # Wayland in Firefox
 export MOZ_USE_XINPUT2=1 # Pixel-perfect trackpad scrolling
-export TERMINAL="foot" # wezterm kitty konsole
+export TERMINAL="konsole" # wezterm kitty konsole foot
 export TERM="xterm-256color" # This is going to be xterm-kitty when running kitty.
 export COLORTERM="truecolor"
 export LESSHISTFILE="-"
@@ -49,7 +49,9 @@ export PATH="$PATH:/var/lib/flatpak/exports/bin"
 
 # JS related environment variables
 export NPM_CONFIG_USERCONFIG=${XDG_CONFIG_HOME}/npm/npmrc # NPM
-export NPM_CONFIG_USERCONFIG=${XDG_CONFIG_HOME}/npm/npmrc;
+export NPM_CONFIG_USERCONFIG=${XDG_CONFIG_HOME}/npm/npmrc
+export FNM_DIR="${XDG_DATA_HOME}/fnm"
+export PATH=$PATH:$FNM_DIR
 # export NVM_DIR=${XDG_DATA_HOME}/nvm # NVM
 
 # Golang related environment variables

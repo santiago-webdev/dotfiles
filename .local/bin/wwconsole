@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-# ww -f org.kde.konsole -c konsole
-ww -f foot -c footclient
+ww -f org.kde.konsole -c "konsole --profile main-toolbox"
+# ww -f foot -c footclient

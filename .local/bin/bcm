@@ -11,9 +11,9 @@ enable() {
   if [[ $get_state != 1 ]]
   then
     pkexec bash -c "echo 1 > ${driver}"
-    notify-send --app-name='Battery Conservation Mode' 'Enabled'
+    notify-send -i battery --app-name='Battery Conservation Mode' 'Enabled'
   else
-    notify-send --app-name='Battery Conservation Mode' 'Already enabled'
+    notify-send -i battery --app-name='Battery Conservation Mode' 'Already enabled'
   fi
 }
 
@@ -22,9 +22,9 @@ disable() {
   if [[ $get_state != 0 ]]
   then
     pkexec bash -c "echo 0 > ${driver}"
-    notify-send --app-name='Battery Conservation Mode' 'Disabled'
+    notify-send -i battery --app-name='Battery Conservation Mode' 'Disabled'
   else
-    notify-send --app-name='Battery Conservation Mode' 'Already disabled'
+    notify-send -i battery --app-name='Battery Conservation Mode' 'Already disabled'
   fi
 }
 

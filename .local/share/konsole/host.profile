@@ -12,8 +12,10 @@ CustomCursorColor=0,170,255
 UseCustomCursorColor=false
 
 [General]
+Command=/bin/zsh
+Environment=TERM=xterm-256color,COLORTERM=truecolor,TERMINAL=konsole
 InvertSelectionColors=true
-Name=Main
+Name=host
 Parent=FALLBACK/
 SemanticHints=2
 SemanticInputClick=true
@@ -33,7 +35,7 @@ TrimTrailingSpacesInSelectedText=true
 UnderlineFilesEnabled=true
 
 [Scrolling]
-HighlightScrolledLines=false
+HighlightScrolledLines=true
 HistoryMode=1
 HistorySize=10000
 ReflowLines=true
