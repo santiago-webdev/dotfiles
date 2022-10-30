@@ -6,7 +6,7 @@
 # To mount a drive:
 # drive.py /dev/sda1 --action=mount -o=defaults,noatime,autodefrag,compress-force=zstd:1,space_cache=v2,subvol=@
 # To unmount the drive that you mounted earlier:
-# drive.py /dev/sda1 --action=umount
+# drive.py --action=umount
 
 import argparse
 import os
