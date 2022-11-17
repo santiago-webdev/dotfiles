@@ -18,5 +18,7 @@ if [[ -n ${TOOLBOX_PATH} ]]; then # We are inside a toolbox container.
   TOOLBOX_NAME=$(awk '/name=/{print $2}' FS='"' /run/.containerenv)
   PS1="%n%F{green}@%{$reset_color%}${TOOLBOX_NAME}%{$reset_color%} %F{blue}%3~% %F{yellow}  %{$reset_color%}"
 
+  PS1=$'${(r:$COLUMNS::━:)}'$PS1
+
   enter_venv
 fi

@@ -35,6 +35,7 @@ cp -r "$HOME/.local/bin/wwconsole" .local/bin
 cp -r "$HOME/.local/bin/wwwebbrowser" .local/bin
 cp -r "$HOME/.local/bin/zzz" .local/bin
 cp -r "$HOME/.local/bin/drive.py" .local/bin
+cp -r "$HOME/.local/bin/_st_logout.sh" .local/bin
 
 # Konsole
 mkdir -p .local/share/konsole

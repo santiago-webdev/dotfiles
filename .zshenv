@@ -46,13 +46,15 @@ export NVIMREMOTE="${XDG_DATA_HOME}/nvim/nvim.pipe"
 
 # Flatpak related environment variables
 export PATH="$PATH:/var/lib/flatpak/exports/bin"
+export PATH="$PATH:$XDG_DATA_HOME/flatpak/exports/bin"
 
 # JS related environment variables
 export NPM_CONFIG_USERCONFIG=${XDG_CONFIG_HOME}/npm/npmrc # NPM
 export NPM_CONFIG_USERCONFIG=${XDG_CONFIG_HOME}/npm/npmrc
 export FNM_DIR="${XDG_DATA_HOME}/fnm"
 export PATH=$PATH:$FNM_DIR
-# export NVM_DIR=${XDG_DATA_HOME}/nvm # NVM
+# export NVM_DIR=${XDG_CONFIG_HOME}/nvm/nvm.sh # NVM
+# export NVM_SOURCE=${XDG_DATA_HOME}/nvm # NVM
 
 # Golang related environment variables
 export GOPATH="${XDG_DATA_HOME}"/go

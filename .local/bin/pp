@@ -27,10 +27,10 @@ SET_POWERPROFILE=$1 # You need to invoke the function with the power profile tha
 
 if [[ ! $SET_POWERPROFILE == "$GET_POWERPROFILE" ]]
 then
-  notify-send "Setting up the Power Profile to $SET_POWERPROFILE"
+  notify-send -i battery "Setting up the Power Profile to $SET_POWERPROFILE"
   powerprofilesctl set "$SET_POWERPROFILE"
 else
-  notify-send "Already setted Power Profile at $SET_POWERPROFILE"
+  notify-send -i battery "Already setted Power Profile at $SET_POWERPROFILE"
 fi
 }
 
@@ -45,10 +45,10 @@ SET_GOVERNOR=$1 # You need to invoke the function with the governor that you wan
 
 if [[ ! $SET_GOVERNOR == "$GET_GOVERNOR" ]]
 then
-  notify-send "Setting up the Governor to $SET_GOVERNOR"
+  notify-send -i battery "Setting up the Governor to $SET_GOVERNOR"
   pkexec bash -c "echo $SET_GOVERNOR | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
 else
-  notify-send "Already setted Governor at $SET_GOVERNOR"
+  notify-send -i battery "Already setted Governor at $SET_GOVERNOR"
 fi
 }
 
@@ -75,7 +75,7 @@ case "${1}" in
   *)
     PRINT_GOVERNOR=$(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor) # Check the setted governor
     PRINT_POWERPROFILE=$(powerprofilesctl get) # Check the setted power profile
-    notify-send \
+    notify-send -i battery \
       "Governor: $PRINT_GOVERNOR
           Power Profile: $PRINT_POWERPROFILE"
           ;;

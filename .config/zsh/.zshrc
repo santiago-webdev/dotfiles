@@ -170,7 +170,7 @@ alias du='du -h'
 alias free='free -m'
 alias -g sn='sudo -E $(which "$EDITOR")' # Alternative to `sudoedit`, open with superuser privileges maintaining user configs
 alias -g s='sudoedit'
-alias n="toolbox run -c main nice -20 $(which nvim) --listen $NVIMREMOTE"
+alias n="toolbox run -c main-toolbox nice -20 $(which nvim) --listen $NVIMREMOTE"
 
 # # Package managers
 # alias pac='sudo pacman -Syu --noconfirm' # Update
@@ -192,7 +192,7 @@ alias -g gd='git diff'
 alias -g gc='git checkout'
 alias -g gl='git log'
 alias -g gs='git status'
-alias -g gits='git stash'
+alias -g gits='git stash -u'
 alias -g gitsp='git stash pop'
 alias -g gcs='git clone --depth=1'
 
@@ -346,11 +346,14 @@ zsh-defer source-file "${XDG_DATA_HOME}/ghcup/env" # ghcup-env
 zsh-defer source-file "${XDG_DATA_HOME}/cargo/env" # Cargo
 
 # JS
-# zsh-defer source-file "${NVM_DIR}/nvm.sh" # NVM
+zsh-defer source-file "${XDG_CONFIG_HOME}/nvm/nvm.sh" # NVM
 # zsh-defer eval `fnm env`
 
 zsh-defer source-file "${ZDOTDIR}/containers.zsh"
 
-chpwd_functions=(${chpwd_functions[@]} "show_context" "enter_venv") # This array is run each time the directory is changed
+# chpwd_functions=(${chpwd_functions[@]} "show_context" "enter_venv") # This array is run each time the directory is changed
+chpwd_functions+=("show_context")
+chpwd_functions+=("enter_venv")
 typeset -U path PATH cdpath CDPATH fpath FPATH manpath MANPATH # Automatically remove duplicates from these arrays
-# printf '\n%.0s' {1..100} # Make the prompt show up at the bottom of the terminal
+printf '\n%.0s' {1..100} # Make the prompt show up at the bottom of the terminal
+PS1=$'${(r:$COLUMNS::━:)}'$PS1

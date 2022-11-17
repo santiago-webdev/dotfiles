@@ -100,6 +100,10 @@ function ex() {
   fi
 }
 
+function separator() {
+  printf '━%.0s' {1..$COLUMNS}
+}
+
 # If the `paru` binary can't be found we use a shell script written by me to get the
 # aur helper easily, so when I the user types `paru` everything will be
 # installed automatically.
