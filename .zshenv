@@ -8,14 +8,14 @@ export XDG_DATA_DIRS=/usr/local/share:/usr/share
 export XDG_CONFIG_DIRS=/etc/xdg
 
 # Change the xdg user directories
-xdg-user-dirs-update --set DESKTOP "$HOME"/.local/Desktop
-xdg-user-dirs-update --set DOWNLOAD "$HOME"/.local/Downloads
-xdg-user-dirs-update --set TEMPLATES "$HOME"/.local/Templates
-xdg-user-dirs-update --set PUBLICSHARE "$HOME"/.local/Public
-xdg-user-dirs-update --set DOCUMENTS "$HOME"/.local/Documents
-xdg-user-dirs-update --set MUSIC "$HOME"/.local/Music
-xdg-user-dirs-update --set PICTURES "$HOME"/.local/Pictures
-xdg-user-dirs-update --set VIDEOS "$HOME"/.local/Videos
+xdg-user-dirs-update --set DESKTOP "$HOME"/.local/Desktop > /dev/null 2>&1
+xdg-user-dirs-update --set DOWNLOAD "$HOME"/.local/Downloads > /dev/null 2>&1
+xdg-user-dirs-update --set TEMPLATES "$HOME"/.local/Templates > /dev/null 2>&1
+xdg-user-dirs-update --set PUBLICSHARE "$HOME"/.local/Public > /dev/null 2>&1
+xdg-user-dirs-update --set DOCUMENTS "$HOME"/.local/Documents > /dev/null 2>&1
+xdg-user-dirs-update --set MUSIC "$HOME"/.local/Music > /dev/null 2>&1
+xdg-user-dirs-update --set PICTURES "$HOME"/.local/Pictures > /dev/null 2>&1
+xdg-user-dirs-update --set VIDEOS "$HOME"/.local/Videos > /dev/null 2>&1
 
 # Manpagers
 if which bat >/dev/null

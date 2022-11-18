@@ -12,11 +12,11 @@ function show_context() {
   fi
 }
 
-if [[ -n ${TOOLBOX_PATH} ]]; then # We are inside a toolbox container.
+if [[ -f "/run/.containerenv" ]]; then # We are inside a toolbox container.
   alias n="nice -20 nvim --listen $NVIMREMOTE"
 
-  TOOLBOX_NAME=$(awk '/name=/{print $2}' FS='"' /run/.containerenv)
-  PS1="%n%F{green}@%{$reset_color%}${TOOLBOX_NAME}%{$reset_color%} %F{blue}%3~% %F{yellow}  %{$reset_color%}"
+  CONTAINER_NAME=$(awk '/name=/{print $2}' FS='"' /run/.containerenv)
+  PS1="%n%F{green}@%{$reset_color%}${CONTAINER_NAME}%{$reset_color%} %F{blue}%3~% %F{yellow}  %{$reset_color%}"
 
   PS1=$'${(r:$COLUMNS::━:)}'$PS1
 
