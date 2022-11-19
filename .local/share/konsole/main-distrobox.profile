@@ -12,10 +12,10 @@ CustomCursorColor=0,170,255
 UseCustomCursorColor=false
 
 [General]
-Command=toolbox enter main-toolbox
+Command=distrobox enter main
 Environment=TERM=xterm-256color,COLORTERM=truecolor,TERMINAL=konsole
 InvertSelectionColors=true
-Name=main-toolbox
+Name=main-distrobox
 Parent=FALLBACK/
 SemanticHints=2
 SemanticInputClick=true

@@ -41,6 +41,7 @@ cp -r "$HOME/.local/bin/_st_logout.sh" .local/bin
 mkdir -p .local/share/konsole
 cp -r "$HOME/.local/share/konsole/host.profile" .local/share/konsole
 cp -r "$HOME/.local/share/konsole/main-toolbox.profile" .local/share/konsole
+cp -r "$HOME/.local/share/konsole/main-distrobox.profile" .local/share/konsole
 
 # npm
 mkdir -p .config/npm

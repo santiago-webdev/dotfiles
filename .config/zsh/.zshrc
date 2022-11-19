@@ -170,7 +170,8 @@ alias du='du -h'
 alias free='free -m'
 alias -g sn='sudo -E $(which "$EDITOR")' # Alternative to `sudoedit`, open with superuser privileges maintaining user configs
 alias -g s='sudoedit'
-alias n="toolbox run -c main-toolbox nice -20 $(which nvim) --listen $NVIMREMOTE"
+# alias n="toolbox run -c main-toolbox nice -20 $(which nvim) --listen $NVIMREMOTE"
+alias n="nice -20 $(which nvim) --listen $NVIMREMOTE"
 
 # # Package managers
 # alias pac='sudo pacman -Syu --noconfirm' # Update
@@ -181,6 +182,7 @@ alias n="toolbox run -c main-toolbox nice -20 $(which nvim) --listen $NVIMREMOTE
 
 # Git
 alias -g ga='git add'
+alias -g gi='git init'
 alias -g gaa='git add --all'
 alias -g gco='git commit -v -m'
 alias -g gaaco='git add --all && git commit -v -m'
