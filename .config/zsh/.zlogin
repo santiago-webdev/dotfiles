@@ -5,8 +5,3 @@
         zcompile "$zcompdump"
     fi
 } &!
-
-typeset -U path PATH cdpath CDPATH fpath FPATH manpath MANPATH # Automatically remove duplicates from these arrays
-
-source "${CARGO_HOME}/env"
-source "${NVM_DIR}/nvm.sh"

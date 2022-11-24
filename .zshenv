@@ -27,15 +27,15 @@ export XDG_MUSIC_DIR="${HOME}/.local/Music"
 export XDG_PICTURES_DIR="${HOME}/.local/Pictures"
 export XDG_VIDEOS_DIR="${HOME}/.local/Videos"
 
-# Manpagers
-if which bat >/dev/null
-then
-  export MANPAGER="bash -c 'col -b | bat -l man -p'"
-fi
-export MANWIDTH=999
+# # Manpagers
+# if which bat >/dev/null
+# then
+#   export MANPAGER="bash -c 'col -b | bat -l man -p'"
+# fi
+# export MANWIDTH=999
 
 export ZDOTDIR="${HOME}/.config/zsh" # Zsh config
-export FPATH="${ZDOTDIR}/completion:${FPATH}" # Completion sources
+# export FPATH="${ZDOTDIR}/completion:${FPATH}" # Completion sources
 
 export LIBVA_DRIVER_NAME=iHD # Hardware acceleration
 export SUDO_EDITOR="nvim"
