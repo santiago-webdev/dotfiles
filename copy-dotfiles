@@ -14,14 +14,14 @@ cp -r "$HOME/.config/kitty/kitty.conf" .config/kitty
 
 # Wezterm
 mkdir -p .config/wezterm
-cp -r "$HOME/.config/wezterm" .config/
+cp -r "$HOME/.config/wezterm/wezterm.lua" .config/wezterm
 
 # Zsh
 cp -r "$HOME/.zshenv" .
 mkdir -p .config/zsh
 cp -r "$HOME/.config/zsh/.zshrc" .config/zsh
 cp -r "$HOME/.config/zsh/.zlogin" .config/zsh
-cp -r "$HOME/.config/zsh/containers.zsh" .config/zsh
+cp -r "$HOME/.config/zsh/.zprofile" .config/zsh
 cp -r "$HOME/.config/zsh/utils.zsh" .config/zsh
 
 # Scripts

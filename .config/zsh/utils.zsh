@@ -49,19 +49,6 @@ function gitstatus() {
   zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}❰%{$fg[red]%}%m%u%c%{$fg[yellow]%} %{$fg[magenta]%}%b%{$fg[blue]%}❱"
 }
 
-# Clone plugins repos
-function clone-plugins() {
-  mkdir -p "${ZDOTDIR}/plugins"
-  cd "${ZDOTDIR}/plugins"
-  git clone --depth=1 https://github.com/zsh-users/zsh-completions.git
-  git clone --depth=1 https://github.com/Aloxaf/fzf-tab
-  git clone --depth=1 https://github.com/hlissner/zsh-autopair
-  git clone --depth=1 https://github.com/romkatv/zsh-defer
-  git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions
-  git clone --depth=1 https://github.com/zsh-users/zsh-history-substring-search
-  git clone --depth=1 https://github.com/zdharma-continuum/fast-syntax-highlighting
-}
-
 function setup-completion() {
   mkdir "${ZDOTDIR}/completion" # Create directory to store completion
 
@@ -98,8 +85,4 @@ function ex() {
   else
     echo "'$1' is not a valid file"
   fi
-}
-
-function separator() {
-  printf '━%.0s' {1..$COLUMNS}
 }

@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-rm -f "$ZDOTDIR"/refer/{.zcompdump,.zcompdump.zwc}
+rm -f "$ZDOTDIR"/{.zcompdump,.zcompdump.zwc}
 zsh -l
-zcompile "$ZDOTDIR/refer/.zcompdump"
+zcompile "$ZDOTDIR/.zcompdump"
