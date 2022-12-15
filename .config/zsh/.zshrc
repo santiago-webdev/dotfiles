@@ -8,6 +8,36 @@ done
 compinit -C # Basic auto/tab complete:
 _comp_options+=(globdots) # Include hidden files.
 
+typeset -A __DOTS
+__DOTS[ITALIC_ON]=$'\e[3m'
+__DOTS[ITALIC_OFF]=$'\e[23m'
+
+zstyle ':completion:*' completer _expand_alias _complete _ignored # Expand aliases with TAB
+zstyle ':completion:*:git-checkout:*' sort false # disable sort when completing `git checkout`
+zstyle ':completion:*:descriptions' format '[%d]' # set descriptions format to enable group support
+zstyle ':completion:*' format %F{yellow}-- %B%U%{$__DOTS[ITALIC_ON]%}%d%{$__DOTS[ITALIC_OFF]%}%b%u --%f
+zstyle ':compinstall:filename' '/home/st/.config/zsh/.zshrc'
+zstyle ':completion:*:*:*:*:*' menu select=3 # If there's less than 3 items it will use normal tabs
+zstyle ':completion:*:history-words' menu yes # Activate menu
+zstyle ':completion:*:matches' group 'yes'
+zstyle ':completion:*:options' description 'yes'
+zstyle ':completion:*:options' auto-description '%d'
+zstyle ':completion:*:corrections' format ' %F{green}-- %d (errors: %e) --%f'
+zstyle ':completion:*:descriptions' format ' %F{yellow}-- %d --%f'
+zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
+zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
+zstyle ':completion:*:default' list-prompt '%S%M matches%s'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':autocomplete:*' min-delay 0.0  # Float
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|?=** r:|?=**'
+zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(..) ]] && reply=(..)'
+zstyle ':completion:*' matcher-list '' '+m:{[:lower:]}={[:upper:]}' '+m:{[:upper:]}={[:lower:]}' '+m:{_-}={-_}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' menu select
+
 # Options
 setopt MULTIOS # Perform implicit tees or cats when multiple redirections are attempted
 setopt ALIASES # Enable the use of aliases
@@ -56,8 +86,9 @@ autoload zmv
 
 source "${ZDOTDIR}/utils.zsh" # Utils
 
-PS1="%n%F{green}@%f%{$reset_color%}%m%F{blue} %3~%f%{$reset_color%}%F{yellow} ﴱ %{$reset_color%}"
-RPS1='%{$reset_color%} $(check_last_exit_code) $vcs_info_msg_0_%{$reset_color%}'
+# PS1='%n%F{green}@%f%m%F{blue} %3~%f%{$reset_color%}%F{yellow} ﴱ %{$reset_color%}'
+PS1='%n%F{white}@%{$reset_color%}%m %F{white}%1~%{$reset_color%}$(check_last_exit_code)$vcs_info_msg_0_ %{$reset_color%} '
+# RPS1='%{$reset_color%}  $vcs_info_msg_0_%{$reset_color%}'
 
 # Alias, functions and keymaps
 alias -g ...="../.."
@@ -79,6 +110,7 @@ alias df="df -h -P --total --exclude-type=devtmpfs 2>/dev/null"
 alias du="du -h"
 alias free="free -m"
 alias n="nvim"
+alias nz='nvim -u "${XDG_CONFIG_HOME}/nvim/lazy.lua"'
 
 # Git
 alias -g ga="git add"
@@ -96,6 +128,8 @@ alias -g gl="git log"
 alias -g gs="git status"
 alias -g gits="git stash -u"
 alias -g gitsp="git stash pop"
+alias -g gr="git restore"
+alias -g grs="git reset"
 gcs ()
 {
   # git clone --depth=1 "$@" && cd
@@ -198,7 +232,7 @@ bindkey -M viins '^[q' exit-proc # <A-q>
 bindkey -M vicmd '^[q' exit-proc # <A-q>
 
 # Zap
-[ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh" ||
+[ -f "${XDG_DATA_HOME}/zap/zap.zsh" ] && source "${XDG_DATA_HOME}/zap/zap.zsh" ||
   zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.sh)
 
 if [[ $(which plug) ]] then
@@ -245,4 +279,7 @@ fi
 typeset -U path PATH cdpath CDPATH fpath FPATH manpath MANPATH # Automatically remove duplicates from these arrays
 
 source "${CARGO_HOME}/env"
-source "${NVM_DIR}/nvm.sh"
+
+# fnm
+export PATH="/home/st/.local/share/fnm:$PATH"
+eval "`fnm env`"

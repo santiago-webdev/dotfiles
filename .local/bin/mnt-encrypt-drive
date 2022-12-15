@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# NOTE: This script is deprecated. I'll be using ~/.local/bin/drive.py
+# https://github.com/santigo-zero/dotfiles/blob/master/.local/bin/drive.py#L3-L9
 # Usage:
 # mnt-encrypt-drive wipe /dev/sda1
 # mnt-encrypt-drive mount /dev/sda1

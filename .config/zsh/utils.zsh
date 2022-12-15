@@ -46,7 +46,8 @@ function gitstatus() {
   }
 
   zstyle ':vcs_info:*' check-for-changes true
-  zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}❰%{$fg[red]%}%m%u%c%{$fg[yellow]%} %{$fg[magenta]%}%b%{$fg[blue]%}❱"
+  # zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}❰%{$fg[red]%}%m%u%c%{$fg[yellow]%} %{$fg[magenta]%}%b%{$fg[blue]%}❱"
+  zstyle ':vcs_info:git:*' formats " %{$fg[red]%}%m%u%c%{$fg[yellow]%} %{$fg[magenta]%}%b"
 }
 
 function setup-completion() {

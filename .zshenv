@@ -60,7 +60,13 @@ export PATH="${PATH}:$XDG_DATA_HOME/flatpak/exports/bin"
 # JS related environment variables
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc" # NPM
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
-export NVM_DIR="${HOME}/.config/nvm"
+# export NVM_DIR="${HOME}/.config/nvm"
+
+# Fnm
+export PATH="/home/st/.local/share/fnm:${PATH}"
+
+# Yarn
+export PATH="${PATH}:$(yarn global bin)"
 
 # Golang related environment variables
 export GOPATH="${XDG_DATA_HOME}/go"
