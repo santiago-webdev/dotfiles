@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 
-git clone https://github.com/santigo-zero/dotfiles.git
-
-cd dotfiles || exit
+if ! command -v git &> /dev/null
+then
+	curl -OL https://github.com/santigo-zero/dotfiles/archive/refs/heads/master.zip
+	unzip master.zip
+	cd dotfiles-master || exit
+else
+	git clone https://github.com/santigo-zero/dotfiles.git
+	cd dotfiles || exit
+fi
 
 rsync --verbose \
     --recursive \
@@ -11,5 +17,3 @@ rsync --verbose \
     . "$HOME"
 
 cd "$HOME" || exit
-
-rm -r dotfiles

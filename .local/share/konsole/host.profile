@@ -12,7 +12,7 @@ CustomCursorColor=0,170,255
 UseCustomCursorColor=false
 
 [General]
-Command=/bin/zsh
+Command=/bin/bash
 Environment=TERM=xterm-256color,COLORTERM=truecolor,TERMINAL=konsole
 InvertSelectionColors=true
 Name=host

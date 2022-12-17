@@ -15,9 +15,9 @@ export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_STATE_HOME="${HOME}/.local/state"
-export XDG_RUNTIME_DIR="/run/user/${UID}"
-export XDG_DATA_DIRS="/usr/local/share:/usr/share"
-export XDG_CONFIG_DIRS="/etc/xdg"
+# export XDG_RUNTIME_DIR="/run/user/${UID}"
+# export XDG_DATA_DIRS="/usr/local/share:/usr/share"
+# export XDG_CONFIG_DIRS="/etc/xdg"
 export XDG_DESKTOP_DIR="${HOME}/.local/Desktop"
 export XDG_DOWNLOAD_DIR="${HOME}/.local/Downloads"
 export XDG_TEMPLATES_DIR="${HOME}/.local/Templates"
@@ -27,12 +27,12 @@ export XDG_MUSIC_DIR="${HOME}/.local/Music"
 export XDG_PICTURES_DIR="${HOME}/.local/Pictures"
 export XDG_VIDEOS_DIR="${HOME}/.local/Videos"
 
-# # Manpagers
-# if which bat >/dev/null
-# then
-#   export MANPAGER="bash -c 'col -b | bat -l man -p'"
-# fi
-# export MANWIDTH=999
+# Manpagers
+if which bat >/dev/null
+then
+  export MANPAGER="bash -c 'col -b | bat -l man -p'"
+fi
+export MANWIDTH=999
 
 export ZDOTDIR="${HOME}/.config/zsh" # Zsh config
 # export FPATH="${ZDOTDIR}/completion:${FPATH}" # Completion sources
@@ -66,7 +66,7 @@ export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 export PATH="/home/st/.local/share/fnm:${PATH}"
 
 # Yarn
-export PATH="${PATH}:$(yarn global bin)"
+# export PATH="${PATH}:$(yarn global bin)"
 
 # Golang related environment variables
 export GOPATH="${XDG_DATA_HOME}/go"

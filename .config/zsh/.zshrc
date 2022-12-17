@@ -188,7 +188,8 @@ bindkey -M vicmd '^\' accept-and-hold # Vi command mode
 # Edit the command with an external text editor with <A-v> in insert mode
 autoload -Uz edit-command-line
 zle -N edit-command-line
-bindkey '^[v' edit-command-line
+bindkey -M viins '^[v' edit-command-line
+bindkey -M vicmd '^[v' edit-command-line
 
 # Search like in vim with /
 bindkey -M vicmd '/' history-incremental-search-backward
@@ -278,8 +279,9 @@ fi
 
 typeset -U path PATH cdpath CDPATH fpath FPATH manpath MANPATH # Automatically remove duplicates from these arrays
 
-source "${CARGO_HOME}/env"
-
 # fnm
 export PATH="/home/st/.local/share/fnm:$PATH"
+
+# Zap
 eval "`fnm env`"
+[ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
