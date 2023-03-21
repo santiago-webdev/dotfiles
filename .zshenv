@@ -61,6 +61,8 @@ export PATH="${PATH}:$XDG_DATA_HOME/flatpak/exports/bin"
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc" # NPM
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 # export NVM_DIR="${HOME}/.config/nvm"
+export PNPM_HOME="${XDG_DATA_HOME}/pnpm"
+export PATH="${PATH}:${PNPM_HOME}"
 
 # Fnm
 export PATH="/home/st/.local/share/fnm:${PATH}"

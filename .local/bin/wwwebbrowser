@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
-ww -f firefox -c firefox
+# I hate flatpaks, nothing of this works.
+
+# This is a wrapper to launch the flatpak firefox
+ww -f firefox -c "$HOME/.local/bin/firefox"
+# ww -f j -c "$HOME/.local/bin/firefox"
+# ww -f brave-browser -c "$HOME/.local/bin/brave"
+# ww -fa brave-browser -c "$HOME/.local/bin/brave"
+# ww -f brave-browser
+
 # ww -fa librewolf -c "flatpak run io.gitlab.librewolf-community"
 # ww -f firefoxdeveloperedition -c firefox-developer-edition

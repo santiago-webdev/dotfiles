@@ -224,7 +224,7 @@ chpwd_functions+=("show_context")
 chpwd_functions+=("enter_venv")
 
 printf '\n%.0s' {1..100} # Make the prompt show up at the bottom of the terminal
-PS1=$'${(r:$COLUMNS::━:)}'$PS1 # Puts a separation between each prompt
+# PS1=$'${(r:$COLUMNS::━:)}'$PS1 # Puts a separation between each prompt
 
 # `exit` == <A-q>
 exit-proc() { exit; zle accept-line }
