@@ -2,20 +2,24 @@
 AntiAliasFonts=true
 BoldIntense=true
 ColorScheme=JetJBP
-EmojiFont=Noto Color Emoji,14,-1,5,50,0,0,0,0,0
+EmojiFont=Noto Color Emoji,18,-1,5,50,0,0,0,0,0
 Font=Monospace,18,-1,5,50,0,0,0,0,0
 LineSpacing=1
 TabColor=35,33,54,0
 UseFontLineChararacters=false
 WordModeAttr=false
+WordModeBrahmic=true
 
 [Cursor Options]
-CustomCursorColor=0,170,255
-UseCustomCursorColor=false
+CustomCursorColor=255,255,0
+CustomCursorTextColor=0,0,0
+UseCustomCursorColor=true
 
 [General]
+AlternatingBackground=2
 Command=distrobox enter main
 Environment=TERM=xterm-256color,COLORTERM=truecolor,TERMINAL=konsole
+ErrorBackground=2
 InvertSelectionColors=true
 Name=main-distrobox
 Parent=FALLBACK/
