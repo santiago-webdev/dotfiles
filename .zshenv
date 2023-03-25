@@ -49,7 +49,7 @@ export COLORTERM="truecolor"
 export LESSHISTFILE="-"
 export KEYTIMEOUT=1
 export ZETTELPY_DIR="${HOME}/.zettels"
-# export CDPATH="${HOME}/workspace" # Add directories to CDPATH
+export CDPATH="${HOME}/workspace" # Add directories to CDPATH
 export PATH="${HOME}/.local/bin:${PATH}" # Binaries
 export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden" # fzf
 

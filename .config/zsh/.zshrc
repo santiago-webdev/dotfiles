@@ -87,7 +87,7 @@ autoload zmv
 source "${ZDOTDIR}/utils.zsh" # Utils
 
 # PS1='%n%F{green}@%f%m%F{blue} %3~%f%{$reset_color%}%F{yellow} ﴱ %{$reset_color%}'
-PS1='%n%F{white}@%{$reset_color%}%m %F{white}%1~%{$reset_color%}$(check_last_exit_code)$vcs_info_msg_0_ %{$reset_color%} '
+PS1='%n%F{white}@%{$reset_color%}%m %F{white}%1~%{$reset_color%}$(check_last_exit_code)$vcs_info_msg_0_ %F{cyan} '
 # RPS1='%{$reset_color%}  $vcs_info_msg_0_%{$reset_color%}'
 
 # Alias, functions and keymaps
@@ -229,8 +229,8 @@ printf '\n%.0s' {1..100} # Make the prompt show up at the bottom of the terminal
 # `exit` == <A-q>
 exit-proc() { exit; zle accept-line }
 zle -N exit-proc
-bindkey -M viins '^[q' exit-proc # <A-q>
-bindkey -M vicmd '^[q' exit-proc # <A-q>
+bindkey -M viins '^[c' exit-proc # <A-q>
+bindkey -M vicmd '^[c' exit-proc # <A-q>
 
 # Zap
 [ -f "${XDG_DATA_HOME}/zap/zap.zsh" ] && source "${XDG_DATA_HOME}/zap/zap.zsh" ||

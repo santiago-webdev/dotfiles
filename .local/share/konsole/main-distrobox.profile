@@ -2,10 +2,12 @@
 AntiAliasFonts=true
 BoldIntense=true
 ColorScheme=JetJBP
-Font=Iosevka Term,19,-1,5,50,0,0,0,0,0
-LineSpacing=0
+EmojiFont=Noto Color Emoji,14,-1,5,50,0,0,0,0,0
+Font=Monospace,18,-1,5,50,0,0,0,0,0
+LineSpacing=1
 TabColor=35,33,54,0
 UseFontLineChararacters=false
+WordModeAttr=false
 
 [Cursor Options]
 CustomCursorColor=0,170,255

@@ -26,7 +26,7 @@ class Drive:
         print("\nPrinting stats:")
         print("The device ->", self.device)
         print("Action to take on the device ->", self.action)
-        if self.action == 'umount':
+        if self.action == "umount":
             print("The device was mounted at ->", self.dir)
         else:
             print("Mount directory for the device ->", self.dir)
@@ -56,7 +56,7 @@ class Drive:
                 return self.umount()
             case other:
                 print(f"Unknown command: {other!r}.")
-                sys.exit(1)
+                return sys.exit(1)
 
     def mount(self) -> str:
         self.eval_drive(self.device)
@@ -130,7 +130,7 @@ def parse_args() -> argparse.Namespace:
 def main():
     args = parse_args()
     drive = Drive(args.device, args.mount_point, args.action, args.options)
-    action = drive.take_action()
+    drive.take_action()
     drive.print_stats()
 
 

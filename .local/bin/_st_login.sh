@@ -7,11 +7,4 @@ distrobox enter main
 rm -rf \
   ~/.bash_history \
   ~/.bashrc \
-  ~/.profile \
   ~/.wget-hsts
-
-# Update flatpak for the simple reason that I don't want to worry about it.
-flatpak upgrade -y
-
-# # Start firefox
-# firefox
