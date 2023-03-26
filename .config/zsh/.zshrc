@@ -215,30 +215,39 @@ autoload show_context
 # zstyle ':vcs_info:git:*' formats "%s  %r/%S %b (%a) %m%u%c "
 
 # Git Status
-function gitstatus() {
-  autoload -Uz vcs_info
-  zstyle ':vcs_info:*' enable git svn
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn
 
-  # Setup a hook that runs before every ptompt.
-  function precmd_vcs_info() {
-    vcs_info
-  }
-  precmd_functions+=(precmd_vcs_info)
-
-  zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
-
-  function +vi-git-untracked() {
-    if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
-      git status --porcelain | grep '??' &> /dev/null ; then
-        hook_com[staged]+='!' # Signify new files with a bang
-    fi
-  }
-
-  zstyle ':vcs_info:*' check-for-changes true
-  # zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}❰%{$fg[red]%}%m%u%c%{$fg[yellow]%} %{$fg[magenta]%}%b%{$fg[blue]%}❱"
-  zstyle ':vcs_info:git:*' formats " %{$fg[red]%}%m%u%c%{$fg[yellow]%} %{$fg[magenta]%}%b"
+# Setup a hook that runs before every ptompt.
+function precmd_vcs_info() {
+  vcs_info
 }
-gitstatus
+precmd_functions+=(precmd_vcs_info)
+
+zstyle ':vcs_info:git*+set-message:*' hooks git-untracked git-st
+
+function +vi-git-untracked() {
+  if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+    git status --porcelain | grep '??' &> /dev/null ; then
+      hook_com[staged]+='!' # Signify new files with a bang
+  fi
+}
+
+function +vi-git-st() {
+  local ahead behind
+  local -a gitstatus
+
+  ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)
+  (( $ahead )) && gitstatus+=( "󰐗 ${ahead} " )
+
+  behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)
+  (( $behind )) && gitstatus+=( "󰍶 ${behind} " )
+
+  hook_com[misc]+=${(j:/:)gitstatus}
+}
+
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:git:*' formats " %{$fg[red]%}%m%u%c%{$fg[yellow]%} %{$fg[magenta]%}%b"
 
 PS1='%n%F{white}@%{$reset_color%}%m %F{white}%1~ %{$reset_color%}%F{cyan} '
 RPS1='$(check_last_exit_code) ${vcs_info_msg_0_} %{$reset_color%}'

@@ -15,7 +15,7 @@ WordModeBrahmic=true
 [Cursor Options]
 CustomCursorColor=255,255,0
 CustomCursorTextColor=0,0,0
-UseCustomCursorColor=true
+UseCustomCursorColor=false
 
 [General]
 AlternatingBackground=2
@@ -54,6 +54,6 @@ ScrollFullPage=true
 BidiLineLTR=true
 BidiRenderingEnabled=true
 BidiTableDirOverride=true
-BlinkingCursorEnabled=true
+BlinkingCursorEnabled=false
 PeekPrimaryKeySequence=Ctrl+Shift+M
 UrlHintsModifiers=0
