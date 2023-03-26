@@ -86,10 +86,6 @@ autoload zmv
 
 source "${ZDOTDIR}/utils.zsh" # Utils
 
-# PS1='%n%F{green}@%f%m%F{blue} %3~%f%{$reset_color%}%F{yellow} ﴱ %{$reset_color%}'
-PS1='%n%F{white}@%{$reset_color%}%m %F{white}%1~%{$reset_color%}$(check_last_exit_code)$vcs_info_msg_0_ %F{cyan} '
-# RPS1='%{$reset_color%}  $vcs_info_msg_0_%{$reset_color%}'
-
 # Alias, functions and keymaps
 alias -g ...="../.."
 alias -g ....="../../.."
@@ -203,6 +199,7 @@ function change_window_title() {
       ;;
   esac
 }
+autoload change_window_title
 
 function show_context() {
   if [[ -f "/run/.containerenv" ]]; then # We are inside container.
@@ -211,26 +208,55 @@ function show_context() {
     ls -1a
   fi
 }
-
-# Load some functions
-autoload change_window_title
 autoload show_context
+
+# autoload -Uz vcs_info
+# precmd() { vcs_info }
+# zstyle ':vcs_info:git:*' formats "%s  %r/%S %b (%a) %m%u%c "
+
+# Git Status
+function gitstatus() {
+  autoload -Uz vcs_info
+  zstyle ':vcs_info:*' enable git svn
+
+  # Setup a hook that runs before every ptompt.
+  function precmd_vcs_info() {
+    vcs_info
+  }
+  precmd_functions+=(precmd_vcs_info)
+
+  zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
+
+  function +vi-git-untracked() {
+    if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+      git status --porcelain | grep '??' &> /dev/null ; then
+        hook_com[staged]+='!' # Signify new files with a bang
+    fi
+  }
+
+  zstyle ':vcs_info:*' check-for-changes true
+  # zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}❰%{$fg[red]%}%m%u%c%{$fg[yellow]%} %{$fg[magenta]%}%b%{$fg[blue]%}❱"
+  zstyle ':vcs_info:git:*' formats " %{$fg[red]%}%m%u%c%{$fg[yellow]%} %{$fg[magenta]%}%b"
+}
 gitstatus
 
-fpath+="${ZDOTDIR}/completion" # Other completions
-# fpath+="${ZDOTDIR}/plugins/zsh-completions/src" # Zsh-completions plugin
-
-chpwd_functions+=("show_context")
-chpwd_functions+=("enter_venv")
+PS1='%n%F{white}@%{$reset_color%}%m %F{white}%1~ %{$reset_color%}%F{cyan} '
+RPS1='$(check_last_exit_code) ${vcs_info_msg_0_} %{$reset_color%}'
 
 printf '\n%.0s' {1..100} # Make the prompt show up at the bottom of the terminal
-# PS1=$'${(r:$COLUMNS::━:)}'$PS1 # Puts a separation between each prompt
+PS1=$'${(r:$COLUMNS::─:)}'$PS1 # Puts a separation between each prompt
 
 # `exit` == <A-q>
 exit-proc() { exit; zle accept-line }
 zle -N exit-proc
 bindkey -M viins '^[c' exit-proc # <A-q>
 bindkey -M vicmd '^[c' exit-proc # <A-q>
+
+fpath+="${ZDOTDIR}/completion" # Other completions
+# fpath+="${ZDOTDIR}/plugins/zsh-completions/src" # Zsh-completions plugin
+
+chpwd_functions+=("show_context")
+chpwd_functions+=("enter_venv")
 
 # Zap
 [ -f "${XDG_DATA_HOME}/zap/zap.zsh" ] && source "${XDG_DATA_HOME}/zap/zap.zsh" ||

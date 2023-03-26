@@ -37,6 +37,7 @@ export MANWIDTH=999
 export ZDOTDIR="${HOME}/.config/zsh" # Zsh config
 # export FPATH="${ZDOTDIR}/completion:${FPATH}" # Completion sources
 
+export LANG='en_US.UTF-8'
 export LIBVA_DRIVER_NAME=iHD # Hardware acceleration
 export SUDO_EDITOR="nvim"
 export EDITOR="nvim"

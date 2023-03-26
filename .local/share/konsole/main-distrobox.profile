@@ -2,11 +2,13 @@
 AntiAliasFonts=true
 BoldIntense=true
 ColorScheme=JetJBP
-EmojiFont=Noto Color Emoji,18,-1,5,50,0,0,0,0,0
-Font=Monospace,18,-1,5,50,0,0,0,0,0
+EmojiFont=Noto Color Emoji,22,-1,5,50,0,0,0,0,0
+Font=Iosevka Term,18,-1,5,50,0,0,0,0,0
 LineSpacing=1
 TabColor=35,33,54,0
 UseFontLineChararacters=false
+WordMode=true
+WordModeAscii=true
 WordModeAttr=false
 WordModeBrahmic=true
 
@@ -49,6 +51,9 @@ ScrollBarPosition=2
 ScrollFullPage=true
 
 [Terminal Features]
+BidiLineLTR=true
+BidiRenderingEnabled=true
+BidiTableDirOverride=true
 BlinkingCursorEnabled=true
 PeekPrimaryKeySequence=Ctrl+Shift+M
 UrlHintsModifiers=0
