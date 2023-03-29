@@ -7,4 +7,5 @@ distrobox enter main
 rm -rf \
   ~/.bash_history \
   ~/.bashrc \
+  ~/.viminfo \
   ~/.wget-hsts
