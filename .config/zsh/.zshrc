@@ -268,9 +268,10 @@ chpwd_functions+=("show_context")
 chpwd_functions+=("enter_venv")
 
 # Zap
-[ -f "${XDG_DATA_HOME}/zap/zap.zsh" ] && source "${XDG_DATA_HOME}/zap/zap.zsh" ||
-  zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.sh)
+eval "`fnm env`"
+[ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
 
+# Zap
 if [[ $(which plug) ]] then
   plug "zdharma-continuum/fast-syntax-highlighting"
 
@@ -316,7 +317,3 @@ typeset -U path PATH cdpath CDPATH fpath FPATH manpath MANPATH # Automatically r
 
 # fnm
 export PATH="/home/st/.local/share/fnm:$PATH"
-
-# Zap
-eval "`fnm env`"
-[ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
