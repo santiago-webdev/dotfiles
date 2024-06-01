@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Exec=warm-up-containers.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=Warm Up Containers
+Comment=Start containers at login

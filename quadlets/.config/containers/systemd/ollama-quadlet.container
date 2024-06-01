@@ -1,0 +1,26 @@
+[Unit]
+Description=Autostart the ollama server
+Wants=network-online.target
+After=network-online.target
+StartLimitIntervalSec=60
+StartLimitBurst=3
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=900
+RestartSec=10
+
+[Container]
+Image=docker.io/ollama/ollama:latest
+# --label "io.containers.autoupdate=registry"
+AutoUpdate=registry
+ContainerName=%p
+Volume=ollama:/root/.ollama
+# Default port mapping
+PublishPort=11434:11434
+PodmanArgs=--cpus=4
+PodmanArgs=--memory=6g
+# Environment=OLLAMA_ORIGINS="app://obsidian.md*"
+
+[Install]
+WantedBy=default.target

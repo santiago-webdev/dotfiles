@@ -1,0 +1,22 @@
+[Unit]
+Description=Open WebUI container
+# Wants=ollama-quadlet.service
+After=ollama-quadlet.service
+StartLimitIntervalSec=60
+StartLimitBurst=3
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=900
+RestartSec=10
+
+[Container]
+Image=ghcr.io/open-webui/open-webui:main
+ContainerName=%p
+Volume=open-webui:/app/backend/data
+PublishPort=8181:8080
+PodmanArgs=--add-host host.docker.internal:host-gateway
+Environment=WEBUI_AUTH=False
+
+[Install]
+WantedBy=default.target
