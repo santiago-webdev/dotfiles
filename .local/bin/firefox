@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-# This is a wrapper just for `vite dev` and others tools that can't find
-# firefox since I'm using the flatpak version.
-flatpak run org.mozilla.firefox "$@"

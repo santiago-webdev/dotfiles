@@ -1,7 +1,0 @@
-[Desktop Entry]
-Exec=foot --server
-Icon=dialog-scripts
-Name=server for foo terminal
-Path=
-Type=Application
-X-KDE-AutostartScript=true

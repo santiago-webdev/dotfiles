@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-ww -f org.kde.konsole -c "konsole --profile main-distrobox"
-# ww -f foot -c footclient
-# ww -f kitty -c kitty
