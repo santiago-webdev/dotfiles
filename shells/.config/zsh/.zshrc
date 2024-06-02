@@ -133,7 +133,7 @@ else
 fi
 
 # PS1='%n%F{white}@%{$reset_color%}%m %F{white}%1~ %{$reset_color%}%F{cyan}${CONTAINER_INDICATOR}'
-PS1='%n %F{white}%1~ %{$reset_color%}%F{cyan}${CONTAINER_INDICATOR}'
+PS1='%n %F{cyan}%1~ %{$reset_color%}%F{cyan}${CONTAINER_INDICATOR}'
 RPS1='$(check_last_exit_code) ${vcs_info_msg_0_} %{$reset_color%}'
 
 # This has to go after the prompt, else it gets overwritten

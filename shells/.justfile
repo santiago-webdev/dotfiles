@@ -31,18 +31,21 @@ flatpaks:
 #     echo "Now install Panel Colorizer"
 
 gnome-extensions:
-    xdg-open https://extensions.gnome.org/extension/615/appindicator-support/
-    xdg-open https://extensions.gnome.org/extension/5500/auto-activities/
-    xdg-open https://extensions.gnome.org/extension/3193/blur-my-shell/
-    xdg-open https://extensions.gnome.org/extension/517/caffeine/
-    xdg-open https://extensions.gnome.org/extension/307/dash-to-dock/
-    xdg-open https://extensions.gnome.org/extension/6072/fullscreen-to-empty-workspace/
-    xdg-open https://extensions.gnome.org/extension/5410/grand-theft-focus/
     xdg-open https://extensions.gnome.org/extension/1319/gsconnect/
-    xdg-open https://extensions.gnome.org/extension/545/hide-top-bar/
-    xdg-open https://extensions.gnome.org/extension/2992/ideapad/
+    xdg-open https://extensions.gnome.org/extension/1500/containers/
     xdg-open https://extensions.gnome.org/extension/2236/night-theme-switcher/
+    xdg-open https://extensions.gnome.org/extension/2992/ideapad/
+    xdg-open https://extensions.gnome.org/extension/307/dash-to-dock/
+    xdg-open https://extensions.gnome.org/extension/3193/blur-my-shell/
     xdg-open https://extensions.gnome.org/extension/4687/server-status-indicator/
+    xdg-open https://extensions.gnome.org/extension/517/caffeine/
+    xdg-open https://extensions.gnome.org/extension/5410/grand-theft-focus/
+    xdg-open https://extensions.gnome.org/extension/5500/auto-activities/
+    xdg-open https://extensions.gnome.org/extension/6072/fullscreen-to-empty-workspace/
+    xdg-open https://extensions.gnome.org/extension/6072/fullscreen-to-empty-workspace/
+    xdg-open https://extensions.gnome.org/extension/615/appindicator-support/
+    xdg-open https://extensions.gnome.org/extension/6343/window-gestures/
+    xdg-open https://github.com/amarullz/windowgestures
 
 alias q := quadlets
 
