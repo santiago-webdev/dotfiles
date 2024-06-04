@@ -14,3 +14,5 @@
         remotes = remote -v
         dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d" # Remove branches that have already been merged with master
         contributors = shortlog --summary --numbered # List contributors with number of commits
+[init]
+	defaultBranch = main

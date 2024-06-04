@@ -5,6 +5,7 @@ export XDG_STATE_HOME=$HOME/.local/state
 
 export PATH="$PATH:$HOME/.local/share/flatpak/exports/bin"
 export PATH="$PATH:/var/lib/flatpak/exports/bin"
+export PATH="$HOME/.local/bin:$PATH"
 
 export CARGO_HOME=$XDG_DATA_HOME/cargo
 export RUSTUP_HOME=$XDG_DATA_HOME/rustup
