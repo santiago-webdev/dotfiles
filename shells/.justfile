@@ -9,17 +9,23 @@ flatpaks:
     flatpak install flathub -y --user \
       ca.desrt.dconf-editor \
       com.brave.Browser \
-      com.logseq.Logseq \
       com.discordapp.Discord \
       com.github.tchx84.Flatseal \
-      org.keepassxc.KeePassXC \
-      org.gnome.Fractal \
+      com.github.wwmm.easyeffects \
+      com.logseq.Logseq \
       de.haeckerfelix.Fragments \
       io.github.celluloid_player.Celluloid \
-      org.mozilla.Thunderbird \
       md.obsidian.Obsidian \
       net.mkiol.SpeechNote \
-      com.github.wwmm.easyeffects \
+      org.gnome.Epiphany \
+      org.gnome.Fractal \
+      org.gnome.World.Secrets \
+      org.gnome.seahorse.Application \
+      org.inkscape.Inkscape \
+      org.keepassxc.KeePassXC \
+      org.mozilla.Thunderbird
+
+    flatpak run --command=gsettings org.gnome.Epiphany set org.gnome.Epiphany.web:/org/gnome/epiphany/web/ enable-webextensions true
 
     flatpak install -y --user org.gnome.Ptyxis.Devel
 
@@ -45,7 +51,9 @@ gnome-extensions:
     xdg-open https://extensions.gnome.org/extension/6072/fullscreen-to-empty-workspace/
     xdg-open https://extensions.gnome.org/extension/615/appindicator-support/
     xdg-open https://extensions.gnome.org/extension/6343/window-gestures/
-    xdg-open https://github.com/amarullz/windowgestures
+    xdg-open https://extensions.gnome.org/extension/4012/gnome-bedtime/
+    xdg-open https://extensions.gnome.org/extension/277/impatience/
+    xdg-open https://extensions.gnome.org/extension/779/clipboard-indicator/
 
 alias q := quadlets
 
