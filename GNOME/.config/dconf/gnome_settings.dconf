@@ -13,7 +13,7 @@ logo-position='bottom-right'
 logo-size=5.0
 
 [org/gnome/control-center]
-last-panel='search'
+last-panel='keyboard'
 window-state=(980, 640, false)
 
 [org/gnome/desktop/a11y]
@@ -180,13 +180,14 @@ idle-delay=uint32 480
 [org/gnome/desktop/wm/keybindings]
 begin-move=@as []
 close=['<Super>c']
-maximize=['<Super>Return']
+maximize=@as []
 move-to-monitor-down=['<Super>j']
 move-to-monitor-up=['<Super>k']
 move-to-workspace-left=['<Shift><Super>h']
 move-to-workspace-right=['<Shift><Super>l']
 switch-to-workspace-left=['<Alt><Super>h']
 switch-to-workspace-right=['<Alt><Super>l']
+toggle-maximized=['<Super>Return']
 
 [org/gnome/desktop/wm/preferences]
 action-middle-click-titlebar='minimize'
@@ -244,8 +245,8 @@ volume-step=1
 app-picker-layout=[{'com.brave.Browser.desktop': <{'position': <0>}>, 'org.gnome.Contacts.desktop': <{'position': <1>}>, 'org.gnome.Weather.desktop': <{'position': <2>}>, 'org.gnome.clocks.desktop': <{'position': <3>}>, 'org.gnome.Maps.desktop': <{'position': <4>}>, 'org.gnome.Snapshot.desktop': <{'position': <5>}>, 'io.github.celluloid_player.Celluloid.desktop': <{'position': <6>}>, 'ca.desrt.dconf-editor.desktop': <{'position': <7>}>, 'org.gnome.Calculator.desktop': <{'position': <8>}>, 'com.discordapp.Discord.desktop': <{'position': <9>}>, 'com.github.wwmm.easyeffects.desktop': <{'position': <10>}>, 'org.gnome.Settings.desktop': <{'position': <11>}>, 'org.gnome.SystemMonitor.desktop': <{'position': <12>}>, 'org.gnome.Extensions.desktop': <{'position': <13>}>, 'Utilities': <{'position': <14>}>, 'com.github.tchx84.Flatseal.desktop': <{'position': <15>}>, 'org.gnome.Fractal.desktop': <{'position': <16>}>, 'de.haeckerfelix.Fragments.desktop': <{'position': <17>}>, 'org.keepassxc.KeePassXC.desktop': <{'position': <18>}>, 'com.logseq.Logseq.desktop': <{'position': <19>}>, 'md.obsidian.Obsidian.desktop': <{'position': <20>}>}, {'net.mkiol.SpeechNote.desktop': <{'position': <0>}>, 'org.mozilla.Thunderbird.desktop': <{'position': <1>}>, 'org.gnome.Calendar.desktop': <{'position': <2>}>, 'org.gnome.Nautilus.desktop': <{'position': <3>}>, 'general.desktop': <{'position': <4>}>, 'org.gnome.Epiphany.WebApp_603928f9cc068da0e39f47f70192ce638589fc88.desktop': <{'position': <5>}>, 'org.gnome.World.Secrets.desktop': <{'position': <6>}>, 'org.gnome.Software.desktop': <{'position': <7>}>, 'org.gnome.Terminal.desktop': <{'position': <8>}>, 'org.gnome.TextEditor.desktop': <{'position': <9>}>, 'code.desktop': <{'position': <10>}>, 'org.gnome.Epiphany.desktop': <{'position': <11>}>, 'org.gnome.Epiphany.WebApp_558865a16feb9f751b8bcebf46a954afbeba0b24.desktop': <{'position': <12>}>}]
 disable-extension-version-validation=false
 disable-user-extensions=false
-disabled-extensions=['background-logo@fedorahosted.org', 'launch-new-instance@gnome-shell-extensions.gcampax.github.com', 'Rounded_Corners@lennart-k', 'gnomebedtime@ionutbortis.gmail.com', 'ideapad@laurento.frittella', 'mullvadindicator@pobega.github.com']
-enabled-extensions=['appindicatorsupport@rgcjonas.gmail.com', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'gnome-ui-tune@itstime.tech', 'nightthemeswitcher@romainvigier.fr', 'gsconnect@andyholmes.github.io', 'grand-theft-focus@zalckos.github.com', 'dash-to-dock@micxgx.gmail.com', 'blur-my-shell@aunetx', 'auto-activities@CleoMenezesJr.github.io', 'caffeine@patapon.info', 'impatience@gfxmonk.net', 'panel-corners@aunetx', 'fullscreen-to-empty-workspace@aiono.dev', 'windowgestures@extension.amarullz.com', 'clipboard-indicator@tudmotu.com', 'ideapad@laurento.frittella', 'containers@royg']
+disabled-extensions=['background-logo@fedorahosted.org', 'launch-new-instance@gnome-shell-extensions.gcampax.github.com', 'Rounded_Corners@lennart-k', 'gnomebedtime@ionutbortis.gmail.com', 'mullvadindicator@pobega.github.com', 'ideapad@laurento.frittella']
+enabled-extensions=['appindicatorsupport@rgcjonas.gmail.com', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'gnome-ui-tune@itstime.tech', 'nightthemeswitcher@romainvigier.fr', 'gsconnect@andyholmes.github.io', 'grand-theft-focus@zalckos.github.com', 'dash-to-dock@micxgx.gmail.com', 'blur-my-shell@aunetx', 'auto-activities@CleoMenezesJr.github.io', 'caffeine@patapon.info', 'impatience@gfxmonk.net', 'panel-corners@aunetx', 'fullscreen-to-empty-workspace@aiono.dev', 'windowgestures@extension.amarullz.com', 'clipboard-indicator@tudmotu.com', 'containers@royg']
 favorite-apps=['org.gnome.Ptyxis.Devel.desktop', 'org.mozilla.firefox.desktop', 'com.logseq.Logseq.desktop']
 last-selected-power-profile='performance'
 remember-mount-password=true
@@ -284,7 +285,7 @@ pipeline='pipeline_default'
 pipeline='pipeline_default'
 
 [org/gnome/shell/extensions/caffeine]
-indicator-position-max=1
+indicator-position-max=4
 
 [org/gnome/shell/extensions/dash-to-dock]
 apply-custom-theme=true
@@ -348,10 +349,10 @@ show-icon-only-when-connected=false
 speed-factor=0.5
 
 [org/gnome/shell/extensions/nightthemeswitcher/time]
-location=(-34.597508809131611, -68.335599999999999)
+location=(-34.606641747875429, -68.335599999999999)
 nightthemeswitcher-ondemand-keybinding=['<Shift><Super>t']
-sunrise=8.9995332447001815
-sunset=18.087597496594896
+sunrise=9.0000027346681648
+sunset=18.087196913439683
 
 [org/gnome/shell/extensions/panel-corners]
 panel-corner-opacity=0.40000000000000002

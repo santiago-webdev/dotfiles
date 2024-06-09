@@ -40,6 +40,7 @@ gnome-extensions:
     xdg-open https://extensions.gnome.org/extension/1319/gsconnect/
     xdg-open https://extensions.gnome.org/extension/1500/containers/
     xdg-open https://extensions.gnome.org/extension/2236/night-theme-switcher/
+    xdg-open https://extensions.gnome.org/extension/277/impatience/
     xdg-open https://extensions.gnome.org/extension/2992/ideapad/
     xdg-open https://extensions.gnome.org/extension/307/dash-to-dock/
     xdg-open https://extensions.gnome.org/extension/3193/blur-my-shell/
@@ -48,12 +49,11 @@ gnome-extensions:
     xdg-open https://extensions.gnome.org/extension/5410/grand-theft-focus/
     xdg-open https://extensions.gnome.org/extension/5500/auto-activities/
     xdg-open https://extensions.gnome.org/extension/6072/fullscreen-to-empty-workspace/
-    xdg-open https://extensions.gnome.org/extension/6072/fullscreen-to-empty-workspace/
     xdg-open https://extensions.gnome.org/extension/615/appindicator-support/
     xdg-open https://extensions.gnome.org/extension/6343/window-gestures/
-    xdg-open https://extensions.gnome.org/extension/4012/gnome-bedtime/
-    xdg-open https://extensions.gnome.org/extension/277/impatience/
     xdg-open https://extensions.gnome.org/extension/779/clipboard-indicator/
+    xdg-open https://extensions.gnome.org/extension/4481/forge/
+    xdg-open https://extensions.gnome.org/extension/3396/color-picker/
 
 alias q := quadlets
 
