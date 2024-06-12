@@ -4,37 +4,42 @@ flatpaks:
     #!/usr/bin/env bash
 
     flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-    flatpak remote-add --if-not-exists --user gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
+    # flatpak remote-add --if-not-exists --user gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
 
     flatpak install flathub -y --user \
-      ca.desrt.dconf-editor \
-      com.brave.Browser \
       com.discordapp.Discord \
-      com.github.tchx84.Flatseal \
       com.github.wwmm.easyeffects \
       com.logseq.Logseq \
-      de.haeckerfelix.Fragments \
-      io.github.celluloid_player.Celluloid \
       md.obsidian.Obsidian \
-      net.mkiol.SpeechNote \
-      org.gnome.Epiphany \
-      org.gnome.Fractal \
-      org.gnome.World.Secrets \
-      org.gnome.seahorse.Application \
-      org.inkscape.Inkscape \
       org.keepassxc.KeePassXC \
       org.mozilla.Thunderbird
 
-    flatpak run --command=gsettings org.gnome.Epiphany set org.gnome.Epiphany.web:/org/gnome/epiphany/web/ enable-webextensions true
-
-    flatpak install -y --user org.gnome.Ptyxis.Devel
+# flatpak run --command=gsettings org.gnome.Epiphany set org.gnome.Epiphany.web:/org/gnome/epiphany/web/ enable-webextensions true
+# ca.desrt.dconf-editor \
+# com.brave.Browser \
+# com.github.tchx84.Flatseal \
+# de.haeckerfelix.Fragments \
+# io.github.celluloid_player.Celluloid \
+# net.mkiol.SpeechNote \
+# org.gnome.Epiphany \
+# org.gnome.Fractal \
+# org.gnome.World.Secrets \
+# org.gnome.seahorse.Application \
+# org.inkscape.Inkscape \
+# flatpak install -y --user org.gnome.Ptyxis.Devel
 
 # kdeplasma-extensions:
 #     echo "Installing Dynamic Workspaces like GNOME"
-#     git clone https://github.com/d86leader/dynamic_workspaces.git
+#     git clone --depth=1 https://github.com/d86leader/dynamic_workspaces.git
 #     cd dynamic_workspaces
 #     kpackagetool6 --type KWin/Script --install .
-#     echo "Now install Panel Colorizer"
+# 
+#     echo "Installing MACsimize like Mac"
+#     git clone --depth=1 https://github.com/Ubiquitine/MACsimize6
+#     cd MACsimize6
+#     kpackagetool6 --type KWin/Script --install .
+#     
+#     echo "Now install Panel Colorizer manually"""
 
 gnome-extensions:
     xdg-open https://extensions.gnome.org/extension/1319/gsconnect/
