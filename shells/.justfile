@@ -4,29 +4,34 @@ flatpaks:
     #!/usr/bin/env bash
 
     flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-    # flatpak remote-add --if-not-exists --user gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
+    flatpak remote-add --if-not-exists --user gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
 
     flatpak install flathub -y --user \
+      ca.desrt.dconf-editor \
+      com.brave.Browser \
       com.discordapp.Discord \
+      com.github.tchx84.Flatseal \
+      com.github.tenderowl.frog \
       com.github.wwmm.easyeffects \
       com.logseq.Logseq \
+      de.haeckerfelix.Fragments \
+      io.github.celluloid_player.Celluloid \
       md.obsidian.Obsidian \
+      org.gnome.Epiphany \
+      org.gnome.Fractal \
+      org.gnome.seahorse.Application \
+      org.inkscape.Inkscape \
       org.keepassxc.KeePassXC \
-      org.mozilla.Thunderbird
+      org.mozilla.Thunderbird \
+      org.nickvision.money \
+      org.nickvision.tubeconverter
 
-# flatpak run --command=gsettings org.gnome.Epiphany set org.gnome.Epiphany.web:/org/gnome/epiphany/web/ enable-webextensions true
-# ca.desrt.dconf-editor \
-# com.brave.Browser \
-# com.github.tchx84.Flatseal \
-# de.haeckerfelix.Fragments \
-# io.github.celluloid_player.Celluloid \
+    flatpak run --command=gsettings org.gnome.Epiphany set org.gnome.Epiphany.web:/org/gnome/epiphany/web/ enable-webextensions true
+    flatpak install -y --user org.gnome.Ptyxis.Devel
+
 # net.mkiol.SpeechNote \
-# org.gnome.Epiphany \
-# org.gnome.Fractal \
 # org.gnome.World.Secrets \
-# org.gnome.seahorse.Application \
 # org.inkscape.Inkscape \
-# flatpak install -y --user org.gnome.Ptyxis.Devel
 
 # kdeplasma-extensions:
 #     echo "Installing Dynamic Workspaces like GNOME"
@@ -39,26 +44,25 @@ flatpaks:
 #     cd MACsimize6
 #     kpackagetool6 --type KWin/Script --install .
 #     
-#     echo "Now install Panel Colorizer manually"""
+#     echo "Now install Panel Colorizer manually"
+#     echo "Application Title Bar too"
 
 gnome-extensions:
-    xdg-open https://extensions.gnome.org/extension/1319/gsconnect/
-    xdg-open https://extensions.gnome.org/extension/1500/containers/
-    xdg-open https://extensions.gnome.org/extension/2236/night-theme-switcher/
-    xdg-open https://extensions.gnome.org/extension/277/impatience/
-    xdg-open https://extensions.gnome.org/extension/2992/ideapad/
-    xdg-open https://extensions.gnome.org/extension/307/dash-to-dock/
-    xdg-open https://extensions.gnome.org/extension/3193/blur-my-shell/
-    xdg-open https://extensions.gnome.org/extension/4687/server-status-indicator/
-    xdg-open https://extensions.gnome.org/extension/517/caffeine/
-    xdg-open https://extensions.gnome.org/extension/5410/grand-theft-focus/
-    xdg-open https://extensions.gnome.org/extension/5500/auto-activities/
-    xdg-open https://extensions.gnome.org/extension/6072/fullscreen-to-empty-workspace/
     xdg-open https://extensions.gnome.org/extension/615/appindicator-support/
-    xdg-open https://extensions.gnome.org/extension/6343/window-gestures/
+    xdg-open https://extensions.gnome.org/extension/5500/auto-activities/
+    xdg-open https://extensions.gnome.org/extension/3193/blur-my-shell/
+    xdg-open https://extensions.gnome.org/extension/517/caffeine/
     xdg-open https://extensions.gnome.org/extension/779/clipboard-indicator/
-    xdg-open https://extensions.gnome.org/extension/4481/forge/
     xdg-open https://extensions.gnome.org/extension/3396/color-picker/
+    xdg-open https://extensions.gnome.org/extension/307/dash-to-dock/
+    xdg-open https://extensions.gnome.org/extension/6072/fullscreen-to-empty-workspace/
+    xdg-open https://extensions.gnome.org/extension/5410/grand-theft-focus/
+    xdg-open https://extensions.gnome.org/extension/1319/gsconnect/
+    xdg-open https://extensions.gnome.org/extension/2992/ideapad/
+    xdg-open https://extensions.gnome.org/extension/2236/night-theme-switcher/
+    xdg-open https://extensions.gnome.org/extension/6343/window-gestures/
+    xdg-open https://extensions.gnome.org/extension/1336/run-or-raise/
+    xdg-open https://extensions.gnome.org/extension/5060/xremap/
 
 alias q := quadlets
 
@@ -68,6 +72,15 @@ quadlets:
     systemctl --user start syncthing-quadlet
     systemctl --user start ollama-quadlet
     systemctl --user start open-webui-quadlet
+
+configure-keymaps:
+    echo "Beware, this can break updates, since you'll be mutating /etc files and cargo has to be installed"
+    echo "Dotfiles for xremap are in my dotfiles repo, and they need to be stow before running this step"
+    cargo install xremap --features gnome
+    grep -E '^input:' /usr/lib/group | sudo tee -a /etc/group
+    sudo usermod -aG input $USER
+    echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/input.rules
+    systemctl --user enable --now xremap.service
 
 brew:
     #!/usr/bin/env bash

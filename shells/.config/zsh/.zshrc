@@ -395,6 +395,15 @@ autoload -Uz change_window_title
 change_window_title
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
+
 eval "$(fzf --zsh)"
 eval "$(fnm env --use-on-cd)"
 source "$SDKMAN_DIR/bin/sdkman-init.sh"

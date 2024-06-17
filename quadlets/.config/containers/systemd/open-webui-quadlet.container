@@ -1,6 +1,6 @@
 [Unit]
 Description=Open WebUI container
-# Wants=ollama-quadlet.service
+Wants=ollama-quadlet.service
 After=ollama-quadlet.service
 StartLimitIntervalSec=60
 StartLimitBurst=3

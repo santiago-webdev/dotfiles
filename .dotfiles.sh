@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
-# stow -t ~/ --no-folding * --adopt
+rm -rf README.md
 stow -t ~/ --no-folding * -R
+git restore  README.md
