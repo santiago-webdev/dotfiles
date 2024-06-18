@@ -10,10 +10,12 @@ flatpaks:
       ca.desrt.dconf-editor \
       com.brave.Browser \
       com.discordapp.Discord \
+      com.github.finefindus.eyedropper \
       com.github.tchx84.Flatseal \
       com.github.tenderowl.frog \
       com.github.wwmm.easyeffects \
       com.logseq.Logseq \
+      com.mattjakeman.ExtensionManager \
       de.haeckerfelix.Fragments \
       io.github.celluloid_player.Celluloid \
       md.obsidian.Obsidian \
@@ -26,8 +28,9 @@ flatpaks:
       org.nickvision.money \
       org.nickvision.tubeconverter
 
+    flatpak install fedora -y --user com.github.hluk.copyq
+    flatpak install gnome-nightly -y --user org.gnome.Ptyxis.Devel
     flatpak run --command=gsettings org.gnome.Epiphany set org.gnome.Epiphany.web:/org/gnome/epiphany/web/ enable-webextensions true
-    flatpak install -y --user org.gnome.Ptyxis.Devel
 
 # net.mkiol.SpeechNote \
 # org.gnome.World.Secrets \
