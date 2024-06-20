@@ -1,9 +1,0 @@
-[Unit]
-Description=Run xremap with config at startup
-
-[Service]
-ExecStart=/home/st/.local/share/cargo/bin/xremap /home/st/.config/xremap/config.yml --watch
-Restart=on-failure
-
-[Install]
-WantedBy=default.target

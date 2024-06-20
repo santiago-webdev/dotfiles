@@ -1,13 +1,13 @@
 [ca/desrt/dconf-editor]
-saved-pathbar-path='c'
-saved-view='/org/gnome/settings-daemon/plugins/media-keys/volume-step'
+saved-pathbar-path='/org/gnome/desktop/interface/monospace-font-name'
+saved-view='/org/gnome/desktop/interface/monospace-font-name'
 show-warning=false
 window-height=500
 window-is-maximized=true
 window-width=540
 
 [org/gnome/control-center]
-last-panel='display'
+last-panel='keyboard'
 window-state=(980, 640, false)
 
 [org/gnome/desktop/a11y]
@@ -70,14 +70,14 @@ document-font-name='Medium 11.4'
 font-hinting='medium'
 font-name='Manrope Regular 11.4'
 locate-pointer=false
-monospace-font-name='Iosevka Term 15'
+monospace-font-name='Iosevka Term Medium 15'
 toolkit-accessibility=true
 
 [org/gnome/desktop/media-handling]
 autorun-never=true
 
 [org/gnome/desktop/notifications]
-application-children=['org-gnome-settings', 'org-mozilla-firefox', 'com-discordapp-discord', 'org-gnome-terminal', 'org-gnome-software', 'org-gnome-tweaks', 'org-gnome-epiphany', 'io-github-celluloid-player-celluloid', 'gnome-power-panel', 'com-github-hluk-copyq']
+application-children=['org-gnome-settings', 'org-mozilla-firefox', 'com-discordapp-discord', 'org-gnome-terminal', 'org-gnome-software', 'org-gnome-tweaks', 'org-gnome-epiphany', 'io-github-celluloid-player-celluloid', 'gnome-power-panel', 'com-github-hluk-copyq', 'org-gnome-extensions']
 
 [org/gnome/desktop/notifications/application/com-discordapp-discord]
 application-id='com.discordapp.Discord.desktop'
@@ -93,6 +93,9 @@ application-id='io.github.celluloid_player.Celluloid.desktop'
 
 [org/gnome/desktop/notifications/application/org-gnome-epiphany]
 application-id='org.gnome.Epiphany.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-extensions]
+application-id='org.gnome.Extensions.desktop'
 
 [org/gnome/desktop/notifications/application/org-gnome-settings]
 application-id='org.gnome.Settings.desktop'
@@ -111,6 +114,7 @@ application-id='org.mozilla.firefox.desktop'
 
 [org/gnome/desktop/peripherals/keyboard]
 delay=uint32 177
+numlock-state=false
 repeat-interval=uint32 5
 
 [org/gnome/desktop/peripherals/mouse]
@@ -139,6 +143,9 @@ sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gn
 
 [org/gnome/desktop/session]
 idle-delay=uint32 300
+
+[org/gnome/desktop/wm/keybindings]
+close=['<Super>c']
 
 [org/gnome/desktop/wm/preferences]
 auto-raise=true
@@ -185,8 +192,8 @@ volume-step=3
 
 [org/gnome/shell]
 app-picker-layout=[{'com.brave.Browser.desktop': <{'position': <0>}>, 'org.gnome.Contacts.desktop': <{'position': <1>}>, 'org.gnome.Weather.desktop': <{'position': <2>}>, 'org.gnome.clocks.desktop': <{'position': <3>}>, 'org.gnome.Maps.desktop': <{'position': <4>}>, 'org.gnome.Calendar.desktop': <{'position': <5>}>, 'org.gnome.Snapshot.desktop': <{'position': <6>}>, 'io.github.celluloid_player.Celluloid.desktop': <{'position': <7>}>, 'org.gnome.Calculator.desktop': <{'position': <8>}>, 'ca.desrt.dconf-editor.desktop': <{'position': <9>}>, 'org.nickvision.money.desktop': <{'position': <10>}>, 'org.gnome.Settings.desktop': <{'position': <11>}>, 'org.gnome.SystemMonitor.desktop': <{'position': <12>}>, 'com.discordapp.Discord.desktop': <{'position': <13>}>, 'com.github.wwmm.easyeffects.desktop': <{'position': <14>}>, 'Utilities': <{'position': <15>}>, 'org.gnome.Extensions.desktop': <{'position': <16>}>, 'com.github.finefindus.eyedropper.desktop': <{'position': <17>}>, 'org.fedoraproject.MediaWriter.desktop': <{'position': <18>}>, 'org.gnome.Nautilus.desktop': <{'position': <19>}>, 'com.github.tchx84.Flatseal.desktop': <{'position': <20>}>, 'org.gnome.Fractal.desktop': <{'position': <21>}>, 'de.haeckerfelix.Fragments.desktop': <{'position': <22>}>, 'com.github.tenderowl.frog.desktop': <{'position': <23>}>}, {'general.desktop': <{'position': <0>}>, 'fb5fb247-64db-4928-9917-1dac35670921': <{'position': <1>}>, 'org.getmonero.Monero.desktop': <{'position': <2>}>, 'nvim.desktop': <{'position': <3>}>, 'md.obsidian.Obsidian.desktop': <{'position': <4>}>, 'org.nickvision.tubeconverter.desktop': <{'position': <5>}>, 'org.gnome.Software.desktop': <{'position': <6>}>, 'org.gnome.Sudoku.desktop': <{'position': <7>}>, 'org.gnome.TextEditor.desktop': <{'position': <8>}>, 'org.mozilla.Thunderbird.desktop': <{'position': <9>}>, 'code.desktop': <{'position': <10>}>, 'org.gnome.Epiphany.desktop': <{'position': <11>}>, 'com.github.flxzt.rnote.desktop': <{'position': <12>}>, 'org.keepassxc.KeePassXC.desktop': <{'position': <13>}>}]
-disabled-extensions=['apps-menu@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com']
-enabled-extensions=['background-logo@fedorahosted.org', 'xremap@k0kubun.com', 'windowgestures@extension.amarullz.com', 'nightthemeswitcher@romainvigier.fr', 'ideapad@laurento.frittella', 'gsconnect@andyholmes.github.io', 'grand-theft-focus@zalckos.github.com', 'fullscreen-to-empty-workspace@aiono.dev', 'caffeine@patapon.info', 'blur-my-shell@aunetx', 'auto-activities@CleoMenezesJr.github.io', 'color-picker@tuberry', 'dash-to-dock@micxgx.gmail.com', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'run-or-raise@edvard.cz', 'clipboard-history@alexsaveau.dev', 'appindicatorsupport@rgcjonas.gmail.com']
+disabled-extensions=['apps-menu@gnome-shell-extensions.gcampax.github.com']
+enabled-extensions=['background-logo@fedorahosted.org', 'xremap@k0kubun.com', 'windowgestures@extension.amarullz.com', 'nightthemeswitcher@romainvigier.fr', 'ideapad@laurento.frittella', 'gsconnect@andyholmes.github.io', 'grand-theft-focus@zalckos.github.com', 'fullscreen-to-empty-workspace@aiono.dev', 'caffeine@patapon.info', 'blur-my-shell@aunetx', 'auto-activities@CleoMenezesJr.github.io', 'color-picker@tuberry', 'dash-to-dock@micxgx.gmail.com', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'run-or-raise@edvard.cz', 'clipboard-history@alexsaveau.dev', 'appindicatorsupport@rgcjonas.gmail.com', 'clipboard-indicator@tudmotu.com']
 favorite-apps=['org.mozilla.firefox.desktop', 'org.gnome.Ptyxis.Devel.desktop', 'org.gnome.Terminal.desktop', 'com.logseq.Logseq.desktop']
 last-selected-power-profile='performance'
 welcome-dialog-last-shown-version='46.2'
@@ -231,7 +238,7 @@ brightness=0.59999999999999998
 sigma=30
 
 [org/gnome/shell/extensions/caffeine]
-indicator-position-max=3
+indicator-position-max=4
 
 [org/gnome/shell/extensions/clipboard-history]
 display-mode=2
@@ -318,7 +325,7 @@ locations=[<(uint32 2, <('Mendoza', 'SAME', true, [(-0.57304976525370743, -1.200
 locations=@av []
 
 [org/gnome/software]
-check-timestamp=int64 1718634591
+check-timestamp=int64 1718711919
 first-run=false
 flatpak-purge-timestamp=int64 1718679481
 
