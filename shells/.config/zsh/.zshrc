@@ -27,7 +27,7 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 # Match elements by typing any part of it, sort of fussy completion.
-zstyle ':completion:*' matcher-list '' '+m:{[:lower:]}={[:upper:]}' '+m:{[:upper:]}={[:lower:]}' '+m:{_-}={-_}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Za-z}' '+m:{[:lower:]}={[:upper:]}' '+m:{[:upper:]}={[:lower:]}' '+m:{_-}={-_}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':autocomplete:*' min-delay 0.0  # Float
 zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(..) ]] && reply=(..)'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
@@ -65,6 +65,7 @@ setopt PUSHD_SILENT # Do not print the directory stack after pushd or popd.
 setopt AUTO_RESUME # Attempt to resume existing job before creating a new process.
 setopt NOTIFY # Report status of background jobs immediately.
 setopt NO_HUP # Don't kill jobs on shell exit.
+setopt GLOBDOTS
 
 # Unsert Options
 unsetopt BG_NICE # Don't run all background jobs at a lower priority.
@@ -206,6 +207,8 @@ zmodload zsh/parameter
 autoload zcalc
 autoload zmv
 autoload -Uz add-zsh-hook
+autoload -U select-word-style
+select-word-style bash
 # }}}
 # Hooks {{{
 function show_context() {
