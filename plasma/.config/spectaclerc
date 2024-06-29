@@ -1,8 +1,0 @@
-[GuiConfig]
-captureMode=0
-
-[ImageSave]
-translatedScreenshotsFolder=Screenshots
-
-[VideoSave]
-translatedScreencastsFolder=Screencasts

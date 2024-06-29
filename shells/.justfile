@@ -140,7 +140,7 @@ bios:
 shutdown-bios:
 	systemctl poweroff --firmware-setup
 
-update:
+update-all:
 	flatpak upgrade
 	distrobox upgrade --all
 	rpm-ostree upgrade
