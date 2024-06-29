@@ -1,60 +1,59 @@
-alias f := flatpaks
-
-flatpaks:
+flatpaks-kinoite:
 	#!/usr/bin/env bash
 
 	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-	# flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-	# flatpak remote-add --if-not-exists --user gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
 
 	flatpak install flathub -y \
 		com.brave.Browser \
 		com.discordapp.Discord \
 		com.github.wwmm.easyeffects \
 		com.logseq.Logseq \
-		io.mpv.Mpv \
 		md.obsidian.Obsidian \
 		net.mkiol.SpeechNote \
-		org.inkscape.Inkscape \
 		org.keepassxc.KeePassXC \
 		org.mozilla.Thunderbird \
 		org.videolan.VLC \
+		io.mpv.Mpv \
+		org.qbittorrent.qBittorrent \
+		im.riot.Riot \
 
-	# flatpak install gnome-nightly -y --user org.gnome.Ptyxis.Devel
-	# flatpak run --command=gsettings org.gnome.Epiphany set org.gnome.Epiphany.web:/org/gnome/epiphany/web/ enable-webextensions true
-
-# de.haeckerfelix.Fragments \
-# io.github.celluloid_player.Celluloid \
-# com.github.finefindus.eyedropper \
-# com.github.tchx84.Flatseal \
-# com.github.tenderowl.frog \
-# com.mattjakeman.ExtensionManager \
-# org.gnome.Epiphany \
-# org.gnome.Fractal \
-# org.gnome.seahorse.Application \
-# org.nickvision.money \
-# org.nickvision.tubeconverter
-# ca.desrt.dconf-editor \
-# org.gnome.World.Secrets \
-# org.inkscape.Inkscape \
-
-kdeplasma-extensions:
-	echo "Installing Dynamic Workspaces like GNOME"
-	git clone --depth=1 https://github.com/d86leader/dynamic_workspaces.git
-	cd dynamic_workspaces
-	kpackagetool6 --type KWin/Script --install .
-
-	echo "Installing MACsimize like Mac"
-	git clone --depth=1 https://github.com/Ubiquitine/MACsimize6
-	cd MACsimize6
-	kpackagetool6 --type KWin/Script --install .
-
-	echo "Now install Panel Colorizer manually"
-	echo "Application Title Bar too"
-
-gnome-extensions:
+flatpaks-gnome:
 	#!/usr/bin/env bash
 
+	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+	flatpak remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
+
+	flatpak install flathub -y \
+	com.brave.Browser \
+		com.discordapp.Discord \
+		com.github.wwmm.easyeffects \
+		com.logseq.Logseq \
+		md.obsidian.Obsidian \
+		net.mkiol.SpeechNote \
+		org.keepassxc.KeePassXC \
+		org.mozilla.Thunderbird \
+		com.github.tchx84.Flatseal \
+		com.mattjakeman.ExtensionManager \
+		de.haeckerfelix.Fragments \
+		io.github.celluloid_player.Celluloid \
+		com.github.finefindus.eyedropper \
+		com.github.tenderowl.frog \
+		org.gnome.Fractal \
+		org.gnome.seahorse.Application \
+		ca.desrt.dconf-editor \
+		org.gnome.World.Secrets \
+
+	# org.gnome.Epiphany \
+	# org.videolan.VLC \
+	# io.mpv.Mpv \
+	# org.nickvision.money \
+	# org.nickvision.tubeconverter
+	# org.inkscape.Inkscape \
+	# flatpak run --command=gsettings org.gnome.Epiphany set org.gnome.Epiphany.web:/org/gnome/epiphany/web/ enable-webextensions true
+
+	flatpak install gnome-nightly -y org.gnome.Ptyxis.Devel
+
+gnome-extensions:
 	xdg-open https://extensions.gnome.org/extension/615/appindicator-support/
 	xdg-open https://extensions.gnome.org/extension/5500/auto-activities/
 	xdg-open https://extensions.gnome.org/extension/3193/blur-my-shell/
@@ -70,6 +69,13 @@ gnome-extensions:
 	xdg-open https://extensions.gnome.org/extension/6343/window-gestures/
 	xdg-open https://extensions.gnome.org/extension/1336/run-or-raise/
 	xdg-open https://extensions.gnome.org/extension/5060/xremap/
+	xdg-open https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/
+
+turn-on-battery-conservation-mode:
+	echo 1 | sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode
+
+turn-off-battery-conservation-mode:
+	echo 0 | sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode
 
 alias q := quadlets
 
@@ -80,80 +86,20 @@ quadlets:
 	systemctl --user start ollama-quadlet
 	systemctl --user start open-webui-quadlet
 
+stow-dotfiles:
+	#!/usr/bin/env bash
+
+	cd ~/Public/dotfiles
+	./.dotfiles.sh
+
 configure-keymaps:
 	echo "Beware, this can break updates, since you'll be mutating /etc files and cargo has to be installed"
 	echo "Dotfiles for xremap are in my dotfiles repo, and they need to be stow before running this step"
 	# cargo install xremap --features gnome
-	cargo install xremap --features kde
+	# cargo install xremap --features kde
 	grep -E '^input:' /usr/lib/group | sudo tee -a /etc/group
 	sudo usermod -aG input $USER
 	echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/input.rules
-	systemctl --user enable --now xremap.service
-
-status-servers-and-containers:
-	#!/usr/bin/env bash
-	# List of services to check
-	services=(
-		"xremap"
-		"syncthing-quadlet"
-		"ollama-quadlet"
-		"open-webui-quadlet"
-	)
-
-	# Arrays to hold the status of services
-	running_services=()
-	stopped_services=()
-	failed_services=()
-
-	# Function to check the status of a service
-	check_service_status() {
-		service=$1
-		status=$(systemctl is-active --user "$service")
-
-		case "$status" in
-			active)
-				running_services+=("$service")
-				;;
-			inactive)
-				stopped_services+=("$service")
-				;;
-			failed)
-				failed_services+=("$service")
-				;;
-			*)
-				stopped_services+=("$service (status: $status)")
-				;;
-		esac
-	}
-
-	# Loop through the services and check their status
-	for service in "${services[@]}"; do
-		check_service_status "$service"
-	done
-
-	if [ ${#my_array[@]} -ne 0 ]; then
-		echo "Stopped services:"
-		for service in "${stopped_services[@]}"; do
-			echo "  - $service"
-		done
-
-		echo ""
-	fi
-
-	if [ ${#my_array[@]} -ne 0 ]; then
-		echo "Failed to start services:"
-		for service in "${failed_services[@]}"; do
-			echo "  - $service"
-		done
-
-		echo ""
-	fi
-
-	# Print the results
-	echo "Running services:"
-	for service in "${running_services[@]}"; do
-		echo "  - $service"
-	done
 
 brew:
 	#!/usr/bin/env bash
@@ -193,3 +139,8 @@ bios:
 
 shutdown-bios:
 	systemctl poweroff --firmware-setup
+
+update:
+	flatpak upgrade
+	distrobox upgrade --all
+	rpm-ostree upgrade

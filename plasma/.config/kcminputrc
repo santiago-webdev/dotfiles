@@ -1,0 +1,12 @@
+[ButtonRebinds][TabletTool][Wacom One by Wacom S Pen]
+331=Key,Meta+Ctrl+M
+
+[Keyboard]
+RepeatDelay=150
+RepeatRate=100
+
+[Libinput][1133][49271][Logitech USB Optical Mouse]
+MiddleButtonEmulation=true
+
+[Libinput][1267][91][Elan Touchpad]
+PointerAcceleration=0.000

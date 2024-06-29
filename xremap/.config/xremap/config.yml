@@ -5,6 +5,10 @@ modmap:
         held: leftctrl
         alone: esc
         alone_timeout_millis: 150
+      Backslash:
+        held: leftctrl
+        alone: backslash
+        alone_timeout_millis: 150
   - name: escape key is the compose key, in GNOME you'll have to configure the compose key as the menu key for it to work
     remap:
       KEY_ESC: KEY_COMPOSE

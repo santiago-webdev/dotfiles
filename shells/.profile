@@ -3,7 +3,7 @@ export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
 
-export PATH="$PATH:$HOME/.local/share/flatpak/exports/bin"
+export PATH="$PATH:$XDG_DATA_HOME/flatpak/exports/bin"
 export PATH="$PATH:/var/lib/flatpak/exports/bin"
 export PATH="$HOME/.local/bin:$PATH"
 
@@ -18,7 +18,7 @@ export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
 export SDKMAN_DIR=$XDG_DATA_HOME/sdkman
 
-export ZDOTDIR=$HOME/.config/zsh
+export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
 # export QT_STYLE_OVERRIDE=adwaita # GNOME

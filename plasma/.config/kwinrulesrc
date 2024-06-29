@@ -1,0 +1,63 @@
+[1]
+Description=Application settings for net.mkiol.SpeechNote
+activity=dac56ecc-7d29-4db9-a50c-4c8f52e7af21
+activityrule=2
+desktops=a50a0de4-9162-48a7-83b7-786834fd4a85
+desktopsrule=2
+placement=9
+placementrule=2
+wmclass=\snet.mkiol.SpeechNote
+wmclasscomplete=true
+wmclassmatch=1
+
+[2]
+Description=Application settings for org.keepassxc.KeePassXC
+activity=dac56ecc-7d29-4db9-a50c-4c8f52e7af21
+activityrule=2
+desktops=8e8e9baa-02a9-4329-ae34-2ba36ac050d3
+desktopsrule=2
+placement=9
+placementrule=2
+wmclass=\sorg.keepassxc.KeePassXC
+wmclasscomplete=true
+wmclassmatch=1
+
+[369cc31a-ed4a-4d0e-84f0-3cf9c65c0db0]
+Description=Application settings for dsnote
+activity=dac56ecc-7d29-4db9-a50c-4c8f52e7af21
+activityrule=2
+clientmachine=localhost
+desktops=a50a0de4-9162-48a7-83b7-786834fd4a85
+desktopsrule=2
+placement=9
+placementrule=2
+wmclass=dsnote
+wmclassmatch=1
+
+[8b7b7923-02e0-4f7a-b7d3-b21a03d61bb7]
+Description=Application settings for net.mkiol.SpeechNote
+activity=ea665b46-868a-4c7d-99fc-320ac75e296c
+activityrule=2
+desktops=61ff1190-e1c1-4e22-81ce-83889b361bae
+desktopsrule=2
+placement=9
+placementrule=2
+wmclass=\snet.mkiol.SpeechNote
+wmclasscomplete=true
+wmclassmatch=1
+
+[General]
+count=3
+rules=369cc31a-ed4a-4d0e-84f0-3cf9c65c0db0,1,2
+
+[d6d63c1f-4da4-45c3-be9a-a981c8afd3dc]
+Description=Application settings for org.keepassxc.KeePassXC
+activity=ea665b46-868a-4c7d-99fc-320ac75e296c
+activityrule=2
+desktops=8e8e9baa-02a9-4329-ae34-2ba36ac050d3
+desktopsrule=2
+placement=9
+placementrule=2
+wmclass=\sorg.keepassxc.KeePassXC
+wmclasscomplete=true
+wmclassmatch=1
