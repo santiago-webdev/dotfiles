@@ -30,8 +30,10 @@ UserNS=keep-id:uid=1000,gid=1000
 Volume=syncthing:/var/syncthing:z,rw
 
 # Shared
+# Volume=%h/Documents/Notes:/var/syncthing/Notes:Z
+# Volume=%h/Documents/Outlines:/var/syncthing/Outlines:Z
+# Volume=%h/Documents/KeePassXC:/var/syncthing/KeePassXC:Z
 Volume=%h/Documents:/var/syncthing/Documents:z
-Volume=%h/Public:/var/syncthing/Public:z
 
 # For Local Discoverability
 Network=host
