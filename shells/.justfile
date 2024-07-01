@@ -71,10 +71,10 @@ gnome-extensions:
 	xdg-open https://extensions.gnome.org/extension/5060/xremap/
 	xdg-open https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/
 
-turn-on-battery-conservation-mode:
+battery-conservation-mode-on:
 	echo 1 | sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode
 
-turn-off-battery-conservation-mode:
+battery-conservation-mode-off:
 	echo 0 | sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode
 
 alias q := quadlets
