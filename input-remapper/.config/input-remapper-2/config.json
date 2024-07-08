@@ -1,0 +1,7 @@
+{
+    "version": "2.0.1",
+    "autoload": {
+        "AT Translated Set 2 keyboard": "make caps lock and tab better",
+        "Logitech USB Optical Mouse": "switch virtual desktop with meta + scroll"
+    }
+}

@@ -8,14 +8,23 @@ flatpaks-kinoite:
 		com.discordapp.Discord \
 		com.github.wwmm.easyeffects \
 		com.logseq.Logseq \
+		im.riot.Riot \
+		io.mpv.Mpv \
 		md.obsidian.Obsidian \
 		net.mkiol.SpeechNote \
+		org.kde.kclock \
 		org.keepassxc.KeePassXC \
 		org.mozilla.Thunderbird \
-		org.videolan.VLC \
-		io.mpv.Mpv \
 		org.qbittorrent.qBittorrent \
-		im.riot.Riot \
+		org.telegram.desktop \
+		org.videolan.VLC
+
+kde-plasma-extensions:
+	#!/usr/bin/env bash
+
+	git clone --depth 1 https://github.com/zeroxoneafour/polonium
+	cd polonium
+	make
 
 flatpaks-gnome:
 	#!/usr/bin/env bash
@@ -24,36 +33,33 @@ flatpaks-gnome:
 	flatpak remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
 
 	flatpak install flathub -y \
-	com.brave.Browser \
+		ca.desrt.dconf-editor \
 		com.discordapp.Discord \
+		com.github.finefindus.eyedropper \
+		com.github.tchx84.Flatseal \
+		com.github.tenderowl.frog \
 		com.github.wwmm.easyeffects \
 		com.logseq.Logseq \
-		md.obsidian.Obsidian \
-		net.mkiol.SpeechNote \
-		org.keepassxc.KeePassXC \
-		org.mozilla.Thunderbird \
-		com.github.tchx84.Flatseal \
-		com.mattjakeman.ExtensionManager \
 		de.haeckerfelix.Fragments \
 		io.github.celluloid_player.Celluloid \
-		com.github.finefindus.eyedropper \
-		com.github.tenderowl.frog \
+		md.obsidian.Obsidian \
+		net.mkiol.SpeechNote \
 		org.gnome.Fractal \
-		org.gnome.seahorse.Application \
-		ca.desrt.dconf-editor \
 		org.gnome.World.Secrets \
-
-	# org.gnome.Epiphany \
-	# org.videolan.VLC \
-	# io.mpv.Mpv \
-	# org.nickvision.money \
-	# org.nickvision.tubeconverter
-	# org.inkscape.Inkscape \
-	# flatpak run --command=gsettings org.gnome.Epiphany set org.gnome.Epiphany.web:/org/gnome/epiphany/web/ enable-webextensions true
+		org.gnome.seahorse.Application \
+		org.keepassxc.KeePassXC \
+		org.mozilla.Thunderbird \
+		org.nickvision.tubeconverter \
+		org.telegram.desktop
 
 	flatpak install gnome-nightly -y org.gnome.Ptyxis.Devel
 
+# flatpak run --command=gsettings org.gnome.Epiphany set org.gnome.Epiphany.web:/org/gnome/epiphany/web/ enable-webextensions true
+# 	org.gnome.Epiphany \
+
 gnome-extensions:
+	#!/usr/bin/env bash
+
 	xdg-open https://extensions.gnome.org/extension/615/appindicator-support/
 	xdg-open https://extensions.gnome.org/extension/5500/auto-activities/
 	xdg-open https://extensions.gnome.org/extension/3193/blur-my-shell/
@@ -80,6 +86,8 @@ battery-conservation-mode-off:
 alias q := quadlets
 
 quadlets:
+	#!/usr/bin/env bash
+
 	systemctl --user daemon-reload
 	systemctl --user enable --now podman-auto-update.timer
 	systemctl --user start syncthing-quadlet
@@ -89,7 +97,7 @@ quadlets:
 stow-dotfiles:
 	#!/usr/bin/env bash
 
-	cd ~/Public/dotfiles
+	cd ~/Documents/Repositories/dotfiles
 	./.dotfiles.sh
 
 configure-keymaps:
@@ -141,6 +149,6 @@ shutdown-bios:
 	systemctl poweroff --firmware-setup
 
 update:
+	rpm-ostree upgrade
 	flatpak upgrade
 	distrobox upgrade --all
-	rpm-ostree upgrade
