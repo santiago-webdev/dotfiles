@@ -26,6 +26,11 @@ kde-plasma-extensions:
 	cd polonium
 	make
 
+	cd ..
+	git clone --depth 1 https://github.com/Ubiquitine/temporary-virtual-desktops
+	cd temporary-virtual-desktops
+	kpackagetool6 --type KWin/Script --install .
+
 flatpaks-gnome:
 	#!/usr/bin/env bash
 

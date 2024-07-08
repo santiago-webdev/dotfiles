@@ -1,6 +1,0 @@
-[Desktop Entry]
-Exec=/home/st/.local/bin/xremap-autostart.sh
-Icon=application-x-shellscript
-Name=xremap-autostart.sh
-Type=Application
-X-KDE-AutostartScript=true
