@@ -12,15 +12,14 @@ RestartSec=10
 
 [Container]
 Image=docker.io/ollama/ollama:latest
-# --label "io.containers.autoupdate=registry"
 AutoUpdate=registry
 ContainerName=%p
 Volume=ollama:/root/.ollama
-# Default port mapping
 PublishPort=11434:11434
 PodmanArgs=--cpus=4
 PodmanArgs=--memory=6g
 # Environment=OLLAMA_ORIGINS="app://obsidian.md*"
+Environment=OLLAMA_HOST="0.0.0.0"
 
 [Install]
 WantedBy=default.target

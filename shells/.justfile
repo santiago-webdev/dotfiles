@@ -81,12 +81,33 @@ gnome-extensions:
 	xdg-open https://extensions.gnome.org/extension/1336/run-or-raise/
 	xdg-open https://extensions.gnome.org/extension/5060/xremap/
 	xdg-open https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/
+	xdg-open https://extensions.gnome.org/extension/7065/tiling-shell/
 
 battery-conservation-mode-on:
 	echo 1 | sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode
 
 battery-conservation-mode-off:
 	echo 0 | sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode
+
+purge-docker-containers:
+	#!/usr/bin/env bash
+
+	docker stop $(docker ps -q)
+	docker rm $(docker ps -a -q)
+	docker volume rm $(docker volume ls -q)
+	docker rmi $(docker images -q)
+	# docker network rm $(docker network ls | grep 'bridge\|host\|none' -v | awk '{print $1}')
+
+user-groups:
+	#!/usr/bin/env bash
+
+	echo 'Adding the current user to the "docker" group'
+	grep -E '^docker:' /usr/lib/group | sudo tee -a /etc/group
+	sudo usermod -aG docker $USER
+
+	echo 'Adding the current user to the "input" group'
+	grep -E '^input:' /usr/lib/group | sudo tee -a /etc/group
+	sudo usermod -aG input $USER
 
 alias q := quadlets
 
@@ -104,15 +125,6 @@ stow-dotfiles:
 
 	cd ~/Documents/Repositories/dotfiles
 	./.dotfiles.sh
-
-configure-keymaps:
-	echo "Beware, this can break updates, since you'll be mutating /etc files and cargo has to be installed"
-	echo "Dotfiles for xremap are in my dotfiles repo, and they need to be stow before running this step"
-	# cargo install xremap --features gnome
-	# cargo install xremap --features kde
-	grep -E '^input:' /usr/lib/group | sudo tee -a /etc/group
-	sudo usermod -aG input $USER
-	echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/input.rules
 
 brew:
 	#!/usr/bin/env bash
