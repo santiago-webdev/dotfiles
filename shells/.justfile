@@ -7,12 +7,15 @@ flatpaks-kinoite:
 		com.brave.Browser \
 		com.discordapp.Discord \
 		com.github.wwmm.easyeffects \
+		com.google.Chrome \
 		com.logseq.Logseq \
 		im.riot.Riot \
 		io.mpv.Mpv \
 		md.obsidian.Obsidian \
 		net.mkiol.SpeechNote \
+		org.getmonero.Monero \
 		org.kde.kclock \
+		org.kde.krita \
 		org.keepassxc.KeePassXC \
 		org.mozilla.Thunderbird \
 		org.qbittorrent.qBittorrent \
@@ -41,47 +44,68 @@ flatpaks-gnome:
 		ca.desrt.dconf-editor \
 		com.discordapp.Discord \
 		com.github.finefindus.eyedropper \
+		com.github.flxzt.rnote \
+		com.github.huluti.Curtail \
 		com.github.tchx84.Flatseal \
 		com.github.tenderowl.frog \
 		com.github.wwmm.easyeffects \
+		com.google.Chrome \
 		com.logseq.Logseq \
 		de.haeckerfelix.Fragments \
 		io.github.celluloid_player.Celluloid \
 		md.obsidian.Obsidian \
 		net.mkiol.SpeechNote \
+		org.getmonero.Monero \
 		org.gnome.Fractal \
-		org.gnome.World.Secrets \
+		org.gnome.World.PikaBackup \
 		org.gnome.seahorse.Application \
+		org.inkscape.Inkscape \
+		org.kde.krita \
 		org.keepassxc.KeePassXC \
 		org.mozilla.Thunderbird \
 		org.nickvision.tubeconverter \
-		org.telegram.desktop
+		org.videolan.VLC \
+		re.sonny.Junction
 
 	flatpak install gnome-nightly -y org.gnome.Ptyxis.Devel
 
 # flatpak run --command=gsettings org.gnome.Epiphany set org.gnome.Epiphany.web:/org/gnome/epiphany/web/ enable-webextensions true
 # 	org.gnome.Epiphany \
+# org.gnome.World.Secrets \
+# org.gnome.Fractal \
+# org.telegram.desktop
 
 gnome-extensions:
 	#!/usr/bin/env bash
 
-	xdg-open https://extensions.gnome.org/extension/615/appindicator-support/
+	# xdg-open https://extensions.gnome.org/extension/3843/just-perfection/
+	# xdg-open https://extensions.gnome.org/extension/307/dash-to-dock/
+	# xdg-open https://extensions.gnome.org/extension/2992/ideapad/
+	# xdg-open https://extensions.gnome.org/extension/2236/night-theme-switcher/
+	# xdg-open https://extensions.gnome.org/extension/6343/window-gestures/
+	# xdg-open https://extensions.gnome.org/extension/5060/xremap/
+	# xdg-open https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/
+	# xdg-open https://extensions.gnome.org/extension/7065/tiling-shell/
+	# xdg-open https://extensions.gnome.org/extension/4481/forge/
+	# xdg-open https://extensions.gnome.org/extension/779/clipboard-indicator/
+	# xdg-open https://extensions.gnome.org/extension/517/caffeine/
+	# xdg-open https://extensions.gnome.org/extension/615/appindicator-support/
+	# xdg-open https://extensions.gnome.org/extension/4158/gnome-40-ui-improvements/
+	# xdg-open https://extensions.gnome.org/extension/2114/order-gnome-shell-extensions/
+	# xdg-open https://extensions.gnome.org/extension/4007/alttab-mod/
+	# xdg-open https://extensions.gnome.org/extension/2896/messaging-menu/
+
 	xdg-open https://extensions.gnome.org/extension/5500/auto-activities/
 	xdg-open https://extensions.gnome.org/extension/3193/blur-my-shell/
-	xdg-open https://extensions.gnome.org/extension/517/caffeine/
-	xdg-open https://extensions.gnome.org/extension/779/clipboard-indicator/
 	xdg-open https://extensions.gnome.org/extension/3396/color-picker/
-	xdg-open https://extensions.gnome.org/extension/307/dash-to-dock/
+	xdg-open https://extensions.gnome.org/extension/2817/crypto-price-tracker/
 	xdg-open https://extensions.gnome.org/extension/6072/fullscreen-to-empty-workspace/
+	xdg-open https://extensions.gnome.org/extension/3956/gnome-fuzzy-app-search/
 	xdg-open https://extensions.gnome.org/extension/5410/grand-theft-focus/
 	xdg-open https://extensions.gnome.org/extension/1319/gsconnect/
-	xdg-open https://extensions.gnome.org/extension/2992/ideapad/
-	xdg-open https://extensions.gnome.org/extension/2236/night-theme-switcher/
-	xdg-open https://extensions.gnome.org/extension/6343/window-gestures/
+	xdg-open https://extensions.gnome.org/extension/7083/pin-it/
 	xdg-open https://extensions.gnome.org/extension/1336/run-or-raise/
-	xdg-open https://extensions.gnome.org/extension/5060/xremap/
-	xdg-open https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/
-	xdg-open https://extensions.gnome.org/extension/7065/tiling-shell/
+	xdg-open https://extensions.gnome.org/extension/10/windownavigator/
 
 battery-conservation-mode-on:
 	echo 1 | sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode
@@ -126,7 +150,7 @@ stow-dotfiles:
 	cd ~/Documents/Repositories/dotfiles
 	./.dotfiles.sh
 
-brew:
+brew-setup:
 	#!/usr/bin/env bash
 	# This step is usually run my any of the shell dotfiles
 
@@ -139,7 +163,7 @@ brew:
 	fnm install --lts
 	corepack enable pnpm
 
-cargo:
+rust-setup:
 	#!/usr/bin/env bash
 	# This step is usually run my any of the shell dotfiles
 
@@ -148,7 +172,10 @@ cargo:
 	# This has to be kept on sync with /etc/environment, ~/.zshenv and ~/.bash_profile sadly
 	[[ -f "$CARGO_HOME/env" ]] && source "$CARGO_HOME/env" 
 
-java:
+	rustup component add clippy
+	rustup component add rustfmt
+
+java-setup:
 	#!/usr/bin/env bash
 	# This step is usually run my any of the shell dotfiles
 

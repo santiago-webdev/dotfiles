@@ -15,12 +15,12 @@
         "input_combination": [
             {
                 "type": 1,
-                "code": 86,
+                "code": 15,
                 "origin_hash": "748e31550c24fc009038438dc4fce338"
             }
         ],
         "target_uinput": "keyboard",
-        "output_symbol": "Super_L",
+        "output_symbol": "if_single(key(Tab), hold(KEY_LEFTMETA), 150)",
         "mapping_type": "key_macro"
     }
 ]
