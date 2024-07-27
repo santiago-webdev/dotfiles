@@ -55,6 +55,7 @@ flatpaks-gnome:
 		io.github.celluloid_player.Celluloid \
 		md.obsidian.Obsidian \
 		net.mkiol.SpeechNote \
+		org.beeref.BeeRef \
 		org.getmonero.Monero \
 		org.gnome.Fractal \
 		org.gnome.World.PikaBackup \
@@ -106,6 +107,7 @@ gnome-extensions:
 	xdg-open https://extensions.gnome.org/extension/7083/pin-it/
 	xdg-open https://extensions.gnome.org/extension/1336/run-or-raise/
 	xdg-open https://extensions.gnome.org/extension/10/windownavigator/
+	xdg-open https://extensions.gnome.org/extension/1873/disable-unredirect-fullscreen-windows/
 
 battery-conservation-mode-on:
 	echo 1 | sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode
