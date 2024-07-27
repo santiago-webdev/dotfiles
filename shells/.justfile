@@ -84,7 +84,6 @@ gnome-extensions:
 	# xdg-open https://extensions.gnome.org/extension/2992/ideapad/
 	# xdg-open https://extensions.gnome.org/extension/2236/night-theme-switcher/
 	# xdg-open https://extensions.gnome.org/extension/6343/window-gestures/
-	# xdg-open https://extensions.gnome.org/extension/5060/xremap/
 	# xdg-open https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/
 	# xdg-open https://extensions.gnome.org/extension/7065/tiling-shell/
 	# xdg-open https://extensions.gnome.org/extension/4481/forge/
@@ -96,6 +95,7 @@ gnome-extensions:
 	# xdg-open https://extensions.gnome.org/extension/4007/alttab-mod/
 	# xdg-open https://extensions.gnome.org/extension/2896/messaging-menu/
 
+	xdg-open https://extensions.gnome.org/extension/5060/xremap/
 	xdg-open https://extensions.gnome.org/extension/5500/auto-activities/
 	xdg-open https://extensions.gnome.org/extension/3193/blur-my-shell/
 	xdg-open https://extensions.gnome.org/extension/3396/color-picker/
@@ -108,6 +108,11 @@ gnome-extensions:
 	xdg-open https://extensions.gnome.org/extension/1336/run-or-raise/
 	xdg-open https://extensions.gnome.org/extension/10/windownavigator/
 	xdg-open https://extensions.gnome.org/extension/1873/disable-unredirect-fullscreen-windows/
+
+	cargo install xremap --features gnome
+	grep -E '^input:' /usr/lib/group | sudo tee -a /etc/group
+	sudo usermod -aG input $USER
+	echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/input.rules
 
 battery-conservation-mode-on:
 	echo 1 | sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode
