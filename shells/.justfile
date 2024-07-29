@@ -58,6 +58,7 @@ flatpaks-gnome:
 		org.beeref.BeeRef \
 		org.getmonero.Monero \
 		org.gnome.Fractal \
+		app.devsuite.Ptyxis \
 		org.gnome.World.PikaBackup \
 		org.gnome.seahorse.Application \
 		org.inkscape.Inkscape \
@@ -67,8 +68,6 @@ flatpaks-gnome:
 		org.nickvision.tubeconverter \
 		org.videolan.VLC \
 		re.sonny.Junction
-
-	flatpak install gnome-nightly -y org.gnome.Ptyxis.Devel
 
 # flatpak run --command=gsettings org.gnome.Epiphany set org.gnome.Epiphany.web:/org/gnome/epiphany/web/ enable-webextensions true
 # 	org.gnome.Epiphany \
