@@ -40,32 +40,41 @@ flatpaks-gnome:
 	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 	flatpak remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
 
-	flatpak install flathub -y \
+	flatpak install flathub -y --user \
+		app.devsuite.Ptyxis \
 		ca.desrt.dconf-editor \
 		com.discordapp.Discord \
-		com.github.finefindus.eyedropper \
 		com.github.flxzt.rnote \
-		com.github.huluti.Curtail \
 		com.github.tchx84.Flatseal \
-		com.github.tenderowl.frog \
 		com.github.wwmm.easyeffects \
 		com.google.Chrome \
 		com.logseq.Logseq \
+		com.usebottles.bottles \
 		de.haeckerfelix.Fragments \
 		io.github.celluloid_player.Celluloid \
 		md.obsidian.Obsidian \
 		net.mkiol.SpeechNote \
 		org.beeref.BeeRef \
+		org.cockpit_project.CockpitClient \
 		org.getmonero.Monero \
+		org.gnome.Boxes \
+		org.gnome.Calculator \
+		org.gnome.Calendar \
+		org.gnome.Characters \
+		org.gnome.Contacts \
+		org.gnome.Evince \
 		org.gnome.Fractal \
-		app.devsuite.Ptyxis \
-		org.gnome.World.PikaBackup \
+		org.gnome.Snapshot \
+		org.gnome.clocks \
+		org.gnome.font-viewer \
+		org.gnome.gThumb \
 		org.gnome.seahorse.Application \
+		org.gustavoperedo.FontDownloader \
 		org.inkscape.Inkscape \
 		org.kde.krita \
 		org.keepassxc.KeePassXC \
 		org.mozilla.Thunderbird \
-		org.nickvision.tubeconverter \
+		org.torproject.torbrowser-launcher \
 		org.videolan.VLC \
 		re.sonny.Junction
 
@@ -92,21 +101,27 @@ gnome-extensions:
 	# xdg-open https://extensions.gnome.org/extension/4158/gnome-40-ui-improvements/
 	# xdg-open https://extensions.gnome.org/extension/2114/order-gnome-shell-extensions/
 	# xdg-open https://extensions.gnome.org/extension/4007/alttab-mod/
+	# xdg-open https://extensions.gnome.org/extension/7083/pin-it/
+	# xdg-open https://extensions.gnome.org/extension/10/windownavigator/
+	# xdg-open https://extensions.gnome.org/extension/1873/disable-unredirect-fullscreen-windows/
+	# xdg-open https://extensions.gnome.org/extension/5410/grand-theft-focus/
+	# xdg-open https://extensions.gnome.org/extension/3396/color-picker/
+	# xdg-open https://extensions.gnome.org/extension/2817/crypto-price-tracker/
 	# xdg-open https://extensions.gnome.org/extension/2896/messaging-menu/
+	# xdg-open https://extensions.gnome.org/extension/7083/pin-it/
+	# xdg-open https://extensions.gnome.org/extension/10/windownavigator/
+	# xdg-open https://extensions.gnome.org/extension/1873/disable-unredirect-fullscreen-windows/
+	# xdg-open https://extensions.gnome.org/extension/5410/grand-theft-focus/
+	# xdg-open https://extensions.gnome.org/extension/3396/color-picker/
+	# xdg-open https://extensions.gnome.org/extension/2817/crypto-price-tracker/
 
 	xdg-open https://extensions.gnome.org/extension/5060/xremap/
 	xdg-open https://extensions.gnome.org/extension/5500/auto-activities/
 	xdg-open https://extensions.gnome.org/extension/3193/blur-my-shell/
-	xdg-open https://extensions.gnome.org/extension/3396/color-picker/
-	xdg-open https://extensions.gnome.org/extension/2817/crypto-price-tracker/
 	xdg-open https://extensions.gnome.org/extension/6072/fullscreen-to-empty-workspace/
 	xdg-open https://extensions.gnome.org/extension/3956/gnome-fuzzy-app-search/
-	xdg-open https://extensions.gnome.org/extension/5410/grand-theft-focus/
 	xdg-open https://extensions.gnome.org/extension/1319/gsconnect/
-	xdg-open https://extensions.gnome.org/extension/7083/pin-it/
 	xdg-open https://extensions.gnome.org/extension/1336/run-or-raise/
-	xdg-open https://extensions.gnome.org/extension/10/windownavigator/
-	xdg-open https://extensions.gnome.org/extension/1873/disable-unredirect-fullscreen-windows/
 
 	cargo install xremap --features gnome
 	grep -E '^input:' /usr/lib/group | sudo tee -a /etc/group
