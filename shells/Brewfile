@@ -1,4 +1,5 @@
 brew "fzf"
+brew "bat"
 brew "fnm"
 brew "gallery-dl"
 brew "yt-dlp"

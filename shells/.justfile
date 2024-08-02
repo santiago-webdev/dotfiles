@@ -55,6 +55,7 @@ flatpaks-gnome:
 		md.obsidian.Obsidian \
 		net.mkiol.SpeechNote \
 		org.beeref.BeeRef \
+		org.blender.Blender \
 		org.cockpit_project.CockpitClient \
 		org.getmonero.Monero \
 		org.gnome.Boxes \
