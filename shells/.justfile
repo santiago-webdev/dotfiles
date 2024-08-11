@@ -13,6 +13,8 @@ flatpaks-kinoite:
 		io.mpv.Mpv \
 		md.obsidian.Obsidian \
 		net.mkiol.SpeechNote \
+		org.blender.Blender \
+		org.cockpit_project.CockpitClient \
 		org.getmonero.Monero \
 		org.kde.kclock \
 		org.kde.krita \
@@ -20,6 +22,7 @@ flatpaks-kinoite:
 		org.mozilla.Thunderbird \
 		org.qbittorrent.qBittorrent \
 		org.telegram.desktop \
+		org.torproject.torbrowser-launcher \
 		org.videolan.VLC
 
 kde-plasma-extensions:
@@ -29,10 +32,16 @@ kde-plasma-extensions:
 	cd polonium
 	make
 
-	cd ..
-	git clone --depth 1 https://github.com/Ubiquitine/temporary-virtual-desktops
-	cd temporary-virtual-desktops
-	kpackagetool6 --type KWin/Script --install .
+	cargo install xremap --features kde
+	grep -E '^input:' /usr/lib/group | sudo tee -a /etc/group
+	sudo usermod -aG input $USER
+	echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/input.rules
+	echo uinput | sudo tee /etc/modules-load.d/uinput.conf
+
+	# cd ..
+	# git clone --depth 1 https://github.com/Ubiquitine/temporary-virtual-desktops
+	# cd temporary-virtual-desktops
+	# kpackagetool6 --type KWin/Script --install .
 
 flatpaks-gnome:
 	#!/usr/bin/env bash

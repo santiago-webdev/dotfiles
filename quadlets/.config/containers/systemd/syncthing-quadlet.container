@@ -33,7 +33,7 @@ Volume=syncthing:/var/syncthing:z,rw
 # Volume=%h/Documents/Notes:/var/syncthing/Notes:Z
 # Volume=%h/Documents/Outlines:/var/syncthing/Outlines:Z
 # Volume=%h/Documents/KeePassXC:/var/syncthing/KeePassXC:Z
-Volume=%h/Documents:/var/syncthing/Documents:z
+Volume=%h/Documents:/var/syncthing/Documents:Z
 
 # For Local Discoverability
 Network=host
