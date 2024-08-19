@@ -6,6 +6,7 @@ flatpaks-kinoite:
 	flatpak install flathub -y \
 		com.brave.Browser \
 		com.discordapp.Discord \
+		com.github.tchx84.Flatseal \
 		com.github.wwmm.easyeffects \
 		com.google.Chrome \
 		com.logseq.Logseq \
@@ -38,10 +39,13 @@ kde-plasma-extensions:
 	echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/input.rules
 	echo uinput | sudo tee /etc/modules-load.d/uinput.conf
 
-	# cd ..
-	# git clone --depth 1 https://github.com/Ubiquitine/temporary-virtual-desktops
-	# cd temporary-virtual-desktops
-	# kpackagetool6 --type KWin/Script --install .
+	cd ..
+	git clone --depth 1 https://github.com/Ubiquitine/temporary-virtual-desktops
+	cd temporary-virtual-desktops
+	kpackagetool6 --type KWin/Script --install .
+	
+	sudo flatpak override --filesystem="xdg-config/gtk-3.0:ro" --filesystem="xdg-config/gtk-4.0:ro" --filesystem="xdg-data/icons:ro" --filesystem="xdg-data/themes:ro"
+	ln -sf /usr/share/themes ~/.local/share/themes
 
 flatpaks-gnome:
 	#!/usr/bin/env bash
