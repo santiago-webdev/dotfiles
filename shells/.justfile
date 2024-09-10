@@ -29,9 +29,9 @@ flatpaks-kinoite:
 kde-plasma-extensions:
 	#!/usr/bin/env bash
 
-	git clone --depth 1 https://github.com/zeroxoneafour/polonium
-	cd polonium
-	make
+	git clone --depth 1 https://github.com/anametologin/krohnkite
+	cd krohnkite
+	make install
 
 	cargo install xremap --features kde
 	grep -E '^input:' /usr/lib/group | sudo tee -a /etc/group
@@ -44,73 +44,75 @@ kde-plasma-extensions:
 	cd temporary-virtual-desktops
 	kpackagetool6 --type KWin/Script --install .
 	
-	sudo flatpak override --filesystem="xdg-config/gtk-3.0:ro" --filesystem="xdg-config/gtk-4.0:ro" --filesystem="xdg-data/icons:ro" --filesystem="xdg-data/themes:ro"
-	ln -sf /usr/share/themes ~/.local/share/themes
+	git clone --depth 1 https://github.com/Ubiquitine/MACsimize6
+	cd MACsimize6
+	kpackagetool6 --type KWin/Script --install .
 
 flatpaks-gnome:
 	#!/usr/bin/env bash
 
-	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-	flatpak remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
-
-	flatpak install flathub -y --user \
-		app.devsuite.Ptyxis \
-		ca.desrt.dconf-editor \
-		com.discordapp.Discord \
-		com.github.flxzt.rnote \
-		com.github.tchx84.Flatseal \
-		com.github.wwmm.easyeffects \
-		com.google.Chrome \
-		com.logseq.Logseq \
-		com.usebottles.bottles \
-		de.haeckerfelix.Fragments \
-		io.github.celluloid_player.Celluloid \
-		md.obsidian.Obsidian \
-		net.mkiol.SpeechNote \
-		org.beeref.BeeRef \
-		org.blender.Blender \
-		org.cockpit_project.CockpitClient \
-		org.getmonero.Monero \
-		org.gnome.Boxes \
+	flatpak install fedora -y \
+		org.fedoraproject.MediaWriter \
 		org.gnome.Calculator \
 		org.gnome.Calendar \
 		org.gnome.Characters \
+		org.gnome.Connections \
 		org.gnome.Contacts \
 		org.gnome.Evince \
-		org.gnome.Fractal \
+		org.gnome.Extensions \
+		org.gnome.Logs \
+		org.gnome.Loupe \
+		org.gnome.Maps \
+		org.gnome.NautilusPreviewer \
 		org.gnome.Snapshot \
+		org.gnome.TextEditor \
+		org.gnome.Weather \
+		org.gnome.baobab \
 		org.gnome.clocks \
-		org.gnome.font-viewer \
-		org.gnome.gThumb \
-		org.gnome.seahorse.Application \
+		org.gnome.font-viewer
+
+	flatpak install flathub -y \
+		app.devsuite.Ptyxis \
+		ca.desrt.dconf-editor \
+		com.brave.Browser \
+		com.discordapp.Discord \
+		com.github.flxzt.rnote \
+		com.github.tchx84.Flatseal \
+		com.google.Chrome \
+		com.microsoft.Edge \
+		com.vivaldi.Vivaldi \
+		io.bassi.Amberol \
+		io.github.celluloid_player.Celluloid \
+		io.github.nate_xyz.Paleta \
+		io.github.nate_xyz.Resonance \
+		org.getmonero.Monero \
+		org.gnome.Fractal \
+		org.gnome.Polari \
 		org.gustavoperedo.FontDownloader \
-		org.inkscape.Inkscape \
-		org.kde.krita \
 		org.keepassxc.KeePassXC \
 		org.mozilla.Thunderbird \
+		org.nicotine_plus.Nicotine \
+		org.qbittorrent.qBittorrent \
 		org.torproject.torbrowser-launcher \
 		org.videolan.VLC \
 		re.sonny.Junction
 
-# flatpak run --command=gsettings org.gnome.Epiphany set org.gnome.Epiphany.web:/org/gnome/epiphany/web/ enable-webextensions true
-# 	org.gnome.Epiphany \
-# org.gnome.World.Secrets \
-# org.gnome.Fractal \
-# org.telegram.desktop
+	flatpak install flathub -y \
+		org.beeref.BeeRef \
+		org.blender.Blender \
+		org.inkscape.Inkscape \
+		org.kde.krita \
 
 gnome-extensions:
 	#!/usr/bin/env bash
 
 	# xdg-open https://extensions.gnome.org/extension/3843/just-perfection/
 	# xdg-open https://extensions.gnome.org/extension/307/dash-to-dock/
-	# xdg-open https://extensions.gnome.org/extension/2992/ideapad/
-	# xdg-open https://extensions.gnome.org/extension/2236/night-theme-switcher/
 	# xdg-open https://extensions.gnome.org/extension/6343/window-gestures/
 	# xdg-open https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/
 	# xdg-open https://extensions.gnome.org/extension/7065/tiling-shell/
 	# xdg-open https://extensions.gnome.org/extension/4481/forge/
 	# xdg-open https://extensions.gnome.org/extension/779/clipboard-indicator/
-	# xdg-open https://extensions.gnome.org/extension/517/caffeine/
 	# xdg-open https://extensions.gnome.org/extension/615/appindicator-support/
 	# xdg-open https://extensions.gnome.org/extension/4158/gnome-40-ui-improvements/
 	# xdg-open https://extensions.gnome.org/extension/2114/order-gnome-shell-extensions/
@@ -129,13 +131,18 @@ gnome-extensions:
 	# xdg-open https://extensions.gnome.org/extension/3396/color-picker/
 	# xdg-open https://extensions.gnome.org/extension/2817/crypto-price-tracker/
 
-	xdg-open https://extensions.gnome.org/extension/5060/xremap/
-	xdg-open https://extensions.gnome.org/extension/5500/auto-activities/
-	xdg-open https://extensions.gnome.org/extension/3193/blur-my-shell/
-	xdg-open https://extensions.gnome.org/extension/6072/fullscreen-to-empty-workspace/
-	xdg-open https://extensions.gnome.org/extension/3956/gnome-fuzzy-app-search/
+	xdg-open https://extensions.gnome.org/extension/3396/color-picker/
 	xdg-open https://extensions.gnome.org/extension/1319/gsconnect/
 	xdg-open https://extensions.gnome.org/extension/1336/run-or-raise/
+	xdg-open https://extensions.gnome.org/extension/2236/night-theme-switcher/
+	xdg-open https://extensions.gnome.org/extension/2992/ideapad/
+	xdg-open https://extensions.gnome.org/extension/3193/blur-my-shell/
+	xdg-open https://extensions.gnome.org/extension/3956/gnome-fuzzy-app-search/
+	xdg-open https://extensions.gnome.org/extension/5060/xremap/
+	xdg-open https://extensions.gnome.org/extension/517/caffeine/
+	xdg-open https://extensions.gnome.org/extension/5500/auto-activities/
+	xdg-open https://extensions.gnome.org/extension/6072/fullscreen-to-empty-workspace/
+	xdg-open https://extensions.gnome.org/extension/7/removable-drive-menu/
 
 	cargo install xremap --features gnome
 	grep -E '^input:' /usr/lib/group | sudo tee -a /etc/group

@@ -1,7 +1,0 @@
-[Desktop Entry]
-Exec=/home/st/.local/bin/warm-up-containers.sh
-Icon=application-x-shellscript
-Name=warm-up-containers.sh
-Type=Application
-X-KDE-AutostartScript=true
-# X-GNOME-Autostart-enabled=true
