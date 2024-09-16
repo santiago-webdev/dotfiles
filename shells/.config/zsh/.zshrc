@@ -176,12 +176,22 @@ alias lsd="eza -lah \
   --git \
   --git-ignore"
 alias lst="eza \
+  -1ah \
+  --icons \
+  --time-style=long-iso \
+  --colour-scale \
+  --group-directories-first \
+  -T -L6 \
+  --git-ignore \
+  --git -I \
+  'node_modules|.node_modules|.git|.gitignore|.styluaignore|.stylua.toml|README.*|LICENSE'"
+alias lstd="eza \
   -lah \
   --icons \
   --time-style=long-iso \
   --colour-scale \
   --group-directories-first \
-  -T -L4 \
+  -T -L6 \
   --git-ignore \
   --git -I \
   'node_modules|.node_modules|.git|.gitignore|.styluaignore|.stylua.toml|README.*|LICENSE'"

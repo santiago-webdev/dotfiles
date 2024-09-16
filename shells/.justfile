@@ -77,6 +77,7 @@ flatpaks-gnome:
 		com.brave.Browser \
 		com.discordapp.Discord \
 		com.github.flxzt.rnote \
+		com.github.neithern.g4music \
 		com.github.tchx84.Flatseal \
 		com.google.Chrome \
 		com.microsoft.Edge \
@@ -143,6 +144,7 @@ gnome-extensions:
 	xdg-open https://extensions.gnome.org/extension/5500/auto-activities/
 	xdg-open https://extensions.gnome.org/extension/6072/fullscreen-to-empty-workspace/
 	xdg-open https://extensions.gnome.org/extension/7/removable-drive-menu/
+	xdg-open https://extensions.gnome.org/extension/4627/focus-changer/
 
 	cargo install xremap --features gnome
 	grep -E '^input:' /usr/lib/group | sudo tee -a /etc/group
