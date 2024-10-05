@@ -36,9 +36,8 @@ flatpaks:
 		org.gnome.Fractal \
 		org.gnome.Polari \
 		org.gnome.World.Secrets \
-		org.gustavoperedo.FontDownloader \
+		org.keepassxc.KeePassXC \
 		org.mozilla.Thunderbird \
-		org.mozilla.firefox \
 		org.nicotine_plus.Nicotine \
 		org.qbittorrent.qBittorrent \
 		org.qbittorrent.qBittorrent \

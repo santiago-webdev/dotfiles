@@ -38,6 +38,7 @@ export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
 # export QT_STYLE_OVERRIDE=adwaita # GNOME
 export EDITOR=nvim
+export VISUAL=nvim
 
 # https://github.com/junegunn/fzf?tab=readme-ov-file#key-bindings-for-command-line
 # Preview file content using bat (https://github.com/sharkdp/bat)
