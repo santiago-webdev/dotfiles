@@ -49,7 +49,7 @@ flatpaks:
 		org.beeref.BeeRef \
 		org.blender.Blender \
 		org.inkscape.Inkscape \
-		org.kde.krita \
+		org.kde.krita
 
 gnome-extensions:
 	#!/usr/bin/env bash
@@ -90,14 +90,34 @@ toggle-battery-conservation:
 		echo "Conservation mode disabled."
 	fi
 
-purge-docker-containers:
+flatpak-kinoite:
 	#!/usr/bin/env bash
 
-	docker stop $(docker ps -q)
-	docker rm $(docker ps -a -q)
-	docker volume rm $(docker volume ls -q)
-	docker rmi $(docker images -q)
-	# docker network rm $(docker network ls | grep 'bridge\|host\|none' -v | awk '{print $1}')
+	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+	flatpak install flathub -y \
+		com.discordapp.Discord \
+		net.mkiol.SpeechNote \
+		org.getmonero.Monero \
+		org.keepassxc.KeePassXC \
+		org.mozilla.Thunderbird \
+		org.nicotine_plus.Nicotine \
+		org.qbittorrent.qBittorrent \
+		org.torproject.torbrowser-launcher \
+		org.videolan.VLC
+
+	flatpak uninstall --delete-data -y \
+		org.kde.kmahjongg \
+		org.kde.kmines
+
+plasma-extensions:
+	#!/user/bin/env bash
+
+	git clone --depth=1 https://github.com/anametologin/krohnkite
+	cd krohnkite
+	make install
+
+	xdg-open https://github.com/ishovkun/kde-run-or-raise
 
 user-groups:
 	#!/usr/bin/env bash
@@ -128,6 +148,7 @@ stow-dotfiles:
 brew-setup:
 	#!/usr/bin/env bash
 
+	source ~/.profile
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 	brew bundle
@@ -135,6 +156,7 @@ brew-setup:
 node-setup:
 	#!/usr/bin/env bash
 
+	source ~/.profile
 	eval "$(fnm env --use-on-cd)"
 	fnm install --lts
 	corepack enable pnpm
@@ -142,6 +164,7 @@ node-setup:
 rust-setup:
 	#!/usr/bin/env bash
 
+	source ~/.profile
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 	[[ -f "$CARGO_HOME/env" ]] && source "$CARGO_HOME/env" 
 
@@ -153,6 +176,7 @@ rust-setup:
 java-setup:
 	#!/usr/bin/env bash
 
+	source ~/.profile
 	curl -s "https://get.sdkman.io?rcupdate=false" | bash
 	[[ -s "$SDKMAN_DIR" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
@@ -165,9 +189,6 @@ distroboxes:
 
 bios:
 	systemctl reboot --firmware-setup
-
-shutdown-bios:
-	systemctl poweroff --firmware-setup
 
 update:
 	rpm-ostree upgrade
