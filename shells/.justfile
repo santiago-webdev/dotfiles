@@ -99,10 +99,13 @@ flatpak-kinoite:
 		com.discordapp.Discord \
 		net.mkiol.SpeechNote \
 		org.getmonero.Monero \
+		org.kde.kid3 \
+		org.kde.krename \
 		org.keepassxc.KeePassXC \
 		org.mozilla.Thunderbird \
 		org.nicotine_plus.Nicotine \
 		org.qbittorrent.qBittorrent \
+		org.strawberrymusicplayer.strawberry \
 		org.torproject.torbrowser-launcher \
 		org.videolan.VLC
 
@@ -129,6 +132,10 @@ user-groups:
 	echo 'Adding the current user to the "input" group'
 	grep -E '^input:' /usr/lib/group | sudo tee -a /etc/group
 	sudo usermod -aG input $USER
+
+sync-clock:
+	sudo systemctl enable --now systemd-timesyncd
+	sudo systemctl restart systemd-timesyncd
 
 quadlets:
 	#!/usr/bin/env bash
