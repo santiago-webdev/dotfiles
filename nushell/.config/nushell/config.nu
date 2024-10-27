@@ -1,5 +1,7 @@
 # version = "0.98.0"
 
+alias nv = nvim
+
 # External completer example
 let carapace_completer = {|spans|
     carapace $spans.0 nushell ...$spans | from json

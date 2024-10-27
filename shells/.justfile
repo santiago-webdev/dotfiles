@@ -1,5 +1,7 @@
 flatpaks:
 	#!/usr/bin/env bash
+	
+	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 	flatpak install fedora -y \
 		org.fedoraproject.MediaWriter \
@@ -15,62 +17,61 @@ flatpaks:
 		org.gnome.Maps \
 		org.gnome.NautilusPreviewer \
 		org.gnome.Snapshot \
-		org.gnome.TextEditor \
 		org.gnome.Weather \
 		org.gnome.baobab \
 		org.gnome.clocks \
 		org.gnome.font-viewer
+
+	flatpak uninstall org.gnome.TextEditor --delete-data -y
 
 	flatpak install flathub -y \
 		ca.desrt.dconf-editor \
 		ca.edestcroix.Recordbox \
 		com.brave.Browser \
 		com.discordapp.Discord \
+		com.github.ADBeveridge.Raider \
 		com.github.flxzt.rnote \
+		com.github.tchx84.Flatseal \
+		com.github.wwmm.easyeffects \
 		com.google.Chrome \
-		com.mattjakeman.ExtensionManager \
 		com.microsoft.Edge \
+		com.usebottles.bottles \
 		com.vivaldi.Vivaldi \
+		com.toolstack.Folio \
 		io.github.celluloid_player.Celluloid \
+		io.github.getnf.embellish \
+		net.nokyan.Resources \
+		org.beeref.BeeRef \
+		org.blender.Blender \
 		org.getmonero.Monero \
-		org.gnome.Fractal \
-		org.gnome.Polari \
-		org.gnome.World.Secrets \
+		org.gnome.Boxes \
+		org.inkscape.Inkscape \
+		org.kde.krita \
 		org.keepassxc.KeePassXC \
+		org.localsend.localsend_app \
 		org.mozilla.Thunderbird \
+		org.nickvision.tagger \
 		org.nicotine_plus.Nicotine \
-		org.qbittorrent.qBittorrent \
 		org.qbittorrent.qBittorrent \
 		org.torproject.torbrowser-launcher \
 		org.videolan.VLC \
 		re.sonny.Junction
 
-	flatpak install flathub -y \
-		org.beeref.BeeRef \
-		org.blender.Blender \
-		org.inkscape.Inkscape \
-		org.kde.krita
-
 gnome-extensions:
 	#!/usr/bin/env bash
 
-	xdg-open https://extensions.gnome.org/extension/5500/auto-activities/
-	xdg-open https://extensions.gnome.org/extension/3193/blur-my-shell/
-	xdg-open https://extensions.gnome.org/extension/517/caffeine/
-	xdg-open https://extensions.gnome.org/extension/3396/color-picker/
-	xdg-open https://extensions.gnome.org/extension/307/dash-to-dock/
-	xdg-open https://extensions.gnome.org/extension/4627/focus-changer/
-	xdg-open https://extensions.gnome.org/extension/5060/xremap/
-
 	# TODO: add valent extension or gsconnect
 	xdg-open https://extensions.gnome.org/extension/1336/run-or-raise/
-	xdg-open https://extensions.gnome.org/extension/3956/gnome-fuzzy-app-search/
+	xdg-open https://extensions.gnome.org/extension/1460/vitals/
+	xdg-open https://extensions.gnome.org/extension/3843/just-perfection/
+	xdg-open https://extensions.gnome.org/extension/4269/alphabetical-app-grid/
+	xdg-open https://extensions.gnome.org/extension/5278/pano/
+	xdg-open https://extensions.gnome.org/extension/5500/auto-activities/
+	xdg-open https://extensions.gnome.org/extension/5724/battery-health-charging/
 	xdg-open https://extensions.gnome.org/extension/6072/fullscreen-to-empty-workspace/
-
-	cargo install xremap --features gnome
-	grep -E '^input:' /usr/lib/group | sudo tee -a /etc/group
-	sudo usermod -aG input $USER
-	echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/input.rules
+	xdg-open https://extensions.gnome.org/extension/615/appindicator-support/
+	xdg-open https://extensions.gnome.org/extension/6325/control-monitor-brightness-and-volume-with-ddcutil/
+	xdg-open https://extensions.gnome.org/extension/5550/dynamic-calendar-and-clocks-icons/
 
 toggle-battery-conservation:
 	#!/usr/bin/env bash
@@ -125,9 +126,9 @@ plasma-extensions:
 user-groups:
 	#!/usr/bin/env bash
 
-	echo 'Adding the current user to the "docker" group'
-	grep -E '^docker:' /usr/lib/group | sudo tee -a /etc/group
-	sudo usermod -aG docker $USER
+	# echo 'Adding the current user to the "docker" group'
+	# grep -E '^docker:' /usr/lib/group | sudo tee -a /etc/group
+	# sudo usermod -aG docker $USER
 
 	echo 'Adding the current user to the "input" group'
 	grep -E '^input:' /usr/lib/group | sudo tee -a /etc/group
@@ -143,8 +144,6 @@ quadlets:
 	systemctl --user daemon-reload
 	systemctl --user enable --now podman-auto-update.timer
 	systemctl --user start syncthing-quadlet
-	systemctl --user start ollama-quadlet
-	systemctl --user start open-webui-quadlet
 
 stow-dotfiles:
 	#!/usr/bin/env bash
@@ -193,6 +192,18 @@ java-setup:
 
 distroboxes:
 	distrobox assemble create
+
+waydroid-init:
+	#!/usr/bin/env bash
+
+	# sudo waydroid init -f -s VANILLA -v=https://ota.waydro.id/vendor -c=https://ota.waydro.id/system
+	wget -q https://f-droid.org/F-Droid.apk.asc
+	wget -q https://f-droid.org/F-Droid.apk
+	# load the public key
+	gpg --keyserver keyserver.ubuntu.com --recv-key 37D2C98789D8311948394E3E41E7044E1DBA2E89
+	# verify the file
+	gpg --verify F-Droid.apk.asc F-Droid.apk
+	waydroid app install F-Droid.apk
 
 bios:
 	systemctl reboot --firmware-setup

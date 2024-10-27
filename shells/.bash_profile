@@ -8,4 +8,3 @@ fi
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
-. "/home/st/.local/share/cargo/env"

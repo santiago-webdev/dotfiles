@@ -204,10 +204,11 @@ plugins {
     }
 }
 
-simplified_ui true
 default_shell "nu"
 serialize_pane_viewport true
-default_layout "compact"
+simplified_ui true
+// default_layout "compact"
 default_mode "locked"
 scroll_buffer_size 100000
 mirror_session true
+styled_underlines false

@@ -165,7 +165,7 @@ alias -g G="| rg"
 alias df="df -h -P --total --exclude-type=devtmpfs 2>/dev/null"
 alias du="du -h"
 alias free="free -m"
-alias n="nvim"
+alias nv="nvim"
 alias g="git"
 alias d="distrobox-host-exec"
 alias lsd="eza -lah \

@@ -25,4 +25,3 @@ eval "$(zoxide init bash)"
 
 source "$SDKMAN_DIR/bin/sdkman-init.sh"
 source "$CARGO_HOME/env"
-. "/home/st/.local/share/cargo/env"

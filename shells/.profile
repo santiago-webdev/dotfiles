@@ -11,7 +11,10 @@ export LC_ADDRESS=es_AR.UTF-8
 export LC_TELEPHONE=es_AR.UTF-8
 export LC_IDENTIFICATION=es_AR.UTF-8
 export LC_COLLATE=C  # For stable sorting
-export LC_ALL=''
+# export LC_ALL=''
+export LC_ALL="C.UTF-8"
+
+# export GSK_RENDERER=ngl
 
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
@@ -46,4 +49,5 @@ export FZF_CTRL_T_OPTS="
   --walker-skip .git,node_modules,target
   --preview 'bat -n --color=always {}'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
-. "/home/st/.local/share/cargo/env"
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

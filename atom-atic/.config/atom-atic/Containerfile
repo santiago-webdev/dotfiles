@@ -1,0 +1,75 @@
+FROM quay.io/fedora/fedora-silverblue:41 AS base
+
+COPY files/rpm-ostreed.conf /etc/rpm-ostreed.conf
+
+RUN rpm-ostree install --idempotent \
+	https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+	https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+FROM base AS clean_default_apps
+
+RUN rpm-ostree uninstall --idempotent \
+	default-editor \
+	gnome-initial-setup \
+	gnome-classic-session \
+	gnome-tour \
+	nano-default-editor \
+	yelp
+
+FROM clean_default_apps AS remove_free_codecs
+
+RUN rpm-ostree uninstall --idempotent \
+	ffmpeg-free \
+	libavcodec-free \
+	libavdevice-free \
+	libavfilter-free \
+	libavformat-free \
+	libavutil-free \
+	libpostproc-free \
+	libswresample-free \
+	libswscale-free
+
+FROM remove_free_codecs AS add_proprietary_codecs
+
+RUN rpm-ostree install --idempotent \
+	ffmpeg \
+	ffmpeg-libs \
+	ffmpegthumbnailer \
+	gstreamer1-libav
+
+FROM add_proprietary_codecs AS install_basic_packages
+
+COPY files/vscode.repo /etc/yum.repos.d/vscode.repo
+
+RUN rpm-ostree install --idempotent \
+	code \
+	ddcutil \
+	distrobox \
+	dkms \
+	efibootmgr \
+	git \
+	gnome-browser-connector \
+	gnome-tweaks \
+	just \
+	kernel-devel \
+	libgda \
+	libgda-sqlite \
+	libnotify \
+	lm_sensors \
+	neovim \
+	openssl \
+	openssl-devel \
+	python3-pyclip \
+	smartmontools \
+	stow \
+	waydroid \
+	wl-clipboard
+
+FROM install_basic_packages AS final_stage
+
+RUN mkdir -p /etc/systemd/system/multi-user.target.wants && \
+	ln -s /usr/lib/systemd/system/rpm-ostreed-automatic.timer /etc/systemd/system/timers.target.wants/
+
+RUN rm -rf /var/* ~/.*
+RUN rpm-ostree cleanup -m
+RUN ostree container commit
