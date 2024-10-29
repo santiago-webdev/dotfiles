@@ -22,9 +22,11 @@ flatpaks:
 		org.gnome.clocks \
 		org.gnome.font-viewer
 
-	flatpak uninstall org.gnome.TextEditor --delete-data -y
+	flatpak uninstall --delete-data -y \
+		org.gnome.TextEditor
 
 	flatpak install flathub -y \
+		app.drey.EarTag \
 		ca.desrt.dconf-editor \
 		ca.edestcroix.Recordbox \
 		com.brave.Browser \
@@ -35,12 +37,11 @@ flatpaks:
 		com.github.wwmm.easyeffects \
 		com.google.Chrome \
 		com.microsoft.Edge \
+		com.toolstack.Folio \
 		com.usebottles.bottles \
 		com.vivaldi.Vivaldi \
-		com.toolstack.Folio \
 		io.github.celluloid_player.Celluloid \
-		io.github.getnf.embellish \
-		net.nokyan.Resources \
+		io.github.nokse22.Exhibit \
 		org.beeref.BeeRef \
 		org.blender.Blender \
 		org.getmonero.Monero \
@@ -63,7 +64,6 @@ gnome-extensions:
 	# TODO: add valent extension or gsconnect
 	xdg-open https://extensions.gnome.org/extension/1336/run-or-raise/
 	xdg-open https://extensions.gnome.org/extension/1460/vitals/
-	xdg-open https://extensions.gnome.org/extension/3843/just-perfection/
 	xdg-open https://extensions.gnome.org/extension/4269/alphabetical-app-grid/
 	xdg-open https://extensions.gnome.org/extension/5278/pano/
 	xdg-open https://extensions.gnome.org/extension/5500/auto-activities/
@@ -71,7 +71,38 @@ gnome-extensions:
 	xdg-open https://extensions.gnome.org/extension/6072/fullscreen-to-empty-workspace/
 	xdg-open https://extensions.gnome.org/extension/615/appindicator-support/
 	xdg-open https://extensions.gnome.org/extension/6325/control-monitor-brightness-and-volume-with-ddcutil/
-	xdg-open https://extensions.gnome.org/extension/5550/dynamic-calendar-and-clocks-icons/
+	xdg-open https://extensions.gnome.org/extension/1319/gsconnect/
+	xdg-open https://extensions.gnome.org/extension/2236/night-theme-switcher/
+	xdg-open https://extensions.gnome.org/extension/3193/blur-my-shell/
+	xdg-open https://extensions.gnome.org/extension/307/dash-to-dock/
+
+kanata-setup:
+	#!/usr/bin/env bash
+	
+	cargo install kanata
+	# # TODO
+	# # add the service creation
+	grep -E '^input:' /usr/lib/group | sudo tee -a /etc/group
+	sudo usermod -aG input $USER
+
+	sudo groupadd uinput
+	sudo usermod -aG uinput $USER
+	# TODO fix this doesn't work
+	sudo echo 'KERNEL=="uinput", GROUP="uinput", MODE:="0660"' > /etc/udev/rules.d/99-uinput.rules
+	systemctl --user enable kanata.service
+	# systemctl --user enable --now kanata.service
+	# TODO, we still need to reboot for groups to be aplied
+
+	# user-groups:
+	# #!/usr/bin/env bash
+	#
+	# # echo 'Adding the current user to the "docker" group'
+	# # grep -E '^docker:' /usr/lib/group | sudo tee -a /etc/group
+	# # sudo usermod -aG docker $USER
+	#
+	# echo 'Adding the current user to the "input" group'
+	# grep -E '^input:' /usr/lib/group | sudo tee -a /etc/group
+	# sudo usermod -aG input $USER
 
 toggle-battery-conservation:
 	#!/usr/bin/env bash
@@ -122,17 +153,6 @@ plasma-extensions:
 	make install
 
 	xdg-open https://github.com/ishovkun/kde-run-or-raise
-
-user-groups:
-	#!/usr/bin/env bash
-
-	# echo 'Adding the current user to the "docker" group'
-	# grep -E '^docker:' /usr/lib/group | sudo tee -a /etc/group
-	# sudo usermod -aG docker $USER
-
-	echo 'Adding the current user to the "input" group'
-	grep -E '^input:' /usr/lib/group | sudo tee -a /etc/group
-	sudo usermod -aG input $USER
 
 sync-clock:
 	sudo systemctl enable --now systemd-timesyncd

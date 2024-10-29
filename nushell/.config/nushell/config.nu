@@ -1,6 +1,7 @@
 # version = "0.98.0"
 
 alias nv = nvim
+alias ezat = eza -holaO --git --git-repos --git-ignore -T -L5
 
 # External completer example
 let carapace_completer = {|spans|

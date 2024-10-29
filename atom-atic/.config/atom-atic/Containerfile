@@ -50,6 +50,7 @@ RUN rpm-ostree install --idempotent \
 	git \
 	gnome-browser-connector \
 	gnome-tweaks \
+	hdparm \
 	just \
 	kernel-devel \
 	libgda \
@@ -57,6 +58,7 @@ RUN rpm-ostree install --idempotent \
 	libnotify \
 	lm_sensors \
 	neovim \
+	nvme-cli \
 	openssl \
 	openssl-devel \
 	python3-pyclip \

@@ -1,0 +1,16 @@
+(defcfg
+	process-unmapped-keys yes
+	log-layer-changes yes
+)
+(defsrc
+	caps
+)
+
+(deflayer default
+	@cap
+)
+
+(defalias
+	cap 
+		(tap-hold-press 200 200 esc lctl)
+)
