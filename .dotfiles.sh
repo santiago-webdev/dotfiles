@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 stow -t ~/ --no-folding -R ansible
-# stow -t ~/ --no-folding -R atom-atic # Build fails for some reason with symlinks
+stow -t ~/ --no-folding -R atom-atic
 stow -t ~/ --no-folding -R autostart
 stow -t ~/ --no-folding -R chromium
 stow -t ~/ --no-folding -R git
